@@ -1,6 +1,12 @@
 import streamlit as st
 from datetime import date
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
 
+scopes= [
+    'https://www.googleapis.com/auth/spreadsheets',
+    'https://www.googleapis.com/auth/drive'
+]
 
 app_state = st.experimental_get_query_params()
 # Display saved result if it exist
@@ -44,18 +50,26 @@ if not logged_in:
 
 
 if logged_in:
+	
+	creds=ServiceAccountCredentials.from_json_keyfile_name('/content/drive/MyDrive/stock-predictor-credentials.json',scopes=scopes)
+	
+	file = gspread.authorize(creds)
+
+	workbook=file.open('Investment sheet')
+		
 	st.title('Stock Prediction')
 
 	stocks = ('BBVA.MC', 'IAG.MC')
 	selected_stock = st.selectbox('Seleccione la compañía para hacer la predicción', stocks)
-
-	targets=['Open','High','Low','Close']
 
 	st.subheader('Predicción para el día siguiente')
 
 	prediction=st.button('Hacer predicción',key='4')
 
 	if prediction:
+		
+		sheet = workbook.worksheet(f'{selected_stock} DATA')
+		
 		st.text(f'{selected_stock}')
 
 
@@ -76,3 +90,7 @@ if logged_in:
 #TODO: conectar a google sheets
 #comprobar si esta el precio de open puesto
 #mostrar resultados
+
+'''
+sheet.append_row([new_date,df['Open'][0],df['High'][0],df['Low'][0],df['Close'][0]]) #table_range="B:E"
+#print(sheet.range('C2:C10'))'''
