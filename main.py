@@ -2,152 +2,71 @@ import streamlit as st
 from datetime import date
 
 
-st.title('Stock Prediction')
-
-stocks = ('SAN.MC', 'IAG.MC', 'BBVA.MC', '^IBEX','ETH-USD')
-selected_stock = st.selectbox('Seleccione la compañía para hacer la predicción', stocks)
-
-st.subheader('Predicción por años')
-check4=st.checkbox('Mostrar', key='15')
-if check4:
-	n_years = st.slider('Predición por años', 1, 4)
-	period = n_years * 365
-
-	@st.cache
-	def load_data(ticker):
-	    data = yf.download(ticker, START, TODAY)
-	    data.reset_index(inplace=True)
-	    return data
+app_state = st.experimental_get_query_params()
+# Display saved result if it exist
+if 'session' in app_state:
+    logged_in=True
+	#saved_result = app_state["my_saved_result"][0]
+    #st.write("Here is your result", saved_result)
+else:
+    #st.write("No result to display, compute a value first.")
+	logged_in=False
 
 
-	data_load_state = st.text('Cargando datos...')
-	data = load_data(selected_stock)
-	data_load_state.text('Datos cargados... Hecho!')
+if not logged_in:
 
-	#st.subheader('Tabla de datos')
-	#st.write(data.tail())
+	username = st.text_input('Username:')
+	password = st.text_input('Password:')
 
-	# Plot raw data
-	def plot_raw_data():
-		fig = go.Figure()
-		fig.add_trace(go.Scatter(x=data['Date'], y=data['Open'], name="stock_apertura"))
-		fig.add_trace(go.Scatter(x=data['Date'], y=data['Close'], name="stock_cierre"))
-		fig.layout.update(title_text='Datos mostrados de forma gráfica', xaxis_rangeslider_visible=True)
-		st.plotly_chart(fig)
+	submit=st.button('Submit')
 
-	# Predict forecast with Prophet.
-	df_train = data[['Date','Close']]
-	df_train = df_train.rename(columns={"Date": "ds", "Close": "y"})
+	if submit:
 
-	@st.cache
-	def infer():
-	    m = Prophet()
-	    m.fit(df_train)
-	    future = m.make_future_dataframe(periods=period)
-	    forecast = m.predict(future)
-	    return forecast,m
-
-	# Show and plot forecast
-	st.subheader('Datos de predicción')
-	forecast,m=infer()
-	#st.write(forecast.tail())
-
-	st.write(f'Predición hecha para {n_years} año(s)')
-	fig1 = plot_plotly(m, forecast)
-	st.plotly_chart(fig1)
-
-targets=['Open','High','Low','Close']
-
-st.subheader('Predicción por horas')
-check1=st.checkbox('Mostrar', key='0')
-if check1:
-    target=st.selectbox('Etiqueta',targets,key='1')
-    hour=st.slider('Horas de la predicción',1,5,key='2')
-    st.text('Pasos equilibrados 50, para santander')
-    st.text('Pasos equilibrados 450, para iag')
-    epochs=st.slider('Pasos',1,500,key='3')
-    prediction=st.button('Hacer predicción',key='4')
-    if prediction:
-        if selected_stock=='SAN.MC':
-            prediction,test_data, predicted_prices,prediction,loss=get_prediction.start(company=selected_stock,period='7wk',prediction_days=hour, target=target,interval='1h', epochs=epochs,test_period='3h',interval_period='1h')
-            #plot(test_data,target)
-            st.write(f'Predicción: {prediction}')
-            st.write(f'Pérdida en el entrenamiento: {loss}')
-        if selected_stock=='IAG.MC':
-            prediction,test_data, predicted_prices,prediction,loss=get_prediction.start(company=selected_stock,period='7wk',prediction_days=hour, target=target,interval='1h', epochs=epochs,test_period='3h',interval_period='1h')
-            #plot(test_data,target)
-            st.write(f'Predicción: {prediction}')
-            st.write(f'Pérdida en el entrenamiento: {loss}')
-        if selected_stock=='BBVA.MC':
-            prediction,test_data, predicted_prices,prediction,loss=get_prediction.start(company=selected_stock,period='7wk',prediction_days=hour, target=target,interval='1h', epochs=epochs,test_period='3h',interval_period='1h')
-            #plot(test_data,target)
-            st.write(f'Predicción: {prediction}')
-            st.write(f'Pérdida en el entrenamiento: {loss}')
-		
-
-st.subheader('Predicción por día')
-check2=st.checkbox('Mostrar', key='5')
-if check2:
-    target2=st.selectbox('Etiqueta',targets,key='6')
-    hour2=st.slider('Días de la predicción',1,3,key='7')
-    st.text('Pasos equilibrados 50, para santander')
-    st.text('Pasos equilibrados 450, para iag')
-    epochs2=st.slider('Pasos',1,500,key='8')
-    prediction2=st.button('Hacer predicción',key='9')
-    if prediction2:
-        if selected_stock=='SAN.MC':
-            prediction,test_data, predicted_prices,prediction,loss=get_prediction.start(company=selected_stock,period='7mo',prediction_days=hour2, target=target2,interval='1d', epochs=epochs2,test_period='3d',interval_period='1d')
-            #plot(test_data,target)
-            st.write(f'Predicción: {prediction}')
-            st.write(f'Pérdida en el entrenamiento: {loss}')
-        if selected_stock=='IAG.MC':
-            prediction,test_data, predicted_prices,prediction,loss=get_prediction.start(company=selected_stock,period='7mo',prediction_days=hour2, target=target2,interval='1d', epochs=epochs2,test_period='3d',interval_period='1d')
-            #plot(test_data,target)
-            st.write(f'Predicción: {prediction}')
-            st.write(f'Pérdida en el entrenamiento: {loss}')
-        if selected_stock=='BBVA.MC':
-            prediction,test_data, predicted_prices,prediction,loss=get_prediction.start(company=selected_stock,period='7mo',prediction_days=hour2, target=target2,interval='1d', epochs=epochs2,test_period='3d',interval_period='1d')
-            #plot(test_data,target)
-            st.write(f'Predicción: {prediction}')
-            st.write(f'Pérdida en el entrenamiento: {loss}')
-		
-
-st.subheader('Predicción por semanas')
-check3=st.checkbox('Mostrar', key='10')
-
-if check3:
-    target3=st.selectbox('Etiqueta',targets,key='11')
-    hour3=st.slider('Semanas de predicción',1,3,key='12')
-    st.text('Pasos equilibrados 50, para santander')
-    st.text('Pasos equilibrados 450, para iag')
-    epochs3=st.slider('Pasos',1,500,key='13')
-    prediction3=st.button('Hacer predicción',key='14')
-    hour3=hour3*5
-    if prediction3:
-        if selected_stock=='SAN.MC':
-            prediction,test_data, predicted_prices,prediction,loss=get_prediction.start(company=selected_stock,period='7mo',prediction_days=hour3, target=target3,interval='1d', epochs=epochs3,test_period='3d',interval_period='1d')
-            #plot(test_data,target)
-            st.write(f'Predicción: {prediction}')
-            st.write(f'Pérdida en el entrenamiento: {loss}')
-        if selected_stock=='IAG.MC':
-            prediction,test_data, predicted_prices,prediction,loss=get_prediction.start(company=selected_stock,period='7mo',prediction_days=hour3, target=target3,interval='1d', epochs=epochs3,test_period='3d',interval_period='1d')
-            #plot(test_data,target)
-            st.write(f'Predicción: {prediction}')
-            st.write(f'Pérdida en el entrenamiento: {loss}')
-        if selected_stock=='BBVA.MC':
-            prediction,test_data, predicted_prices,prediction,loss=get_prediction.start(company=selected_stock,period='7mo',prediction_days=hour3, target=target3,interval='1d', epochs=epochs3,test_period='3d',interval_period='1d')
-            #plot(test_data,target)
-            st.write(f'Predicción: {prediction}')
-            st.write(f'Pérdida en el entrenamiento: {loss}')
+		credentials = {
+			'admin': '2022'
+		}
 
 
-hide_streamlit_style = """
-            <style>
-            #MainMenu {visibility: hidden;}
-            footer {visibility: hidden;}
-            </style>
-            """
+		if username in credentials and credentials[username] == password:
+			st.experimental_set_query_params(session='session')
+			logged_in = True
 
-st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
-st.write('')
-st.markdown('Última actualización (10-04-2023)')
+		if not logged_in:
+			# If credentials are invalid show a message and stop rendering the webapp
+			st.warning('Invalid credentials')
+			st.stop()
+
+		#available_views = ['report']
+		#if view not in available_views:
+			# I don't know which view do you want. Beat it.
+			#st.warning('404 Error')
+			#st.stop()
+
+
+if logged_in:
+	st.title('Stock Prediction')
+
+	stocks = ('BBVA.MC', 'IAG.MC')
+	selected_stock = st.selectbox('Seleccione la compañía para hacer la predicción', stocks)
+
+	targets=['Open','High','Low','Close']
+
+	st.subheader('Predicción para el día siguiente')
+
+	prediction=st.button('Hacer predicción',key='4')
+
+	if prediction:
+		st.text(f'{selected_stock}')
+
+
+
+	hide_streamlit_style = """
+				<style>
+				#MainMenu {visibility: hidden;}
+				footer {visibility: hidden;}
+				</style>
+				"""
+
+	st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
+	st.write('')
+	st.markdown('Última actualización (10-04-2023)')
