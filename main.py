@@ -1,18 +1,8 @@
 import streamlit as st
 from datetime import date
 
-from prediction_per_hours import get_prediction
-from utils import plot
 
-import yfinance as yf
-from fbprophet import Prophet
-from fbprophet.plot import plot_plotly
-from plotly import graph_objs as go
-
-START = "2015-01-01"
-TODAY = date.today().strftime("%Y-%m-%d")
-
-st.title('Aplicación predicción bolsa de valores')
+st.title('Stock Prediction')
 
 stocks = ('SAN.MC', 'IAG.MC', 'BBVA.MC', '^IBEX','ETH-USD')
 selected_stock = st.selectbox('Seleccione la compañía para hacer la predicción', stocks)
@@ -124,6 +114,7 @@ if check2:
 
 st.subheader('Predicción por semanas')
 check3=st.checkbox('Mostrar', key='10')
+
 if check3:
     target3=st.selectbox('Etiqueta',targets,key='11')
     hour3=st.slider('Semanas de predicción',1,3,key='12')
@@ -156,7 +147,7 @@ hide_streamlit_style = """
             footer {visibility: hidden;}
             </style>
             """
+
 st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
 st.write('')
-st.markdown('Si la predicción = **_[[nan]]_**, contactar al programador')
-st.markdown('Última actualización (07-08-2021 / 16:45): mejora de la perdida de entrenamiento aumentando la tasa de obtención de datos')
+st.markdown('Última actualización (10-04-2023)')
