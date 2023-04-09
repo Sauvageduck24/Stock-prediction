@@ -70,3 +70,9 @@ if logged_in:
 	st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
 	st.write('')
 	st.markdown('Última actualización (10-04-2023)')
+	
+	
+	
+#TODO: conectar a google sheets
+#comprobar si esta el precio de open puesto
+#mostrar resultados
