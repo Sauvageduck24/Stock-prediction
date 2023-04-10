@@ -67,7 +67,7 @@ if logged_in:
 
     file = gspread.authorize(creds)
 
-    workbook=file.open('Investment sheet')
+    workbook=file.open('Investment 2.0')
 		
     st.title('Stock Prediction')
 
