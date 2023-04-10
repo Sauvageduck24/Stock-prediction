@@ -106,4 +106,4 @@ if logged_in:
         low=values[2].value
         close=values[3].value
 	
-        st.text(f'Open: **{open}** High: **{high}** Low: **{low}** Close: **{close}**')
+        st.text(f"Open: **{open}** High: **{high}** Low: **{low}** Close: **{close}**")
