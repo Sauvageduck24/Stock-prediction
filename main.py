@@ -107,9 +107,8 @@ if logged_in:
         low=values[2].value
         close=values[3].value
 	
-	df=pd.DataFrame([open,high,low,close],columns=['Open','High','Low','Close'])
-	
-	st.dataframe(df)
+        df=pd.DataFrame([open,high,low,close],columns=['Open','High','Low','Close'])
+        st.dataframe(df)
 	
         #st.text(f"Open: {open} High: {high} Low: {low} Close: {close}")
 
