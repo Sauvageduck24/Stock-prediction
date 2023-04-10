@@ -106,19 +106,4 @@ if logged_in:
         low=values[2].value
         close=values[3].value
 	
-        st.text(f'**Open:** {open} **High:** {high} **Low:** {low} **Close:** {close}')
-
-
-
-
-    
-    hide_streamlit_style = """
-				<style>
-				#MainMenu {visibility: hidden;}
-				footer {visibility: hidden;}
-				</style>
-				"""
-
-    st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
-    st.write('')
-    st.markdown('Última actualización (10-04-2023)')
+        st.text(f'Open: **{open}** High: **{high}** Low: **{low}** Close: **{close}**')
