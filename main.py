@@ -35,10 +35,10 @@ else:
 
 if not logged_in:
 
-    username = st.text_input('Username:')
-    password = st.text_input('Password:',type='password')
+    username = st.text_input('Usuario:')
+    password = st.text_input('Contraseña:',type='password')
 
-    submit=st.button('Submit')
+    submit=st.button('Entrar')
 
     if submit:        
         
@@ -106,7 +106,7 @@ if logged_in:
         low=values[2].value
         close=values[3].value
 	
-        st.text(f'Open: {open} High {high} Low {low} Close {close}')
+        st.text(f'**Open:** {open} **High:** {high} **Low:** {low} **Close:** {close}')
 
 
 
