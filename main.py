@@ -107,3 +107,8 @@ if logged_in:
         close=values[3].value
 	
         st.text(f"Open: {open} High: {high} Low: {low} Close: {close}")
+
+
+#poner en tabla los resultados
+#poner incremento en mismo día y entre días
+#poner anotacion
