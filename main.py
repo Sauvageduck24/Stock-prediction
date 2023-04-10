@@ -2,6 +2,7 @@ import streamlit as st
 from datetime import date
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
+import pandas as pd
 
 scopes= [
     'https://www.googleapis.com/auth/spreadsheets',
@@ -106,7 +107,11 @@ if logged_in:
         low=values[2].value
         close=values[3].value
 	
-        st.text(f"Open: {open} High: {high} Low: {low} Close: {close}")
+	df=pd.DataFrame([open,high,low,close],columns=['Open','High','Low','Close'])
+	
+	st.dataframe(df)
+	
+        #st.text(f"Open: {open} High: {high} Low: {low} Close: {close}")
 
 
 #poner en tabla los resultados
