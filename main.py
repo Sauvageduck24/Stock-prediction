@@ -21,26 +21,24 @@ else:
 
 if not logged_in:
 
-	username = st.text_input('Username:')
-	password = st.text_input('Password:')
+    username = st.text_input('Username:')
+    password = st.text_input('Password:',type='password')
 
-	submit=st.button('Submit')
+    submit=st.button('Submit')
 
-	if submit:
-
-		credentials = {
-			'admin': '2022'
-		}
+    if submit:        
+        
+        credentials = st.secrets["credentials"]
 
 
-		if username in credentials and credentials[username] == password:
-			st.experimental_set_query_params(session='session')
-			logged_in = True
+        if username in credentials and credentials[username] == password:
+            st.experimental_set_query_params(session='session')
+            logged_in = True
 
-		if not logged_in:
+        if not logged_in:
 			# If credentials are invalid show a message and stop rendering the webapp
-			st.warning('Invalid credentials')
-			st.stop()
+            st.warning('Invalid credentials')
+            st.stop()
 
 		#available_views = ['report']
 		#if view not in available_views:
@@ -51,46 +49,49 @@ if not logged_in:
 
 if logged_in:
 	
-	creds=ServiceAccountCredentials.from_json_keyfile_name('/content/drive/MyDrive/stock-predictor-credentials.json',scopes=scopes)
+    creds=ServiceAccountCredentials.from_json_keyfile_name(st.secrets['drive'],scopes=scopes)
+
+    file = gspread.authorize(creds)
+
+    workbook=file.open('Investment sheet')
+		
+    st.title('Stock Prediction')
+
+    stocks = ('BBVA.MC', 'IAG.MC')
 	
-	file = gspread.authorize(creds)
+    selected_stock = st.selectbox('Seleccione la compañía para hacer la predicción', stocks)
 
-	workbook=file.open('Investment sheet')
-		
-	st.title('Stock Prediction')
+    sheet = workbook.worksheet(f'{selected_stock} DATA')
 
-	stocks = ('BBVA.MC', 'IAG.MC')
-	selected_stock = st.selectbox('Seleccione la compañía para hacer la predicción', stocks)
+    st.subheader('Predicción para el día siguiente')
 
-	st.subheader('Predicción para el día siguiente')
+    if sheet.cell(sheet.find(f"hola").row,7).value == 0:
+        p_open = st.text_input('Precio Open: ')
+    
+    else:
+        p_open=''
 
-	prediction=st.button('Hacer predicción',key='4')
+    prediction=st.button('Hacer predicción',key='4')
 
-	if prediction:
-		
-		sheet = workbook.worksheet(f'{selected_stock} DATA')
-		
-		st.text(f'{selected_stock}')
+    if prediction:
 
+        if p_open:
+            sheet.update(f'C{sheet.find(f"hola").row}',p_open)
 
 
-	hide_streamlit_style = """
+        st.text(sheet.range(f'G{sheet.find(f"hola").row}:J{sheet.find(f"hola").row}'))
+
+
+
+
+    
+    hide_streamlit_style = """
 				<style>
 				#MainMenu {visibility: hidden;}
 				footer {visibility: hidden;}
 				</style>
 				"""
 
-	st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
-	st.write('')
-	st.markdown('Última actualización (10-04-2023)')
-	
-	
-	
-#TODO: conectar a google sheets
-#comprobar si esta el precio de open puesto
-#mostrar resultados
-
-'''
-sheet.append_row([new_date,df['Open'][0],df['High'][0],df['Low'][0],df['Close'][0]]) #table_range="B:E"
-#print(sheet.range('C2:C10'))'''
+    st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
+    st.write('')
+    st.markdown('Última actualización (10-04-2023)')
