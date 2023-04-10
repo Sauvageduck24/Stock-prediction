@@ -86,6 +86,7 @@ if logged_in:
     dia=today.strftime("%d/%m/%Y")
 
     cell=sheet.find(f"{dia}")
+    cell2=sheet2.find(f"{dia}")
 
     if not sheet.cell(cell.row,3).value:
         p_open = st.text_input('Precio Open: ')
@@ -108,8 +109,16 @@ if logged_in:
         low=values[2].value
         close=values[3].value
 	
+	values2=sheet2.range(f'G{cell2.row}:K{cell2.row}')
+	sub_dia=values2[0].value
+	sub_entre_dias=values2[2].value
+	anotaciones=values2[4].value
+	
         df=pd.DataFrame([[open,high,low,close]],columns=['Open','High','Low','Close'])
         st.dataframe(df)
+	
+	df=pd.DataFrame([[sub_dia,sub_entre_dias,anotaciones]],columns=['Subida mismo dia','Subida entre dias','Recomendacion'])
+	st.dataframe(df)
 	
         #st.text(f"Open: {open} High: {high} Low: {low} Close: {close}")
 
