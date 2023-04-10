@@ -99,7 +99,14 @@ if logged_in:
             sheet.update(f'C{cell.row}',p_open)
 
 
-        st.text(sheet.range(f'G{cell.row}:J{cell.row}')[0].value)
+
+	values=sheet.range(f'G{cell.row}:J{cell.row}')
+	open=values[0].value
+	high=values[1].value
+	low=values[2].value
+	close=values[3].value
+	
+        st.text(f'Open: {} High {} Low {} Close {}')
 
 
 
