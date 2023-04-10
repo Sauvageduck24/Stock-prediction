@@ -99,7 +99,7 @@ if logged_in:
             sheet.update(f'C{cell.row}',p_open)
 
 
-        st.text(sheet.range(f'G{cell.row}:J{cell.row}').value)
+        st.text(sheet.range(f'G{cell.row}:J{cell.row}').get_all_values())
 
 
 
