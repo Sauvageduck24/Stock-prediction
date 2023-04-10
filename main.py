@@ -81,7 +81,9 @@ if logged_in:
 
     st.subheader('Predicción para el día siguiente')
 
-    if sheet.cell(sheet.find(f"hola").row,7).value == 0:
+    cell=sheet.find(f"hola")
+
+    if sheet.cell(cell.row,7).value == 0:
         p_open = st.text_input('Precio Open: ')
     
     else:
@@ -92,10 +94,10 @@ if logged_in:
     if prediction:
 
         if p_open:
-            sheet.update(f'C{sheet.find(f"hola").row}',p_open)
+            sheet.update(f'C{cell.row}',p_open)
 
 
-        st.text(sheet.range(f'G{sheet.find(f"hola").row}:J{sheet.find(f"hola").row}'))
+        st.text(sheet.range(f'G{cell.row}:J{cell.row}'))
 
 
 
