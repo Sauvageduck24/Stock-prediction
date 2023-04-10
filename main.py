@@ -81,7 +81,9 @@ if logged_in:
 
     st.subheader('Predicción para el día siguiente')
 
-    print(date.today())
+    today = date.today()
+
+    st.text(today)
 
     cell=sheet.find(f"hola")
 
