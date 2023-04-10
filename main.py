@@ -8,6 +8,19 @@ scopes= [
     'https://www.googleapis.com/auth/drive'
 ]
 
+drive_credentials= {
+    "type":st.secrets['type'],
+	"project_id":st.secrets['project_id'],
+	"private_key_id":st.secrets['private_key_id'],
+	"private_key":st.secrets['private_key'],
+	"client_email":st.secrets['client_email'],
+	"client_id":st.secrets['client_id'],
+	"auth_uri":st.secrets['auth_uri'],
+	"token_uri":st.secrets['token_uri'],
+	"auth_provider_x509_cert_url":st.secrets['auth_provider_x509_cert_url'],
+	"client_x509_cert_url":st.secrets['client_x509_cert_url'],
+}
+
 app_state = st.experimental_get_query_params()
 # Display saved result if it exist
 if 'session' in app_state:
@@ -49,7 +62,7 @@ if not logged_in:
 
 if logged_in:
 	
-    creds=ServiceAccountCredentials.from_json_keyfile_name(st.secrets['drive'],scopes=scopes)
+    creds=ServiceAccountCredentials.from_json_keyfile_dict(drive_credentials,scopes=scopes)
 
     file = gspread.authorize(creds)
 
