@@ -83,7 +83,7 @@ if logged_in:
 
     today = date.today()
 
-    st.text(today)
+    st.text(today.strftime("%d/%m/%Y"))
 
     cell=sheet.find(f"hola")
 
