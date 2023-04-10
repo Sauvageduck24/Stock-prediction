@@ -21,7 +21,6 @@ drive_credentials= {
 	"client_x509_cert_url":st.secrets['client_x509_cert_url'],
 }
 
-print(drive_credentials)
 
 app_state = st.experimental_get_query_params()
 # Display saved result if it exist
