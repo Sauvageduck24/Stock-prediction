@@ -78,7 +78,8 @@ if logged_in:
     selected_stock = st.selectbox('Seleccione la compañía para hacer la predicción', stocks)
 
     sheet = workbook.worksheet(f'{selected_stock} DATA')
-
+    sheet2= workbook.worksheet(f'{selected_stock} CALC')
+	
     st.subheader('Predicción para el día siguiente')
 
     today = date.today()
