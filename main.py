@@ -44,7 +44,7 @@ if not logged_in:
         credentials = st.secrets["credentials"]
 
 
-        if username in credentials and credentials[username] == password:
+        if username in credentials and credentials[username] == credentials[password]:
             st.experimental_set_query_params(session='session')
             logged_in = True
 
