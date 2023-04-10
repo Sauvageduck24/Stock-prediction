@@ -86,7 +86,7 @@ if logged_in:
 
     cell=sheet.find(f"{dia}")
 
-    if sheet.cell(cell.row,7).value == 0:
+    if not sheet.cell(cell.row,3).value:
         p_open = st.text_input('Precio Open: ')
     
     else:
