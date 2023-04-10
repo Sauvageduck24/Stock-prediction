@@ -82,8 +82,9 @@ if logged_in:
     st.subheader('Predicción para el día siguiente')
 
     today = date.today()
+    dia=today.strftime("%d/%m/%Y")
 
-    cell=sheet.find(f"{today.strftime("%d/%m/%Y")}")
+    cell=sheet.find(f"{dia}")
 
     if sheet.cell(cell.row,7).value == 0:
         p_open = st.text_input('Precio Open: ')
