@@ -25,17 +25,16 @@ drive_credentials= {
 
 app_state = st.experimental_get_query_params()
 # Display saved result if it exist
-#if 'session' in app_state:
-    #logged_in=True
+
+if 'session' in app_state:
+    logged_in=True
 	#saved_result = app_state["my_saved_result"][0]
     #st.write("Here is your result", saved_result)
-#else:
+else:
     #st.write("No result to display, compute a value first.")
-	#logged_in=False
+    logged_in=False
 
 
-logged_in=False
-	
 if not logged_in:
 
     username = st.text_input('Usuario:')
