@@ -92,7 +92,7 @@ if logged_in:
     if not sheet.cell(cell.row,3).value:
         p_open = st.text_input('Precio Open: ')
         try:
-	    p_open = p_open.replace('.',',')
+            p_open = p_open.replace('.',',')
         except:
             continue
     
