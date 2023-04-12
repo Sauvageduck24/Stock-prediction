@@ -94,7 +94,7 @@ if logged_in:
         try:
             p_open = p_open.replace('.',',')
         except:
-            continue
+            pass
     
     else:
         p_open=''
