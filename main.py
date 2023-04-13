@@ -84,7 +84,7 @@ if logged_in:
     st.subheader('Predicción para el día siguiente')
 
     today = date.today()
-    dia=today.strftime("%d/%m/%Y")
+    dia=today.strftime("%d-%m-%Y")
 
     cell=sheet.find(f"{dia}")
     cell2=sheet2.find(f"{dia}")
