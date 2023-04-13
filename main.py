@@ -122,7 +122,7 @@ if logged_in:
         df=pd.DataFrame([[open,high,low,close]],columns=['Open','High','Low','Close'])
         st.dataframe(df)
 	
-        df=pd.DataFrame([[sub_dia,sub_entre_dias,anotaciones]],columns=['Subida mismo dia','Subida entre dias','Recomendacion'])
+        df=pd.DataFrame([[sub_dia,sub_entre_dias,anotaciones]],columns=['Subida mismo dia (Open-High)','Subida entre dias','Recomendacion'])
         st.dataframe(df)
 	
         #st.text(f"Open: {open} High: {high} Low: {low} Close: {close}")
