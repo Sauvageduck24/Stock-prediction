@@ -125,7 +125,9 @@ if logged_in:
         df=pd.DataFrame([[sub_dia,sub_entre_dias,anotaciones]],columns=['Subida mismo dia (Open-High)','Subida entre dias','Recomendacion'])
         st.dataframe(df)
 	
-        st.write(f'Como segunda opción y si es posible, comprar en {close*(1-0,85%)}, y vender en {close}')
+        low_necesario=close*(1-0,85%)
+	
+        st.write(f'Como segunda opción y si es posible, comprar en {low_necesario}, y vender en {close}')
 	
         #st.text(f"Open: {open} High: {high} Low: {low} Close: {close}")
 
