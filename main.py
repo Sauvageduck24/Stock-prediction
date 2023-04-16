@@ -125,7 +125,8 @@ if logged_in:
         df=pd.DataFrame([[sub_dia,sub_entre_dias,anotaciones]],columns=['Subida mismo dia (Open-High)','Subida entre dias','Recomendacion'])
         st.dataframe(df)
 	
-        low_necesario=close*(1-0,85%)
+	porcentaje=1-0,85%
+        low_necesario=close*porcentaje
 	
         st.write(f'Como segunda opción y si es posible, comprar en {low_necesario}, y vender en {close}')
 	
