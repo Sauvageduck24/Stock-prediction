@@ -126,7 +126,7 @@ if logged_in:
         st.dataframe(df)
 	
         porcentaje=1-0.0075
-        low_necesario=close*porcentaje
+        low_necesario=int(close)*porcentaje
 	
         st.write(f'Como segunda opción y si es posible, comprar en {low_necesario}, y vender en {close}')
 	
