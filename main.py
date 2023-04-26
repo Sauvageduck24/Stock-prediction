@@ -119,19 +119,23 @@ if logged_in:
         sub_entre_dias=values2[2].value
         anotaciones=values2[4].value
 	
+        st.write('Predicciones para el día')
+        	
         df=pd.DataFrame([[open,high,low,close]],columns=['Open','High','Low','Close'])
         st.dataframe(df)
 	
-        df=pd.DataFrame([[sub_dia,sub_entre_dias,anotaciones]],columns=['Subida mismo dia (Open-High)','Subida entre dias','Recomendacion'])
+        st.write('Estadísticas día')	
+	
+        df=pd.DataFrame([[sub_dia,sub_entre_dias]],columns=['Subida mismo dia (Open-High)','Subida entre dias'])
         st.dataframe(df)
 	
-        porcentaje=1-0.0075
-        #low_necesario=int(close)*porcentaje
-	
-        #st.write(f'Como segunda opción y si es posible, comprar en {low_necesario}, y vender en {close}')
-	
-        #st.text(f"Open: {open} High: {high} Low: {low} Close: {close}")
+        st.write('Predicciones para 9:01 - 10:01')
 
+        high2,low2='por implementar'
+	
+        df=pd.DataFrame([[high2,low2]],columns=['Máximo','Mínimo'])
+        st.dataframe(df)
+	
 
 #poner en tabla los resultados
 #poner incremento en mismo día y entre días
