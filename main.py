@@ -122,8 +122,8 @@ if logged_in:
         anotaciones=values2[4].value
 	
         values3=sheet3.range('G3:J3')
-        high2=values[1].value
-        low2=values[2].value
+        high2=values3[1].value
+        low2=values3[2].value
 	
         st.write('Predicciones para el día')
         	
