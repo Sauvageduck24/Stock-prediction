@@ -131,7 +131,7 @@ if logged_in:
 	
         st.write('Predicciones para 9:01 - 10:01')
 
-        high2,low2='por implementar'
+        high2,low2='por implementar','por implementar'
 	
         df=pd.DataFrame([[high2,low2]],columns=['Máximo','Mínimo'])
         st.dataframe(df)
