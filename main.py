@@ -107,6 +107,9 @@ if logged_in:
 
         if p_open:
             sheet.update(f'C{cell.row}',p_open)
+	
+            if not sheet3.cell(3,3)value:
+                sheet3.update('C3',p_open)	
 
 
 
@@ -135,7 +138,7 @@ if logged_in:
         df=pd.DataFrame([[sub_dia,sub_entre_dias]],columns=['Subida mismo dia (Open-High)','Subida entre dias'])
         st.dataframe(df)
 	
-        st.write('Predicciones para 9:01 - 10:01')
+        st.write('Predicciones para 9:00 - 10:00')
 
         df=pd.DataFrame([[high2,low2]],columns=['Máximo','Mínimo'])
         st.dataframe(df)
