@@ -108,7 +108,7 @@ if logged_in:
         if p_open:
             sheet.update(f'C{cell.row}',p_open)
 	
-            if not sheet3.cell(3,3)value:
+            if not sheet3.cell(3,3).value:
                 sheet3.update('C3',p_open)	
 
 
