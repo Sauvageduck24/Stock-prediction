@@ -149,7 +149,9 @@ if logged_in:
         fig,ax=plt.subplots()
 	
         ax.plot(high,'g')
+        ax.legend("High",loc="upper right")
         ax.plot(low,'r')
+        ax.legend("Low",loc="upper right")
 	
         st.pyplot(fig)
 	
