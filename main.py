@@ -144,7 +144,9 @@ if logged_in:
         high=np.array([6.29,6.28,6.27,6.26,6.25,6.25,6.25,6.25])
         low=np.array([6.23,6.23,6.22,6.22,6.22,6.22,6.21,6.21])
 
-        fig=plt.plot(high,'g')
+        fig,ax=plt.subplots()
+	
+        ax.plot(high,'g')
 	
         st.pyplot(fig)
 	
