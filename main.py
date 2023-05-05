@@ -149,6 +149,7 @@ if logged_in:
         fig,ax=plt.subplots()
 	
         ax.plot(high,'g')
+        ax.plot(low,'r')
 	
         st.pyplot(fig)
 	
