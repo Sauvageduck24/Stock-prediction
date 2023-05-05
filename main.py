@@ -138,10 +138,18 @@ if logged_in:
         df=pd.DataFrame([[sub_dia,sub_entre_dias]],columns=['Subida mismo dia (Open-High)','Subida entre dias'])
         st.dataframe(df)
 	
-        st.write('Predicciones para 9:00 - 10:00')
+        #st.write('Predicciones para 9:00 - 10:00')
+        st.write('Gráfico aproximado del día')
+	
+        high=np.array([6.29,6.28,6.27,6.26,6.25,6.25,6.25,6.25])
+        low=np.array([6.23,6.23,6.22,6.22,6.22,6.22,6.21,6.21])
 
-        df=pd.DataFrame([[high2,low2]],columns=['Máximo','Mínimo'])
-        st.dataframe(df)
+        fig=plt.plot(high,'g')
+	
+        st.pyplot(fig)
+	
+        #df=pd.DataFrame([[high2,low2]],columns=['Máximo','Mínimo'])
+        #st.dataframe(df)
 	
 
 #poner en tabla los resultados
