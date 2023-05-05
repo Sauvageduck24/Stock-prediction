@@ -3,6 +3,7 @@ from datetime import date
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import pandas as pd
+import numpy as np
 
 scopes= [
     'https://www.googleapis.com/auth/spreadsheets',
