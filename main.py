@@ -156,16 +156,16 @@ if logged_in:
         high=np.array(high)
         low=np.array(low)
 
-        st.write(high)
+        #st.write(high)
 	
         fig,ax=plt.subplots()
 	
-        ax.plot(low,'r',label='Low')
-        ax.legend(loc="upper right")
+        #ax.plot(low,'r',label='Low')
+        #ax.legend(loc="upper right")
         #ax.plot(high,'g',label='Low')
         #ax.legend(loc="upper right")
 	
-        st.pyplot(fig)
+        #st.pyplot(fig)
 	
         #df=pd.DataFrame([[high2,low2]],columns=['Máximo','Mínimo'])
         #st.dataframe(df)
