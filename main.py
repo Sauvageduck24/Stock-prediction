@@ -153,7 +153,7 @@ if logged_in:
         for _,i in enumerate(low):
             low[_]=i.value
 
-        high=reversed(high);low=reversed(low)	
+        high=list(reversed(high));low=list(reversed(low))
 	
         high=np.array(high)
         low=np.array(low)
