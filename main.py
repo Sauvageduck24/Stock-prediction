@@ -153,14 +153,16 @@ if logged_in:
         for _,i in enumerate(low):
             low[_]=i.value
 
+        high=reversed(high);low=reversed(low)	
+	
         high=np.array(high)
         low=np.array(low)
 
         fig,ax=plt.subplots()
 	
-        ax.plot(low,'r',label='')
+        ax.plot(low,'r',label='High')
         ax.legend(loc="upper right")
-        ax.plot(high,'g',label='')
+        ax.plot(high,'g',label='Low')
         ax.legend(loc="upper right")
 	
         st.pyplot(fig)
