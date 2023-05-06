@@ -147,8 +147,8 @@ if logged_in:
         high=sheet3.range('H3:H10')
         low=sheet3.range('I3:I10')
 	
-        high=np.array(high.values)
-        low=np.array(low.values)
+        high=np.array(high)
+        low=np.array(low)
 
         fig,ax=plt.subplots()
 	
