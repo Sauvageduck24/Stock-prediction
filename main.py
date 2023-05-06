@@ -147,6 +147,12 @@ if logged_in:
         high=sheet3.range('H3:H10')
         low=sheet3.range('I3:I10')
 	
+        for _,i in enumerate(high):
+            high[_]=i.value
+	
+        for _,i in enumerate(low):
+            low[_]=i.value
+	
         high=np.array(high)
         low=np.array(low)
 
