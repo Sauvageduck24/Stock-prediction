@@ -1,5 +1,5 @@
 import streamlit as st
-from datetime import date
+from datetime import date,datetime
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import pandas as pd
@@ -89,7 +89,7 @@ if logged_in:
 
     today = date.today()
     dia=today.strftime("%d-%m-%Y")
-    dia='05/05/2023'
+    dia='05-05-2023'
 
     cell=sheet.find(f"{dia}")
     cell2=sheet2.find(f"{dia}")
