@@ -126,7 +126,7 @@ if logged_in:
         sub_entre_dias=values2[2].value
         anotaciones=values2[4].value
 	
-        values3=sheet3.range('G3:J3')
+        values3=sheet3.range('G3:J10')
         high2=values3[1].value
         low2=values3[2].value
 	
@@ -143,8 +143,11 @@ if logged_in:
         #st.write('Predicciones para 9:00 - 10:00')
         st.write('Gráfico aproximado del día')
 	
-        high=np.array([6.29,6.28,6.27,6.26,6.25,6.25,6.25,6.25])
-        low=np.array([6.23,6.23,6.22,6.22,6.22,6.22,6.21,6.21])
+        high=sheet3.range('H3:H10')
+        low=sheet3.range('I3:I10')
+	
+        high=np.array(high.values)
+        low=np.array(low.values)
 
         fig,ax=plt.subplots()
 	
