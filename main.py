@@ -153,6 +153,8 @@ if logged_in:
         for _,i in enumerate(low):
             low[_]=i.value
 	
+        st.write(high)	
+        st.write(low)	
         high=np.array(high)
         low=np.array(low)
 
