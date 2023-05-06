@@ -158,9 +158,9 @@ if logged_in:
 
         fig,ax=plt.subplots()
 	
-        ax.plot(high,'g')
+        ax.plot(low,'r',label='')
         ax.legend(loc="upper right")
-        ax.plot(low,'r')
+        ax.plot(high,'g',label='')
         ax.legend(loc="upper right")
 	
         st.pyplot(fig)
