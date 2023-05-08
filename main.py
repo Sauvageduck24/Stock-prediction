@@ -167,10 +167,10 @@ if logged_in:
         ax.plot(low,'r',label='Low')
         ax.legend(loc="upper right")
 
-        ax.invert_yaxis()
-	
         plt.xlabel("Time")
         plt.ylabel("Price")
+	
+        ax.invert_yaxis()
 	
         st.pyplot(fig)
 	
