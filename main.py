@@ -170,7 +170,7 @@ if logged_in:
         plt.xlabel("Time")
         plt.ylabel("Price")
 	
-        ax.invert_yaxis()
+        #ax.invert_yaxis()
 	
         st.pyplot(fig)
 	
