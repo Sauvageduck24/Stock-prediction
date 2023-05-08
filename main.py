@@ -159,12 +159,12 @@ if logged_in:
 	
         fig,ax=plt.subplots()
 	
-        #ax.plot(high,'g',label='High')
-        #ax.legend(loc="upper right")
-        #ax.plot(low,'r',label='Low')
-        #ax.legend(loc="upper right")
+        ax.plot(high,'g',label='High')
+        ax.legend(loc="upper right")
+        ax.plot(low,'r',label='Low')
+        ax.legend(loc="upper right")
 
-        #st.pyplot(fig)
+        st.pyplot(fig)
 	
         #df=pd.DataFrame([[high2,low2]],columns=['Máximo','Mínimo'])
         #st.dataframe(df)
