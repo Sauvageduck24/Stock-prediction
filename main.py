@@ -152,9 +152,12 @@ if logged_in:
         for _,i in enumerate(low):
             low[_]=i.value
 	
-        high=np.array(high)
-        low=np.array(low)
+        #high=np.array(high)
+        #low=np.array(low)
 
+        high=np.array([6.29,6.28,6.27,6.26,6.25,6.25,6.25,6.25])
+        low=np.array([6.23,6.23,6.22,6.22,6.22,6.22,6.21,6.21])
+	
         #st.write(high);st.write(low)
 	
         fig,ax=plt.subplots()
@@ -165,6 +168,9 @@ if logged_in:
         ax.legend(loc="upper right")
 
         ax.invert_yaxis()
+	
+        plt.xlabel("Time")
+        plt.ylabel("Price")
 	
         st.pyplot(fig)
 	
