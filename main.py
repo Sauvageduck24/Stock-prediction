@@ -155,7 +155,7 @@ if logged_in:
         high=np.array(high)
         low=np.array(low)
 
-        st.write(high);st.write(low)
+        #st.write(high);st.write(low)
 	
         fig,ax=plt.subplots()
 	
@@ -164,6 +164,8 @@ if logged_in:
         ax.plot(low,'r',label='Low')
         ax.legend(loc="upper right")
 
+        fig.invert_yaxis()
+	
         st.pyplot(fig)
 	
         #df=pd.DataFrame([[high2,low2]],columns=['Máximo','Mínimo'])
