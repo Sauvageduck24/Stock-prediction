@@ -164,7 +164,7 @@ if logged_in:
         ax.plot(low,'r',label='Low')
         ax.legend(loc="upper right")
 
-        fig.invert_yaxis()
+        ax.invert_yaxis()
 	
         st.pyplot(fig)
 	
