@@ -155,7 +155,7 @@ if logged_in:
         high=np.array(high)
         low=np.array(low)
 
-        #st.write(high)
+        st.write(high);st.write(low)
 	
         fig,ax=plt.subplots()
 	
