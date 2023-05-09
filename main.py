@@ -141,7 +141,7 @@ if logged_in:
         st.dataframe(df)
 	
         #st.write('Predicciones para 9:00 - 10:00')
-        st.write('Gráfico aproximado del día')
+        st.write('**Gráfico aproximado del día**')
 	
         high=sheet3.range('H3:H10')
         low=sheet3.range('I3:I10')
