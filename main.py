@@ -84,6 +84,7 @@ if logged_in:
     sheet = workbook.worksheet(f'{selected_stock} DATA')
     sheet2= workbook.worksheet(f'{selected_stock} CALC')
     sheet3 = workbook2.worksheet(f'{selected_stock} DATA')
+    sheet4 = workbook2.worksheet(f'{selected_stock} DATA DIAS')
 	
     st.subheader('Predicción para el día siguiente')
 
@@ -113,6 +114,8 @@ if logged_in:
             if not sheet3.cell(3,3).value:
                 sheet3.update('C3',p_open)	
 
+            if not sheet4.cell(3,3).value:
+                sheet4.update('C3',p_open)	
 
 
         values=sheet.range(f'G{cell.row}:J{cell.row}')
@@ -126,9 +129,6 @@ if logged_in:
         sub_entre_dias=values2[2].value
         anotaciones=values2[4].value
 	
-        values3=sheet3.range('G3:J10')
-        high2=values3[1].value
-        low2=values3[2].value
 	
         st.write('Predicciones para el día')
         	
@@ -172,21 +172,33 @@ if logged_in:
         st.pyplot(fig)
 	
         st.write(" ")	
-        st.write('**Gráfico aproximado varios dias (formato en días)**')
+        st.write('**Gráfico aproximado varios dias (8 días)**')
 	
-        #fig,ax=plt.subplots()
+        high=sheet4.range('H3:H10')
+        low=sheet4.range('I3:I10')
 	
-        #ax.plot(high,'g',label='High')
-        #ax.legend(loc="upper right")
-        #ax.plot(low,'r',label='Low')
-        #ax.legend(loc="upper right")
+        for _,i in enumerate(high):
+            high[_]=i.value
+	
+        for _,i in enumerate(low):
+            low[_]=i.value
+	
+        high=np.array(high)
+        low=np.array(low)
+	
+        fig,ax=plt.subplots()
+	
+        ax.plot(high,'g',label='High')
+        ax.legend(loc="upper right")
+        ax.plot(low,'r',label='Low')
+        ax.legend(loc="upper right")
 
-        #plt.xlabel("Time (d)")
-        #plt.ylabel("Price (€)")
+        plt.xlabel("Time (d)")
+        plt.ylabel("Price (€)")
 	
-        #ax.invert_yaxis()
+        ax.invert_yaxis()
 	
-        #st.pyplot(fig)
+        st.pyplot(fig)
 	
 
 #poner en tabla los resultados
