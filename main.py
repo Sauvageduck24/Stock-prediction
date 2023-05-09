@@ -140,7 +140,7 @@ if logged_in:
         df=pd.DataFrame([[sub_dia,sub_entre_dias]],columns=['Subida mismo dia (Open-High)','Subida entre dias'])
         st.dataframe(df)
 	
-        #st.write('Predicciones para 9:00 - 10:00')
+        st.write(" ")
         st.write('**Gráfico aproximado del día (formato en horas)**')
 	
         high=sheet3.range('H3:H10')
@@ -171,6 +171,7 @@ if logged_in:
 	
         st.pyplot(fig)
 	
+        st.write(" ")	
         st.write('**Gráfico aproximado varios dias (formato en días)**')
 	
         #fig,ax=plt.subplots()
