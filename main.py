@@ -141,7 +141,7 @@ if logged_in:
         st.dataframe(df)
 	
         #st.write('Predicciones para 9:00 - 10:00')
-        st.write('**Gráfico aproximado del día**')
+        st.write('**Gráfico aproximado del día (formato en horas)**')
 	
         high=sheet3.range('H3:H10')
         low=sheet3.range('I3:I10')
@@ -164,15 +164,28 @@ if logged_in:
         ax.plot(low,'r',label='Low')
         ax.legend(loc="upper right")
 
-        plt.xlabel("Time")
-        plt.ylabel("Price")
+        plt.xlabel("Time (h)")
+        plt.ylabel("Price (€)")
 	
         ax.invert_yaxis()
 	
         st.pyplot(fig)
 	
-        #df=pd.DataFrame([[high2,low2]],columns=['Máximo','Mínimo'])
-        #st.dataframe(df)
+        st.write('**Gráfico aproximado varios dias (formato en días)**')
+	
+        #fig,ax=plt.subplots()
+	
+        #ax.plot(high,'g',label='High')
+        #ax.legend(loc="upper right")
+        #ax.plot(low,'r',label='Low')
+        #ax.legend(loc="upper right")
+
+        #plt.xlabel("Time (d)")
+        #plt.ylabel("Price (€)")
+	
+        #ax.invert_yaxis()
+	
+        #st.pyplot(fig)
 	
 
 #poner en tabla los resultados
