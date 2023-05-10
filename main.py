@@ -186,9 +186,13 @@ if logged_in:
         high=np.array(high)
         low=np.array(low)
 	
+        print(high,low)
+	
         #st.write(high,low)
         high=np.array([6.48,6.45,6.43,6.43,6.43,6.41,6.40,6.39])
         low=np.array([6.24,6.21,6.23,6.23,6.23,6.21,6.21,6.20])
+	
+        print(high,low)
 
         fig,ax=plt.subplots()
 	
