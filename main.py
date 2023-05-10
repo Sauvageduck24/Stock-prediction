@@ -169,7 +169,6 @@ if logged_in:
 	
         ax.invert_yaxis()
 
-        ax.set_aspect('equal',adjustable='box')
         st.pyplot(fig)
 	
         st.write(" ")	
@@ -197,7 +196,6 @@ if logged_in:
         plt.xlabel("Time (d)")
         plt.ylabel("Price (€)")
 	
-        ax.set_aspect('equal',adjustable='box')
         ax.invert_yaxis()
 	
         st.pyplot(fig)
