@@ -174,7 +174,7 @@ if logged_in:
         st.pyplot(plt.gcf())
 	
         st.write(" ")	
-        st.write('**Gráfico aproximado varios dias (8 días)**')
+        st.write('**Gráfico aproximado para 1 semana (7 días)**')
 	
         high=sheet4.range('H3:H10')
         low=sheet4.range('I3:I10')
