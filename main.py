@@ -186,6 +186,8 @@ if logged_in:
         high=np.array(high)
         low=np.array(low)
 	
+        st.write(high,low)
+	
         fig,ax=plt.subplots()
 	
         ax.plot(high,'g',label='High')
