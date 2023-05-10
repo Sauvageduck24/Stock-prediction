@@ -168,7 +168,6 @@ if logged_in:
         plt.ylabel("Price (€)")
 	
         ax.invert_yaxis()
-        ax.set_aspect('equal')
 	
         st.pyplot(fig)
 	
@@ -198,7 +197,6 @@ if logged_in:
         plt.ylabel("Price (€)")
 	
         ax.invert_yaxis()
-        ax.set_aspect('equal')
 	
         st.pyplot(fig)
 	
