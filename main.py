@@ -179,11 +179,11 @@ if logged_in:
 	
         for _,i in enumerate(high):
             num=i.value
-            high[_]=num.replace(',','.')
+            high[_]=float(num.replace(',','.'))
 	
         for _,i in enumerate(low):
             num=i.value
-            low[_]=num.replace(',','.')
+            low[_]=float(num.replace(',','.'))
 	
         high=np.array(high)
         low=np.array(low)
