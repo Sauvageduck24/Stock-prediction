@@ -167,7 +167,6 @@ if logged_in:
         plt.xlabel("Time (h)")
         plt.ylabel("Price (€)")
 	
-        plt.axis('scaled')
         ax.invert_yaxis()
 
         st.pyplot(fig)
