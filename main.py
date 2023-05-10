@@ -200,8 +200,7 @@ if logged_in:
 	
         #ax.invert_yaxis()
 	
-        #st.pyplot(fig)
-        st.write(fig)
+        st.pyplot(plt.gcf())
 	
 
 #poner en tabla los resultados
