@@ -168,7 +168,8 @@ if logged_in:
         plt.ylabel("Price (€)")
 	
         ax.invert_yaxis()
-	
+
+        ax.set_aspect('equal',adjustable='box')
         st.pyplot(fig)
 	
         st.write(" ")	
