@@ -186,7 +186,7 @@ if logged_in:
         high=np.array(high)
         low=np.array(low)
 	
-        st.write(high,low)
+        #st.write(high,low)
 	
         fig,ax=plt.subplots()
 	
@@ -200,7 +200,8 @@ if logged_in:
 	
         #ax.invert_yaxis()
 	
-        st.pyplot(fig)
+        #st.pyplot(fig)
+        st.write(fig)
 	
 
 #poner en tabla los resultados
