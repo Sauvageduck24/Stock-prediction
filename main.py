@@ -198,7 +198,7 @@ if logged_in:
         plt.xlabel("Time (d)")
         plt.ylabel("Price (€)")
 	
-        #ax.invert_yaxis()
+        ax.invert_yaxis()
 	
         st.pyplot(plt.gcf())
 	
