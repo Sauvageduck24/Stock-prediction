@@ -147,10 +147,12 @@ if logged_in:
         low=sheet3.range('I3:I10')
 	
         for _,i in enumerate(high):
-            high[_]=i.value
+            num=i.value
+            high[_]=float(num.replace(',','.'))
 	
         for _,i in enumerate(low):
-            low[_]=i.value
+            num=i.value
+            low[_]=float(num.replace(',','.'))
 	
         high=np.array(high)
         low=np.array(low)
@@ -167,9 +169,9 @@ if logged_in:
         plt.xlabel("Time (h)")
         plt.ylabel("Price (€)")
 	
-        ax.invert_yaxis()
+        #ax.invert_yaxis()
 
-        st.pyplot(fig)
+        st.pyplot(plt.gcf())
 	
         st.write(" ")	
         st.write('**Gráfico aproximado varios dias (8 días)**')
