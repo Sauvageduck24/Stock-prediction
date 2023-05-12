@@ -216,6 +216,8 @@ if logged_in:
         mean=[]
         time=[]
 
+        data = yf.download('BBVA.MC', period=f'1d',interval=f'1d',progress=False)
+	
         for i,j in zip(high,low):
             mean.append((i+j)/2)
 
@@ -227,6 +229,12 @@ if logged_in:
         mean=np.array(mean)
         time=np.array(time)
 
+        real=[]
+
+        for index,row in data.iterrows():
+            new_data=(row['High']+row['Low']+row['Close'])/3
+            real.append(new_data)
+	
         fig,ax=plt.subplots()
 		
         ax.plot(high,'g',label='Máximo')
@@ -235,7 +243,9 @@ if logged_in:
         ax.plot(low,'r',label='Mínimo')
         ax.legend(loc="upper right")
 
-
+        ax.scatter([0],real,color='black',label='Gráfico real')
+        ax.legend(loc="best")
+	
         ax.fill_between(time,high,mean, color="green", alpha=0.1)
         ax.fill_between(time,mean,low, color="red", alpha=0.1)
 	
