@@ -149,7 +149,7 @@ if logged_in:
         high=sheet3.range('H3:H10')
         low=sheet3.range('I3:I10')
 	
-        data = yf.download(selected_stock, period=f'1d',interval=f'1h',progress=False)
+        data = yf.download(f'{selected_stock}.MC', period=f'1d',interval=f'1h',progress=False)
 
         if len(data)>8:
             data=data[:-1]
@@ -218,7 +218,7 @@ if logged_in:
         mean=[]
         time=[]
 
-        data = yf.download(selected_stock, period=f'1d',interval=f'1d',progress=False)
+        data = yf.download(f'{selected_stock}.MC', period=f'1d',interval=f'1d',progress=False)
 	
         for i,j in zip(high,low):
             mean.append((i+j)/2)
