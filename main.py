@@ -231,8 +231,7 @@ if logged_in:
 		
         ax.plot(high,'g',label='Máximo')
         ax.legend(loc="upper right")
-        ax.plot(mean,'b',label='Media')
-        ax.legend(loc="upper right")
+        ax.plot(mean,'gray',alpha=0)
         ax.plot(low,'r',label='Mínimo')
         ax.legend(loc="upper right")
 
