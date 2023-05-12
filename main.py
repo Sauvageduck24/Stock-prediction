@@ -73,19 +73,21 @@ if logged_in:
 
     file = gspread.authorize(creds)
 
-    workbook=file.open('Investment 2.0')
-    workbook2=file.open('Investment 2.0 (intra day)')
+    #workbook=file.open('Investment 2.0')
+    #workbook2=file.open('Investment 2.0 (intra day)')
 		
     st.title('Market Master')
 
-    stocks = ('BBVA.MC', 'IAG.MC')
+    stocks = ('BBVA', 'IAG')
 	
     selected_stock = st.selectbox('Seleccione la compañía para hacer la predicción', stocks)
 
-    sheet = workbook.worksheet(f'{selected_stock} DATA')
-    sheet2= workbook.worksheet(f'{selected_stock} CALC')
-    sheet3 = workbook2.worksheet(f'{selected_stock} DATA')
-    sheet4 = workbook2.worksheet(f'{selected_stock} DATA DIAS')
+    workbook=file.open(f'Market Master {selected_stock}')
+
+    sheet = workbook.worksheet('ONE DAY DATA')
+    sheet2= workbook.worksheet('CALC')
+    sheet3 = workbook2.worksheet('HOUR DATA')
+    sheet4 = workbook2.worksheet('DAY DATA')
 	
     st.subheader('Predicción para el día siguiente')
 
