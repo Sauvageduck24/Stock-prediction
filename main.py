@@ -76,7 +76,7 @@ if logged_in:
     workbook=file.open('Investment 2.0')
     workbook2=file.open('Investment 2.0 (intra day)')
 		
-    st.title('Stock Prediction')
+    st.title('Market Master')
 
     stocks = ('BBVA.MC', 'IAG.MC')
 	
@@ -133,7 +133,7 @@ if logged_in:
 	
         st.write('Predicciones para el día')
         	
-        df=pd.DataFrame([[open,high,low,close]],columns=['Open','High','Low','Close'])
+        df=pd.DataFrame([[open,high,low,close]],columns=['Apertura','Máximo','Mínimo','Cierre'])
         st.dataframe(df)
 	
         st.write('Estadísticas día')	
@@ -147,7 +147,7 @@ if logged_in:
         high=sheet3.range('H3:H10')
         low=sheet3.range('I3:I10')
 	
-        data = yf.download('BBVA.MC', period=f'1d',interval=f'1h',progress=False)
+        data = yf.download(selected_stock, period=f'1d',interval=f'1h',progress=False)
 
         if len(data)>8:
             data=data[:-1]
@@ -194,8 +194,8 @@ if logged_in:
         ax.fill_between(time,high,mean, color="green", alpha=0.1)
         ax.fill_between(time,mean,low, color="red", alpha=0.1)
 	
-        plt.xlabel("Time (h)")
-        plt.ylabel("Price (€)")
+        plt.xlabel("Tiempo (h)")
+        plt.ylabel("Precio (€)")
 
         st.pyplot(plt.gcf())
 	
@@ -216,7 +216,7 @@ if logged_in:
         mean=[]
         time=[]
 
-        data = yf.download('BBVA.MC', period=f'1d',interval=f'1d',progress=False)
+        data = yf.download(selected_stock, period=f'1d',interval=f'1d',progress=False)
 	
         for i,j in zip(high,low):
             mean.append((i+j)/2)
@@ -249,8 +249,8 @@ if logged_in:
         ax.fill_between(time,high,mean, color="green", alpha=0.1)
         ax.fill_between(time,mean,low, color="red", alpha=0.1)
 	
-        plt.xlabel("Time (d)")
-        plt.ylabel("Price (€)")
+        plt.xlabel("Tiempo (d)")
+        plt.ylabel("Precio (€)")
 	
         st.pyplot(plt.gcf())
 	
