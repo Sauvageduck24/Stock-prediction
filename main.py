@@ -154,22 +154,36 @@ if logged_in:
             num=i.value
             low[_]=float(num.replace(',','.'))
 	
+	
+        mean=[]
+        time=[]
+
+        for i,j in zip(high,low):
+            mean.append((i+j)/2)
+
+        for i in range(len(high)):
+            time.append(i)
+
         high=np.array(high)
         low=np.array(low)
-	
-        #st.write(high);st.write(low)
+        mean=np.array(mean)
+        time=np.array(time)
 	
         fig,ax=plt.subplots()
 	
-        ax.plot(high,'g',label='High')
+        ax.plot(high,'g',label='Máximo')
         ax.legend(loc="upper right")
-        ax.plot(low,'r',label='Low')
+        ax.plot(mean,'b',label='Media')
+        ax.legend(loc="upper right")
+        ax.plot(low,'r',label='Mínimo')
         ax.legend(loc="upper right")
 
+
+        ax.fill_between(time,high,mean, color="green", alpha=0.1)
+        ax.fill_between(time,mean,low, color="red", alpha=0.1)
+	
         plt.xlabel("Time (h)")
         plt.ylabel("Price (€)")
-	
-        #ax.invert_yaxis()
 
         st.pyplot(plt.gcf())
 	
@@ -187,20 +201,35 @@ if logged_in:
             num=i.value
             low[_]=float(num.replace(',','.'))
 	
+        mean=[]
+        time=[]
+
+        for i,j in zip(high,low):
+            mean.append((i+j)/2)
+
+        for i in range(len(high)):
+            time.append(i)
+
         high=np.array(high)
         low=np.array(low)
+        mean=np.array(mean)
+        time=np.array(time)
 
         fig,ax=plt.subplots()
-	
-        ax.plot(high,'g',label='High')
+		
+        ax.plot(high,'g',label='Máximo')
         ax.legend(loc="upper right")
-        ax.plot(low,'r',label='Low')
+        ax.plot(mean,'b',label='Media')
+        ax.legend(loc="upper right")
+        ax.plot(low,'r',label='Mínimo')
         ax.legend(loc="upper right")
 
+
+        ax.fill_between(time,high,mean, color="green", alpha=0.1)
+        ax.fill_between(time,mean,low, color="red", alpha=0.1)
+	
         plt.xlabel("Time (d)")
         plt.ylabel("Price (€)")
-	
-        #ax.invert_yaxis()
 	
         st.pyplot(plt.gcf())
 	
