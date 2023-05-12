@@ -146,6 +146,11 @@ if logged_in:
         high=sheet3.range('H3:H10')
         low=sheet3.range('I3:I10')
 	
+        data = yf.download('BBVA.MC', period=f'1d',interval=f'1h',progress=False)
+
+        if len(data)>8:
+            data=data[:-1]
+	
         for _,i in enumerate(high):
             num=i.value
             high[_]=float(num.replace(',','.'))
@@ -168,16 +173,22 @@ if logged_in:
         low=np.array(low)
         mean=np.array(mean)
         time=np.array(time)
+
+        real=[]
+
+        for index,row in data.iterrows():
+            real.append(row['Close'])
 	
         fig,ax=plt.subplots()
 	
         ax.plot(high,'g',label='Máximo')
-        ax.legend(loc="upper right")
-        ax.plot(mean,'b',label='Media')
-        ax.legend(loc="upper right")
+        ax.legend(loc="best")
+        ax.plot(mean,'gray',alpha=0)
         ax.plot(low,'r',label='Mínimo')
-        ax.legend(loc="upper right")
+        ax.legend(loc="best")
 
+        ax.plot(real,color='black',label='Gráfico real')
+        ax.legend(loc="best")
 
         ax.fill_between(time,high,mean, color="green", alpha=0.1)
         ax.fill_between(time,mean,low, color="red", alpha=0.1)
