@@ -243,7 +243,7 @@ if logged_in:
         ax.plot(low,'r',label='Mínimo')
         ax.legend(loc="upper right")
 
-        ax.scatter([0],real,color='black',label='Gráfico real')
+        ax.scatter([0],real,color='black',label='Día actual')
         ax.legend(loc="best")
 	
         ax.fill_between(time,high,mean, color="green", alpha=0.1)
