@@ -6,6 +6,9 @@ import pandas as pd
 import numpy as np
 import yfinance as yf
 import matplotlib.pyplot as plt
+import warnings
+
+warnings.filterwarnings("ignore", category=np.VisibleDeprecationWarning) 
 
 scopes= [
     'https://www.googleapis.com/auth/spreadsheets',
