@@ -8,7 +8,10 @@ import yfinance as yf
 import matplotlib.pyplot as plt
 import warnings
 
-warnings.filterwarnings("ignore", category=np.VisibleDeprecationWarning) 
+try:
+    warnings.filterwarnings("ignore", category=np.VisibleDeprecationWarning) 
+except:
+    print('Error')
 
 scopes= [
     'https://www.googleapis.com/auth/spreadsheets',
