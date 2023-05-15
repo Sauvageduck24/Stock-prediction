@@ -208,8 +208,11 @@ if logged_in:
         ax.plot(low,'r',label='Mínimo')
         ax.legend(loc="best")
 
-        ax.plot(real,color='black',label='Gráfico real')
-        ax.legend(loc="best")
+	
+        if real:	
+            #ax.plot(real,color='black',label='Gráfico real')
+            #ax.legend(loc="best")
+	
 	
         pos_high,=np.where(high==max(high))[0]
         pos_low,=np.where(low==min(low))[0]
