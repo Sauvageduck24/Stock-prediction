@@ -222,10 +222,9 @@ if logged_in:
         for i in real:
             new_real.append(float(i.replace(',','.')))
 	
-        st.write(new_real)	
 	
-        ax.scatter([pos_high,pos_low,7],new_real,color='gray',label='Valores predichos')
-        ax.legend(loc="best")
+        #ax.scatter([pos_high,pos_low,7],new_real,color='gray',label='Valores predichos')
+        #ax.legend(loc="best")
 	
         ax.fill_between(time,high,mean, color="green", alpha=0.1)
         ax.fill_between(time,mean,low, color="red", alpha=0.1)
