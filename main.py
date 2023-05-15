@@ -219,6 +219,9 @@ if logged_in:
         #st.write(real[0])
         #st.write(type(real[0]))
 	
+        st.write(pos_high)	
+        st.write(pos_low)	
+        st.write(new_real)	
 	
         ax.scatter([pos_high,pos_low,7],new_real,color='gray',label='Valores predichos')
         ax.legend(loc="best")
