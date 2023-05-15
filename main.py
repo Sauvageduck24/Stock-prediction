@@ -218,9 +218,6 @@ if logged_in:
         #st.write(type(real))
         #st.write(real[0])
         #st.write(type(real[0]))
-        new_real=[]
-        for i in real:
-            new_real.append(float(i.replace(',','.')))
 	
 	
         #ax.scatter([pos_high,pos_low,7],new_real,color='gray',label='Valores predichos')
