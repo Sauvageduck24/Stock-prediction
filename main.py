@@ -211,7 +211,10 @@ if logged_in:
         ax.plot(real,color='black',label='Gráfico real')
         ax.legend(loc="best")
 	
-        ax.scatter([np.where(high==max(high))[0],np.where(low==min(low))[0],7],real,color='gray',label='Valores predichos')
+        pos_high=np.where(high==max(high))[0]
+        pos_low=np.where(low==min(low))[0]
+	
+        ax.scatter([pos_high,pos_low,7],real,color='gray',label='Valores predichos')
         ax.legend(loc="best")
 	
         ax.fill_between(time,high,mean, color="green", alpha=0.1)
