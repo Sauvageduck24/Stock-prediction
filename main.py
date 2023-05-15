@@ -195,10 +195,10 @@ if logged_in:
         mean=np.array(mean)
         time=np.array(time)
 
-        real=[]
+        #real=[]
 
-        for index,row in data.iterrows():
-            real.append(row['Close'])
+        #for index,row in data.iterrows():
+            #real.append(row['Close'])
 	
         fig,ax=plt.subplots()
 	
