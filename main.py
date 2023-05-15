@@ -273,11 +273,15 @@ if logged_in:
         mean=np.array(mean)
         time=np.array(time)
 
+        st.write(data)	
+	
         real=[]
 
         for index,row in data.iterrows():
             new_data=(row['High']+row['Low']+row['Close'])/3
             real.append(new_data)
+	
+        st.write(real)
 	
         fig,ax=plt.subplots()
 		
