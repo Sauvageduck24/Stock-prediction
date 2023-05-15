@@ -141,7 +141,7 @@ if logged_in:
 	
         st.write('Predicciones para el día')
         
-        real=[high,low,close]
+        new_real=[high,low,close]
 	
         df=pd.DataFrame([[open,high,low,close]],columns=['Apertura','Máximo','Mínimo','Cierre'])
         st.dataframe(df)
@@ -220,8 +220,8 @@ if logged_in:
         #st.write(type(real[0]))
 	
 	
-        #ax.scatter([pos_high,pos_low,7],new_real,color='gray',label='Valores predichos')
-        #ax.legend(loc="best")
+        ax.scatter([pos_high,pos_low,7],new_real,color='gray',label='Valores predichos')
+        ax.legend(loc="best")
 	
         ax.fill_between(time,high,mean, color="green", alpha=0.1)
         ax.fill_between(time,mean,low, color="red", alpha=0.1)
