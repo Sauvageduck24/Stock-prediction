@@ -209,7 +209,7 @@ if logged_in:
         ax.legend(loc="best")
 
 	
-        if real:	
+        #if real:	
             #ax.plot(real,color='black',label='Gráfico real')
             #ax.legend(loc="best")
 	
