@@ -198,7 +198,7 @@ if logged_in:
         real=[]
 
         for index,row in data.iterrows():
-            real.append((row['High']+row['Low'])/2)
+            real.append((row['High']+row['Low']+row['Close'])/3)
 	
         fig,ax=plt.subplots()
 	
