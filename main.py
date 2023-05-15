@@ -271,17 +271,13 @@ if logged_in:
         high=np.array(high)
         low=np.array(low)
         mean=np.array(mean)
-        time=np.array(time)
-
-        st.write(data)	
+        time=np.array(time)	
 	
         real=[]
 
         for index,row in data.iterrows():
             new_data=(row['High']+row['Low']+row['Close'])/3
             real.append(new_data)
-	
-        st.write(real)
 	
         fig,ax=plt.subplots()
 		
@@ -291,8 +287,9 @@ if logged_in:
         ax.plot(low,'r',label='Mínimo')
         ax.legend(loc="upper right")
 
-        ax.scatter([0],real,color='black',label='Día actual')
-        ax.legend(loc="best")
+        if real:	
+            ax.scatter([0],real,color='black',label='Día actual')
+            ax.legend(loc="best")
 	
         ax.fill_between(time,high,mean, color="green", alpha=0.1)
         ax.fill_between(time,mean,low, color="red", alpha=0.1)
