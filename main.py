@@ -214,12 +214,15 @@ if logged_in:
         pos_high=np.where(high==max(high))[0]
         pos_low=np.where(low==min(low))[0]
 	
-        st.write(real)
-        st.write(type(real))
-        st.write(real[0])
-        st.write(type(real[0]))
+        #st.write(real)
+        #st.write(type(real))
+        #st.write(real[0])
+        #st.write(type(real[0]))
+        new_real=[]
+	for i in real:
+            new_real.append(float(i.replace(',','.')))
 	
-        ax.scatter([pos_high,pos_low,7],real,color='gray',label='Valores predichos')
+        ax.scatter([pos_high,pos_low,7],new_real,color='gray',label='Valores predichos')
         ax.legend(loc="best")
 	
         ax.fill_between(time,high,mean, color="green", alpha=0.1)
