@@ -211,19 +211,11 @@ if logged_in:
         ax.plot(real,color='black',label='Gráfico real')
         ax.legend(loc="best")
 	
-        pos_high=np.where(high==max(high))[0]
-        pos_low=np.where(low==min(low))[0]
-	
-        #st.write(real)
-        #st.write(type(real))
-        #st.write(real[0])
-        #st.write(type(real[0]))
+        pos_high,=np.where(high==max(high))[0]
+        pos_low,=np.where(low==min(low))[0]
 	
         for _,i in enumerate(new_real):
             new_real[_]=float(i.replace(',','.'))	
-
-        st.write(pos_high)
-        st.write(type(pos_high))
         	
         ax.scatter([pos_high,pos_low,7],new_real,color='gray',label='Valores predichos')
         ax.legend(loc="best")
