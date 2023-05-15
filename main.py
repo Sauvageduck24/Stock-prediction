@@ -279,6 +279,8 @@ if logged_in:
             new_data=(row['High']+row['Low']+row['Close'])/3
             real.append(new_data)
 	
+        st.write(real)	
+	
         fig,ax=plt.subplots()
 		
         ax.plot(high,'g',label='Máximo')
