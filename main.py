@@ -209,9 +209,9 @@ if logged_in:
         ax.legend(loc="best")
 
 	
-        if real:	
-            ax.plot(real,color='black',label='Gráfico real')
-            ax.legend(loc="best")
+        #if real:	
+            #ax.plot(real,color='black',label='Gráfico real')
+            #ax.legend(loc="best")
 	
 	
         pos_high,=np.where(high==max(high))[0]
