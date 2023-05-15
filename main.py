@@ -198,7 +198,7 @@ if logged_in:
         real=[]
 
         for index,row in data.iterrows():
-            real.append(row['High'])
+            real.append((row['High']+row['Low'])/2)
 	
         fig,ax=plt.subplots()
 	
@@ -209,9 +209,9 @@ if logged_in:
         ax.legend(loc="best")
 
 	
-        #if real:	
-            #ax.plot(real,color='black',label='Gráfico real')
-            #ax.legend(loc="best")
+        if real:	
+            ax.plot(real,color='black',label='Gráfico real')
+            ax.legend(loc="best")
 	
 	
         pos_high,=np.where(high==max(high))[0]
