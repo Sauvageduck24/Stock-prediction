@@ -221,9 +221,10 @@ if logged_in:
 	
         for _,i in enumerate(new_real):
             new_real[_]=float(i.replace(',','.'))	
-	
-        st.write(new_real)	
-	
+
+        st.write(pos_high)
+        st.write(type(pos_high))
+        	
         ax.scatter([pos_high,pos_low,7],new_real,color='gray',label='Valores predichos')
         ax.legend(loc="best")
 	
