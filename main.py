@@ -215,6 +215,9 @@ if logged_in:
         pos_low=np.where(low==min(low))[0]
 	
         st.write(real)
+        st.write(type(real))
+        st.write(real[0])
+        st.write(type(real[0]))
 	
         ax.scatter([pos_high,pos_low,7],real,color='gray',label='Valores predichos')
         ax.legend(loc="best")
