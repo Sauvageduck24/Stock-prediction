@@ -195,10 +195,10 @@ if logged_in:
         mean=np.array(mean)
         time=np.array(time)
 
-        #real=[]
+        real=[]
 
-        #for index,row in data.iterrows():
-            #real.append(row['Close'])
+        for index,row in data.iterrows():
+            real.append(row['Close'])
 	
         fig,ax=plt.subplots()
 	
@@ -208,8 +208,8 @@ if logged_in:
         ax.plot(low,'r',label='Mínimo')
         ax.legend(loc="best")
 
-        #ax.plot(real,color='black',label='Gráfico real')
-        #ax.legend(loc="best")
+        ax.plot(real,color='black',label='Gráfico real')
+        ax.legend(loc="best")
 	
         pos_high=np.where(high==max(high))[0]
         pos_low=np.where(low==min(low))[0]
@@ -278,8 +278,7 @@ if logged_in:
         for index,row in data.iterrows():
             new_data=(row['High']+row['Low']+row['Close'])/3
             real.append(new_data)
-	
-        st.write(real)	
+		
 	
         fig,ax=plt.subplots()
 		
