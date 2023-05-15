@@ -159,7 +159,7 @@ if logged_in:
 	
         data = yf.download(f'{selected_stock}.MC', period=f'1d',interval=f'1h',progress=False)
 
-        now = datetime.datetime.now()
+        now = datetime.now()
         now=now.replace(tzinfo=datetime.timezone.utc)
 	
         if now.hour+2>9:
@@ -241,7 +241,7 @@ if logged_in:
 
         data = yf.download(f'{selected_stock}.MC', period=f'1d',interval=f'1d',progress=False)
 	
-        now = datetime.datetime.now()
+        now = datetime.now()
         now=now.replace(tzinfo=datetime.timezone.utc)
 	
         if now.hour+2>9:
