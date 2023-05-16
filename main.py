@@ -8,6 +8,8 @@ import yfinance as yf
 import matplotlib.pyplot as plt
 import warnings
 
+st.set_page_config(page_title="Market Master")
+
 try:
     warnings.filterwarnings("ignore", category=np.VisibleDeprecationWarning) 
 except:
