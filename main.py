@@ -202,36 +202,111 @@ if logged_in:
         for index,row in data.iterrows():
             real.append((row['High']+row['Low']+row['Close'])/3)
 	
-        fig,ax=plt.subplots()
+        #---------------------------------------------
 	
-        ax.plot(high,'g',label='Máximo')
-        ax.legend(loc="best")
-        ax.plot(mean,'gray',alpha=0)
-        ax.plot(low,'r',label='Mínimo')
+        #high=[6.603,6.646,6.683,6.680,6.671,6.663,6.655,6.653]
+        #low=[6.548,6.591,6.630,6.626,6.616,6.608,6.605,6.603]
+        #mean=[]
+        #time=[]
+
+        #for i,j in zip(high,low):
+            #mean.append((i+j)/2)
+
+        #for i in range(len(high)*60):
+            #time.append(i)
+
+        #high=np.array(high)
+        #low=np.array(low)
+        #mean=np.array(mean)
+        #time=np.array(time)
+
+        #real=[]
+
+        #for index,row in data.iterrows():
+            #new_data=(row['High']+row['Low']+row['Close'])/3
+            #real.append(new_data)
+
+        #puntos maximo minimo y close predicho
+
+        low=low.tolist()
+        high=high.tolist()
+        mean=mean.tolist()
+
+        new_low=[]
+        new_high=[]
+        new_mean=[]
+
+        for _,i in enumerate(low):
+            for j in range(60):
+                if j==0:
+                    new_low.append(i)
+                else:
+                    new_low.append(np.nan)
+
+        for _,i in enumerate(high):
+            for j in range(60):
+                if j==0:
+                    new_high.append(i)
+                else:
+                    new_high.append(np.nan)
+
+        for _,i in enumerate(mean):
+            for j in range(60):
+                if j==0:
+                    new_mean.append(i)
+                else:
+                    new_mean.append(np.nan)
+
+        low=np.array(new_low)
+        high=np.array(new_high)
+        mean=np.array(new_mean)
+
+        time=[]
+
+        for i in range(len(high)):
+            time.append(i)
+
+        time=np.array(time)
+
+        mask=np.isfinite(low)
+        mask2=np.isfinite(high)
+        mask3=np.isfinite(mean)
+
+        xs=np.arange(len(low))
+        xs2=np.arange(len(high))
+        xs3=np.arange(len(mean))
+
+        fig,ax=plt.subplots()
+
+        ax.plot(xs[mask],low[mask],linestyle='-',color='r',label='Mínimo')
         ax.legend(loc="best")
 
-	
-        #if real:	
-            #ax.plot(real,color='black',label='Gráfico real')
-            #ax.legend(loc="best")
-	
-	
+        ax.plot(xs[mask3],mean[mask3],linestyle='-',color='gray',alpha=0)
+
+        ax.plot(xs[mask2],high[mask2],linestyle='-',color='g',label='Máximo')
+        ax.legend(loc="best")
+
+        ax.plot(data_to_plot,color='black',label='Real Data')
+        ax.legend(loc="best")
+
         pos_high,=np.where(high==max(high))[0]
         pos_low,=np.where(low==min(low))[0]
 	
-        for _,i in enumerate(new_real):
-            new_real[_]=float(i.replace(',','.'))	
+        for _,i in enumerate(real):
+            real[_]=float(i.replace(',','.'))	
         	
-        ax.scatter([pos_high,pos_low,7],new_real,color='gray',label='Valores predichos')
+        ax.scatter([pos_high,pos_low,len(low)-60],real,color='gray',label='Valores predichos')
         ax.legend(loc="best")
-	
-        ax.fill_between(time,high,mean, color="green", alpha=0.1)
-        ax.fill_between(time,mean,low, color="red", alpha=0.1)
+
+        ax.fill_between(xs[mask2],high[mask2],mean[mask3], color="green", alpha=0.1)
+        ax.fill_between(xs[mask2],mean[mask3],low[mask], color="red", alpha=0.1)
 	
         plt.xlabel("Tiempo (h)")
         plt.ylabel("Precio (€)")
-
+	
         st.pyplot(plt.gcf())
+	
+        #---------------------------------------------
 	
         st.write(" ")	
         st.write('**Gráfico aproximado para 8 días (orgánicos)**')
