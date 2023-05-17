@@ -295,8 +295,8 @@ if logged_in:
         for _,i in enumerate(real):
             real[_]=float(i.replace(',','.'))	
         	
-        ax.scatter([pos_high,pos_low,len(low)-60],real,color='gray',label='Valores predichos')
-        ax.legend(loc="best")
+        #ax.scatter([pos_high,pos_low,len(low)-60],real,color='gray',label='Valores predichos')
+        #ax.legend(loc="best")
 
         ax.fill_between(xs[mask2],high[mask2],mean[mask3], color="green", alpha=0.1)
         ax.fill_between(xs[mask2],mean[mask3],low[mask], color="red", alpha=0.1)
