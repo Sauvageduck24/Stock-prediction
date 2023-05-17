@@ -200,7 +200,7 @@ if logged_in:
         real=[]
 
         for index,row in data.iterrows():
-            real.append((row['High']+row['Low']+row['Close'])/3)
+            real.append(row['Close'])
 	
         #---------------------------------------------
 	
@@ -286,8 +286,8 @@ if logged_in:
         ax.plot(xs[mask2],high[mask2],linestyle='-',color='g',label='Máximo')
         ax.legend(loc="best")
 
-        #ax.plot(data_to_plot,color='black',label='Real Data')
-        #ax.legend(loc="best")
+        ax.plot(real,color='black',label='Real Data')
+        ax.legend(loc="best")
 
         pos_high,=np.where(high==max(high))[0]
         pos_low,=np.where(low==min(low))[0]
