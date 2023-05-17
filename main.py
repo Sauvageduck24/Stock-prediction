@@ -159,7 +159,7 @@ if logged_in:
         high=sheet3.range('H3:H10')
         low=sheet3.range('I3:I10')
 	
-        data = yf.download(f'{selected_stock}.MC', period=f'1d',interval=f'1h',progress=False)
+        data = yf.download(f'{selected_stock}.MC', period=f'1d',interval=f'1m',progress=False)
 
         now = datetime.now()
         #now=now.replace(tzinfo=datetime.timezone.utc)
@@ -219,14 +219,6 @@ if logged_in:
         #low=np.array(low)
         #mean=np.array(mean)
         #time=np.array(time)
-
-        #real=[]
-
-        #for index,row in data.iterrows():
-            #new_data=(row['High']+row['Low']+row['Close'])/3
-            #real.append(new_data)
-
-        #puntos maximo minimo y close predicho
 
         low=low.tolist()
         high=high.tolist()
