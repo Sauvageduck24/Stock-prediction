@@ -286,14 +286,16 @@ if logged_in:
         ax.plot(xs[mask2],high[mask2],linestyle='-',color='g',label='Máximo')
         ax.legend(loc="best")
 
+        st.write(real)
+	
         ax.plot(real,color='black',label='Real Data')
         ax.legend(loc="best")
 
         pos_high,=np.where(high==max(high))[0]
         pos_low,=np.where(low==min(low))[0]
 	
-        for _,i in enumerate(real):
-            real[_]=float(i.replace(',','.'))	
+        #for _,i in enumerate(real):
+            #real[_]=float(i.replace(',','.'))	
         	
         #ax.scatter([pos_high,pos_low,len(low)-60],real,color='gray',label='Valores predichos')
         #ax.legend(loc="best")
