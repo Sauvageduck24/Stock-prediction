@@ -278,7 +278,7 @@ if logged_in:
         ax.plot(xs[mask2],high[mask2],linestyle='-',color='g',label='Máximo')
         ax.legend(loc="best")
 	
-        ax.plot(real,color='black',label='Real Data',alpha=0.5)
+        ax.plot(real,color='black',label='Real Data',alpha=0.75)
         ax.legend(loc="best")
 
         pos_high,=np.where(high==max(high))[0]
