@@ -88,7 +88,7 @@ if logged_in:
 
     stocks = ('BBVA')#, 'IAG')
 	
-    selected_stock = st.selectbox('Seleccione la compañía para hacer la predicción', stocks)
+    selected_stock = st.selectbox('Seleccione la compañía para hacer la predicción', 'BBVA')
 
     workbook=file.open(f'Market Master {selected_stock}')
 
