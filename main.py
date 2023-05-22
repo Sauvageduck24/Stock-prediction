@@ -271,15 +271,15 @@ if logged_in:
         fig,ax=plt.subplots()
 
         ax.plot(xs[mask],low[mask],linestyle='-',color='r',label='Mínimo')
-        ax.legend(loc="best")
+        #ax.legend(loc="best")
 
         ax.plot(xs[mask3],mean[mask3],linestyle='-',color='gray',alpha=0)
 
         ax.plot(xs[mask2],high[mask2],linestyle='-',color='g',label='Máximo')
-        ax.legend(loc="best")
+        #ax.legend(loc="best")
 	
         ax.plot(real,color='black',label='Real Data',alpha=0.85)
-        ax.legend(loc="best")
+        #ax.legend(loc="best")
 
         pos_high,=np.where(high==max(high))[0]
         pos_low,=np.where(low==min(low))[0]
@@ -288,10 +288,17 @@ if logged_in:
             new_real[_]=float(i.replace(',','.'))	
         	
         ax.scatter([pos_high,pos_low,len(low)-60],new_real,color='gray',label='Valores predichos')
-        ax.legend(loc="best")
+        #ax.legend(loc="best")
 
         ax.fill_between(xs[mask2],high[mask2],mean[mask3], color="green", alpha=0.1)
         ax.fill_between(xs[mask2],mean[mask3],low[mask], color="red", alpha=0.1)
+	
+        if pos_low<pos_high:
+            ax.scatter(pos_high,max(high)+0.01,marker=poss[1],color='r')#,markerfacecolor='red', markersize=13, markeredgecolor="black")
+            ax.scatter(pos_low,min(low)-0.01,marker=poss[0],color='g')#,markerfacecolor='red', markersize=13, markeredgecolor="black")
+	
+        ax.axhline(y=max(high), color='g',linestyle='--')
+        ax.axhline(y=min(low) , color='r',linestyle='--')
 	
         plt.xlabel("Tiempo (h)")
         plt.ylabel("Precio (€)")
@@ -299,6 +306,8 @@ if logged_in:
         new_time=['9-10','10-11','11-12','12-13','13-14','14-15','15-16','16-17']
 	
         plt.xticks(np.arange(0, len(low), 60),new_time)
+	
+        ax.legend(loc="best")
 	
         st.pyplot(plt.gcf())
 	
