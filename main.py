@@ -168,11 +168,11 @@ if logged_in:
             if now.minute>15:
                 pass
         else:
-            data=data[:-9]
+            data=data[:-9*60]
 	
 	
         if len(data)>8:
-            data=data[:-1]
+            data=data[:-1*60]
 	
         for _,i in enumerate(high):
             num=i.value
