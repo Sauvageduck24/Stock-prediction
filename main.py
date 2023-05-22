@@ -90,7 +90,7 @@ if logged_in:
 	
     selected_stock = st.selectbox('Seleccione la compañía para hacer la predicción', stocks)
 
-    workbook=file.open(f'PRUEBAS Market Master {selected_stock}')
+    workbook=file.open(f'Market Master {selected_stock}')
 
     sheet = workbook.worksheet('ONE DAY DATA')
     sheet2= workbook.worksheet('CALC')
