@@ -297,8 +297,15 @@ if logged_in:
             ax.scatter(pos_high,max(high)+0.01,marker=poss[1],color='r')#,markerfacecolor='red', markersize=13, markeredgecolor="black")
             ax.scatter(pos_low,min(low)-0.01,marker=poss[0],color='g')#,markerfacecolor='red', markersize=13, markeredgecolor="black")
 	
+        dif=round((100-(min(low)*100)/max(high)),2)
+	
         ax.axhline(y=max(high), color='g',linestyle='--')
         ax.axhline(y=min(low) , color='r',linestyle='--')
+	
+        if dif>=0:
+            ax.text(20,max(high), f'{dif} %', va='center', ha='center', backgroundcolor='w',color='g')
+        else:
+            ax.text(400, min(low), f'{dif} %', va='center', ha='center', backgroundcolor='w',color='r')
 	
         plt.xlabel("Tiempo (h)")
         plt.ylabel("Precio (€)")
@@ -373,6 +380,16 @@ if logged_in:
 	
         ax.fill_between(time,high,mean, color="green", alpha=0.1)
         ax.fill_between(time,mean,low, color="red", alpha=0.1)
+	
+        dif=round((100-(min(low)*100)/max(high)),2)
+	
+        ax.axhline(y=max(high), color='g',linestyle='--')
+        ax.axhline(y=min(low) , color='r',linestyle='--')
+	
+        if dif>=0:
+            ax.text(1,max(high), f'{dif} %', va='center', ha='center', backgroundcolor='w',color='g')
+        else:
+            ax.text(7, min(low), f'{dif} %', va='center', ha='center', backgroundcolor='w',color='r')
 	
         plt.xlabel("Tiempo (d)")
         plt.ylabel("Precio (€)")
