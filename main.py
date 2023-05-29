@@ -294,6 +294,7 @@ if logged_in:
         ax.fill_between(xs[mask2],mean[mask3],low[mask], color="red", alpha=0.1)
 	
         if pos_low<pos_high:
+            st.write(max(high))
             ax.scatter(pos_high,max(high)+0.01,marker=poss[1],color='r')
             ax.scatter(pos_low,min(low)-0.01,marker=poss[0],color='g')
 	
