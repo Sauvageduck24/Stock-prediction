@@ -172,7 +172,7 @@ if logged_in:
 	
 	
         if len(data)>8:
-            data=data[:-30]
+            data=data[:-60]
 	
         for _,i in enumerate(high):
             num=i.value
