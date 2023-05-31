@@ -173,8 +173,6 @@ if logged_in:
         if len(data)>8*60:
             data=data[:-60]
 	
-        st.write(len(data))	
-	
         for _,i in enumerate(high):
             num=i.value
             high[_]=float(num.replace(',','.'))
