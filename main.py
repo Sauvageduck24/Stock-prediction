@@ -164,6 +164,8 @@ if logged_in:
         now = datetime.now()
         #now=now.replace(tzinfo=datetime.timezone.utc)
 	
+        st.write(now.hour)	
+	
         if now.hour+2>9:
             if now.minute>15:
                 pass
