@@ -163,16 +163,14 @@ if logged_in:
 
         now = datetime.now()
         #now=now.replace(tzinfo=datetime.timezone.utc)	
-        st.write(len(data))	
+	
         if now.hour+2>9:
             if now.minute>15:
                 pass
         else:
             data=data[:-9*60]
-
-        st.write(len(data))	
 	
-        if len(data)>8:
+        if len(data)>8*60:
             data=data[:-60]
 	
         st.write(len(data))	
