@@ -162,9 +162,7 @@ if logged_in:
         data = yf.download(f'{selected_stock}.MC', period=f'1d',interval=f'1m',progress=False)
 
         now = datetime.now()
-        #now=now.replace(tzinfo=datetime.timezone.utc)
-	
-        st.write(now.hour)	
+        #now=now.replace(tzinfo=datetime.timezone.utc)	
 	
         if now.hour+2>9:
             if now.minute>15:
@@ -175,6 +173,8 @@ if logged_in:
 	
         if len(data)>8:
             data=data[:-60]
+	
+        st.write(len(data))	
 	
         for _,i in enumerate(high):
             num=i.value
