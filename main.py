@@ -170,7 +170,9 @@ if logged_in:
         else:
             data=data[:-9*60]
 	
-		
+
+        st.write(len(data))
+	
         if len(data)>8*60:
             st.write('1')
             data=data[:-90]
