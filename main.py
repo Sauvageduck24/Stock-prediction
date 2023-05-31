@@ -170,7 +170,9 @@ if logged_in:
         else:
             data=data[:-9*60]
 	
+		
         if len(data)>8*60:
+            st.write('1')
             data=data[:-90]
 	
         for _,i in enumerate(high):
