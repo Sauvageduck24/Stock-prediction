@@ -388,10 +388,10 @@ if logged_in:
         ax.axhline(y=max(high), color='g',linestyle='--')
         ax.axhline(y=min(low) , color='r',linestyle='--')
 	
-        if dif>=0:
-            ax.text(1,max(high), f'{dif} %', va='center', ha='center', backgroundcolor='w',color='g')
-        else:
-            ax.text(7, min(low), f'{dif} %', va='center', ha='center', backgroundcolor='w',color='r')
+        #if dif>=0:
+            #ax.text(1,max(high), f'{dif} %', va='center', ha='center', backgroundcolor='w',color='g')
+        #else:
+            #ax.text(7, min(low), f'{dif} %', va='center', ha='center', backgroundcolor='w',color='r')
 	
         plt.xlabel("Tiempo (d)")
         plt.ylabel("Precio (€)")
