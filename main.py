@@ -282,7 +282,7 @@ if logged_in:
         #ax.legend(loc="best")
 	
         try:        
-	    pos_high,=np.where(high==max(high))[0]
+            pos_high,=np.where(high==max(high))[0]
         except:
             pos_high,=np.where(high==max(high))[0][0]
 	
