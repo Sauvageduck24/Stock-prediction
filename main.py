@@ -228,26 +228,33 @@ if logged_in:
         new_high=[]
         new_mean=[]
 
+        last_low=0
+        last_high=0
+        last_mean=0
+	
         for _,i in enumerate(low):
             for j in range(60):
                 if j==0:
                     new_low.append(i)
+                    last_low=i
                 else:
-                    new_low.append(np.nan)
+                    new_low.append(last_low)
 
         for _,i in enumerate(high):
             for j in range(60):
                 if j==0:
                     new_high.append(i)
+                    last_high=i
                 else:
-                    new_high.append(np.nan)
+                    new_high.append(last_high)
 
         for _,i in enumerate(mean):
             for j in range(60):
                 if j==0:
                     new_mean.append(i)
+                    last_mean=i
                 else:
-                    new_mean.append(np.nan)
+                    new_mean.append(last_mean)
 
         low=np.array(new_low)
         high=np.array(new_high)
@@ -281,12 +288,12 @@ if logged_in:
         ax.plot(real,color='black',label='Real Data',alpha=0.85)
         #ax.legend(loc="best")
 	
-        try:        
-            pos_high,=np.where(high==max(high))[0]
-        except:
-            pos_high,=np.where(high==max(high))[0][0]
+
+        pos_high,=np.where(high==max(high))
+        pos_low,=np.where(low==min(low))
 	
-        pos_low,=np.where(low==min(low))[0]
+        pos_high=pos_high.flat[29]
+        pos_low=pos_low.flat[29]
 	
         for _,i in enumerate(new_real):
             new_real[_]=float(i.replace(',','.'))	
