@@ -282,9 +282,10 @@ if logged_in:
         #ax.legend(loc="best")
 	
         pos_high,=np.where(high==max(high))#[0]
-        pos_low,=np.where(low==min(low))#[0]
+        pos_low,=np.where(low==min(low))[0]
 	
         st.write(pos_high)	
+        st.write(pos_low)	
 	
         for _,i in enumerate(new_real):
             new_real[_]=float(i.replace(',','.'))	
