@@ -284,8 +284,7 @@ if logged_in:
         pos_high,=np.where(high==max(high))#[1]
         pos_low,=np.where(low==min(low))[0]
 	
-        st.write(type(pos_high))
-        st.write(pos_high)	
+        st.write(pos_high.shape)	
         st.write(pos_low)	
 	
         for _,i in enumerate(new_real):
