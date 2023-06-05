@@ -323,7 +323,7 @@ if logged_in:
         plt.xlabel("Tiempo (h)")
         plt.ylabel("Precio (€)")
 	
-        new_time=['9-10','10-11','11-12','12-13','13-14','14-15','15-16','16-17']
+        new_time=['10','11','12','13','14','15','16','17']
 	
         plt.xticks(np.arange(0, len(low), 60),new_time)
 	
