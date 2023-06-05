@@ -281,7 +281,7 @@ if logged_in:
         ax.plot(real,color='black',label='Real Data',alpha=0.85)
         #ax.legend(loc="best")
 	
-	try:        
+        try:        
 	    pos_high,=np.where(high==max(high))[0]
         except:
             pos_high,=np.where(high==max(high))[0][0]
