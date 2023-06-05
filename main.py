@@ -281,6 +281,8 @@ if logged_in:
         ax.plot(real,color='black',label='Real Data',alpha=0.85)
         #ax.legend(loc="best")
 
+        st.write(np.where(high==max(high)))	
+	
         pos_high,=np.where(high==max(high))[0]
         pos_low,=np.where(low==min(low))[0]
 	
