@@ -288,13 +288,10 @@ if logged_in:
 	
         pos_low,=np.where(low==min(low))[0]
 	
-        st.write(pos_high)
-        st.write(pos_low)	
-	
         for _,i in enumerate(new_real):
             new_real[_]=float(i.replace(',','.'))	
         	
-        #ax.scatter([pos_high,pos_low,len(low)-60],new_real,color='gray',label='Valores predichos')
+        ax.scatter([pos_high,pos_low,len(low)-60],new_real,color='gray',label='Valores predichos')
         #ax.legend(loc="best")
 
         ax.fill_between(xs[mask2],high[mask2],mean[mask3], color="green", alpha=0.1)
@@ -302,9 +299,9 @@ if logged_in:
 	
         poss=['^','v']
 	
-        #if pos_low<pos_high:
-            #ax.scatter(pos_high,max(high)+0.01,marker=poss[1],color='r')
-            #ax.scatter(pos_low,min(low)-0.01,marker=poss[0],color='g')
+        if pos_low<pos_high:
+            ax.scatter(pos_high,max(high)+0.01,marker=poss[1],color='r')
+            ax.scatter(pos_low,min(low)-0.01,marker=poss[0],color='g')
 	
         dif=round((100-(min(low)*100)/max(high)),2)
 	
