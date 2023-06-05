@@ -171,8 +171,8 @@ if logged_in:
             data=data[:-9*60]
 	
 	
-        if len(data)>7*60:
-            data=data[:-30]
+        #if len(data)>7*60:
+            #data=data[:-30]
 	
         for _,i in enumerate(high):
             num=i.value
