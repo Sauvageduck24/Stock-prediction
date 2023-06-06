@@ -170,7 +170,7 @@ if logged_in:
         if now.hour+2>9:
             if now.minute>15:
                 pass
-                data=data[:-13*60]
+                data=data[:-11*60]
         else:
             data=data[:-9*60]
 	
