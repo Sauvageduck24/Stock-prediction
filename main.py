@@ -101,7 +101,7 @@ if logged_in:
 
     today = date.today()
     dia=today.strftime("%d-%m-%Y")
-    #dia="5-06-2023"
+    dia="5-06-2023"
     #dia="2-06-2023"
     #dia="1-06-2023"
     #dia="31-05-2023"
