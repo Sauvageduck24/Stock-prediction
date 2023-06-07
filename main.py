@@ -233,15 +233,25 @@ if logged_in:
         last_mean=0
 	
         for _,i in enumerate(low):
-            for j in range(60):
+            if _!=len(low):
+                rango=60
+            else:
+                rango=30
+		
+            for j in range(rango):
                 if j==0:
                     new_low.append(i)
                     last_low=i
-                else:
+                else:			
                     new_low.append(np.nan)
 
         for _,i in enumerate(high):
-            for j in range(60):
+            if _!=len(low):
+                rango=60
+            else:
+                rango=30
+		
+            for j in range(rango):
                 if j==0:
                     new_high.append(i)
                     last_high=i
@@ -249,7 +259,12 @@ if logged_in:
                     new_high.append(np.nan)
 
         for _,i in enumerate(mean):
-            for j in range(60):
+            if _!=len(low):
+                rango=60
+            else:
+                rango=30
+		
+            for j in range(rango):
                 if j==0:
                     new_mean.append(i)
                     last_mean=i
