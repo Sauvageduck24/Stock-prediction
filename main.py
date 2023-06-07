@@ -236,7 +236,7 @@ if logged_in:
             if _!=len(low):
                 rango=60
             else:
-                rango=30
+                rango=20
 		
             for j in range(rango):
                 if j==0:
@@ -249,7 +249,7 @@ if logged_in:
             if _!=len(low):
                 rango=60
             else:
-                rango=30
+                rango=20
 		
             for j in range(rango):
                 if j==0:
@@ -262,7 +262,7 @@ if logged_in:
             if _!=len(low):
                 rango=60
             else:
-                rango=30
+                rango=20
 		
             for j in range(rango):
                 if j==0:
