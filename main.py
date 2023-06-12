@@ -80,9 +80,6 @@ if logged_in:
     creds=ServiceAccountCredentials.from_json_keyfile_dict(drive_credentials,scopes=scopes)
 
     file = gspread.authorize(creds)
-
-    #workbook=file.open('Investment 2.0')
-    #workbook2=file.open('Investment 2.0 (intra day)')
 		
     st.title('Market Master')
 
@@ -90,7 +87,11 @@ if logged_in:
 	
     selected_stock = st.selectbox('Seleccione la compañía para hacer la predicción', stocks)
 
-    workbook=file.open(f'Market Master {selected_stock}')
+    if selected_stock=='BBVA':
+        search='1COITRN8LVx3Sa2zDQRYn-Igt91bg_mZlYqdeGE5KpAQ'
+	
+    #workbook=file.open(f'Market Master {selected_stock}')
+    workbook=file.open_by_key(search)
 
     sheet = workbook.worksheet('ONE DAY DATA')
     sheet2= workbook.worksheet('CALC')
