@@ -427,6 +427,15 @@ if logged_in:
 	
         st.pyplot(plt.gcf())
 	
+        hide_streamlit_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            </style>
+            """
+	
+        st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
+	
 
 #poner en tabla los resultados
 #poner incremento en mismo día y entre días
