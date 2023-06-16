@@ -434,7 +434,7 @@ if logged_in:
             </style>
             """
 	
-        st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
+        st.markdown(hide_streamlit_style, unsafe_allow_html=True)     # para quitar marca de agua
 	
 
 #poner en tabla los resultados
