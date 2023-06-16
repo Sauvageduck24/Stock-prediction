@@ -163,11 +163,11 @@ if logged_in:
         data = yf.download(f'{selected_stock}.MC', period=f'1d',interval=f'1m',progress=False)
 
         now = datetime.now()
-        #now=now.replace(tzinfo=datetime.timezone.utc)	
 	
         if now.hour+2>9:
             if now.minute>15:
-                pass
+                #pass
+                data=data[:-1*60]
         else:
             data=data[:-9*60]
 	
