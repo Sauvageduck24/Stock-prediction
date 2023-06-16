@@ -161,7 +161,7 @@ if logged_in:
         high=sheet3.range('H3:H10')
         low=sheet3.range('I3:I10')
 	
-        data = yf.download(f'{selected_stock}.MC', period=f'2d',interval=f'1m',progress=False)
+        data = yf.download(f'{selected_stock}.MC', period=f'3d',interval=f'1m',progress=False)
 
         now = datetime.now()
 	
