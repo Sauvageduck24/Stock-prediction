@@ -102,7 +102,6 @@ if logged_in:
 
     today = date.today()
     dia=today.strftime("%d-%m-%Y")
-    dia="12-06-2023"
 
     cell=sheet.find(f"{dia}")
     cell2=sheet2.find(f"{dia}")
@@ -161,14 +160,13 @@ if logged_in:
         high=sheet3.range('H3:H10')
         low=sheet3.range('I3:I10')
 	
-        data = yf.download(f'{selected_stock}.MC', period=f'5d',interval=f'1m',progress=False)
+        data = yf.download(f'{selected_stock}.MC', period=f'1d',interval=f'1m',progress=False)
 
         now = datetime.now()
 	
         if now.hour+2>9:
             if now.minute>15:
-                #pass
-                data=data[:-37*60]
+                pass
         else:
             data=data[:-9*60]
 	
