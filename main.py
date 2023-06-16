@@ -330,8 +330,8 @@ if logged_in:
         ax.axhline(y=max(high), color='g',linestyle='--')
         ax.axhline(y=min(low) , color='r',linestyle='--')
 	
-        ax.axhline(y=real[0], color='gray', linestyle='--',alpha=0.3)
-        ax.axhline(y=real[1], color='gray', linestyle='--',alpha=0.3)
+        ax.axhline(y=new_real[0], color='gray', linestyle='--',alpha=0.3)
+        ax.axhline(y=new_real[1], color='gray', linestyle='--',alpha=0.3)
 	
         #if dif>=0:
             #ax.text(20,max(high), f'{dif} %', va='center', ha='center', backgroundcolor='w',color='g')
