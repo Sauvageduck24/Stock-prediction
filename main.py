@@ -181,7 +181,7 @@ if logged_in:
         else:
             data=data[:-9*60]
 	
-        #if len(data)>8*60:
+        #if len(data)>7*60:
             #data=data[:-30]
 	
         for _,i in enumerate(high):
@@ -224,10 +224,14 @@ if logged_in:
         time=np.array(time)
 
         real=[]
-
+        #real_min=[]
+	    
         for index,row in data.iterrows():
             real.append(row['Close'])
-	
+
+        #for index,row in data_min.iterrows():
+            #real_min.append(row['Close'])
+	    
         #------------------------------------------------------------------------------------
 	    
         low_mins=low_mins.tolist()
