@@ -224,7 +224,7 @@ if logged_in:
         for index,row in data.iterrows():
             real.append(row['Close'])
 	
-        #---------------------------------------------
+        #------------------------------------------------------------------------------------
 
         low=low.tolist()
         high=high.tolist()
@@ -351,19 +351,24 @@ if logged_in:
         xs2=np.arange(len(high))
         xs3=np.arange(len(mean))
 
+        mask_mins=np.isfinite(low_mins)
+        mask2_mins=np.isfinite(high_mins)
+        mask3_mins=np.isfinite(mean_mins)
+
+        xs_mins=np.arange(len(low_mins))
+        xs2_mins=np.arange(len(high_mins))
+        xs3_mins=np.arange(len(mean_mins))
+	    
         fig,ax=plt.subplots()
 
         ax.plot(xs[mask],low[mask],linestyle='-',color='r',label='Mínimo')
-        #ax.legend(loc="best")
+        ax.plot(xs_mins[mask_mins],low_mins[mask_mins],linestyle='-',color='r',label='Mínimo')
 
         ax.plot(xs[mask3],mean[mask3],linestyle='-',color='gray',alpha=0)
 
         ax.plot(xs[mask2],high[mask2],linestyle='-',color='g',label='Máximo')
-        #ax.legend(loc="best")
 	
         ax.plot(real,color='black',label='Real Data',alpha=0.85)
-        #ax.legend(loc="best")
-	
 
         pos_high,=np.where(high==max(high))
         pos_low,=np.where(low==min(low))
@@ -375,7 +380,6 @@ if logged_in:
             new_real[_]=float(i.replace(',','.'))	
         	
         ax.scatter([pos_high,pos_low,len(low)-60],new_real,color='gray',label='Valores predichos')
-        #ax.legend(loc="best")
 
         ax.fill_between(xs[mask2],high[mask2],mean[mask3], color="green", alpha=0.1)
         ax.fill_between(xs[mask2],mean[mask3],low[mask], color="red", alpha=0.1)
@@ -410,7 +414,7 @@ if logged_in:
 	
         st.pyplot(plt.gcf())
 	
-        #---------------------------------------------
+        #------------------------------------------------------------------------------------
 	
         st.write(" ")	
         st.write('**Gráfico aproximado para 8 días (orgánicos)**')
