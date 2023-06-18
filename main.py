@@ -446,9 +446,6 @@ if logged_in:
 
         pos_high=pos_high.flat[0]
         pos_low=pos_low.flat[0]
-	    
-        for _,i in enumerate(new_real):
-            new_real[_]=float(i.replace(',','.'))	
         	
         ax.scatter([pos_high,pos_low,len(low)-60],new_real,color='gray',label='Valores predichos')
 
