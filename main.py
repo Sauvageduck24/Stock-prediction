@@ -98,7 +98,6 @@ if logged_in:
     sheet3 = workbook.worksheet('HOUR DATA')
     sheet4 = workbook.worksheet('DAY DATA')
     sheet5 = workbook.worksheet('MINS DATA')
-    sheet6 = workbook.worksheet('15 MINS DATA')
 	
     st.subheader('Predicción para el día siguiente')
 
