@@ -387,7 +387,10 @@ if logged_in:
 
         ax.fill_between(xs[mask2],high[mask2],mean[mask3], color="green", alpha=0.1)
         ax.fill_between(xs[mask2],mean[mask3],low[mask], color="red", alpha=0.1)
-	
+
+        ax.fill_between(xs[mask2_mins],high_mins[mask2_mins],mean_mins[mask3_mins], color="green", alpha=0.1)
+        ax.fill_between(xs[mask2_mins],mean_mins[mask3_mins],low_mins[mask_mins], color="red", alpha=0.1)
+	    
         poss=['^','v']
 	
         if pos_low<pos_high:
