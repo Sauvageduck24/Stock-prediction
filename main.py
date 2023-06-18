@@ -343,6 +343,9 @@ if logged_in:
 
         time=np.array(time)
 
+        st.write(low_mins)	    
+        print(low_mins)	    
+	    
         mask=np.isfinite(low)
         mask2=np.isfinite(high)
         mask3=np.isfinite(mean)
