@@ -226,9 +226,9 @@ if logged_in:
 	
         #------------------------------------------------------------------------------------
 	    
-        low=low.tolist()
-        high=high.tolist()
-        mean=mean.tolist()
+        low=low_mins.tolist()
+        high=high_mins.tolist()
+        mean=mean_mins.tolist()
 	    
         new_low=[]
         new_high=[]
