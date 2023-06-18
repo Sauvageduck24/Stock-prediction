@@ -317,7 +317,7 @@ if logged_in:
         pos_high=pos_high.flat[0]
         pos_low=pos_low.flat[0]
         	
-        ax.scatter([pos_high,pos_low,len(low)-60],new_real,color='gray',label='Valores predichos')
+        #ax.scatter([pos_high,pos_low,len(low)-60],new_real,color='gray',label='Valores predichos')
 
         ax.fill_between(xs[mask2],high_mins[mask2],mean_mins[mask3], color="green", alpha=0.1)
         ax.fill_between(xs[mask2],mean_mins[mask3],low_mins[mask], color="red", alpha=0.1)
@@ -344,9 +344,9 @@ if logged_in:
         plt.xlabel("Tiempo (h)")
         plt.ylabel("Precio (€)")
 	
-        new_time=['9','10','11','12','13','14','15','16']
+        new_time=['9:00','9:30','10','10','11','11','12','12','13','13','14','14','15','15','16','16']
 	
-        #plt.xticks(np.arange(0, len(low), 60),new_time)
+        plt.xticks(np.arange(0, len(low_mins), 30),new_time)
 	
         ax.legend(loc="best")
 	
