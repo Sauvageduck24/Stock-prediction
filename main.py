@@ -358,6 +358,10 @@ if logged_in:
         fig,ax=plt.subplots()
 
         #ax.plot(xs[mask],low[mask],linestyle='-',color='r',label='Mínimo')
+        
+        st.write(mask_mins)	    
+        st.write(low_mins[mask_mins])	     
+	    
         ax.plot(xs[mask_mins],low_mins[mask_mins],linestyle='-',color='r',label='Mínimo')
 
         #ax.plot(xs[mask3],mean[mask3],linestyle='-',color='gray',alpha=0)
