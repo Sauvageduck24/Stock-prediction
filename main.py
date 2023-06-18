@@ -97,6 +97,7 @@ if logged_in:
     sheet2= workbook.worksheet('CALC')
     sheet3 = workbook.worksheet('HOUR DATA')
     sheet4 = workbook.worksheet('DAY DATA')
+    sheet5 = workbook.worksheet('MINS DATA')
 	
     st.subheader('Predicción para el día siguiente')
 
@@ -130,6 +131,8 @@ if logged_in:
             if not sheet4.cell(3,3).value:
                 sheet4.update('C3',p_open)	
 
+            if not sheet5.cell(3,3).value:
+                sheet5.update('C3',p_open)	
 
         values=sheet.range(f'G{cell.row}:J{cell.row}')
         open=values[0].value
@@ -160,7 +163,10 @@ if logged_in:
 	
         high=sheet3.range('H3:H10')
         low=sheet3.range('I3:I10')
-	
+        
+        high=sheet4.range('H3:H18')
+        low=sheet4.range('I3:I18')
+	    
         data = yf.download(f'{selected_stock}.MC', period=f'1d',interval=f'1m',progress=False)
 
         now = datetime.now()
@@ -172,8 +178,8 @@ if logged_in:
             data=data[:-9*60]
 	
 	
-        #if len(data)>7*60:
-            #data=data[:-30]
+        if len(data)>8*60:
+            data=data[:-30]
 	
         for _,i in enumerate(high):
             num=i.value
@@ -204,22 +210,6 @@ if logged_in:
             real.append(row['Close'])
 	
         #---------------------------------------------
-	
-        #high=[6.603,6.646,6.683,6.680,6.671,6.663,6.655,6.653]
-        #low=[6.548,6.591,6.630,6.626,6.616,6.608,6.605,6.603]
-        #mean=[]
-        #time=[]
-
-        #for i,j in zip(high,low):
-            #mean.append((i+j)/2)
-
-        #for i in range(len(high)*60):
-            #time.append(i)
-
-        #high=np.array(high)
-        #low=np.array(low)
-        #mean=np.array(mean)
-        #time=np.array(time)
 
         low=low.tolist()
         high=high.tolist()
