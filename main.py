@@ -163,7 +163,7 @@ if logged_in:
         st.dataframe(df)
 	
         st.write(" ")
-        st.write('**Gráfico aproximado del día (formato en 15 minutos)**')
+        st.write('**Gráfico aproximado del día (formato en 30 minutos)**')
 	
         high=sheet3.range('H3:H10')
         low=sheet3.range('I3:I10')
@@ -232,142 +232,10 @@ if logged_in:
             real.append(row['Close'])
 	
         #------------------------------------------------------------------------------------
-
-        low_mins=low_mins.tolist()
-        high_mins=high_mins.tolist()
-        mean_mins=mean_mins.tolist()
-
-        new_low_mins=[]
-        new_high_mins=[]
-        new_mean_mins=[]
-
-        last_low_mins=0
-        last_high_mins=0
-        last_mean_mins=0
-
-        for _,i in enumerate(low_mins):
-            if _!=len(low_mins):
-                rango=30
-            else:
-                rango=30
-		
-            for j in range(rango):
-                if j==0:
-                    new_low_mins.append(i)
-                    last_low_mins=i
-                else:			
-                    new_low_mins.append(np.nan)
-
-        for _,i in enumerate(high_mins):
-            if _!=len(low_mins):
-                rango=30
-            else:
-                rango=30
-		
-            for j in range(rango):
-                if j==0:
-                    new_high_mins.append(i)
-                    last_hig_minsh=i
-                else:
-                    new_high_mins.append(np.nan)
-
-        for _,i in enumerate(mean_mins):
-            if _!=len(low_mins):
-                rango=30
-            else:
-                rango=30
-		
-            for j in range(rango):
-                if j==0:
-                    new_mean_mins.append(i)
-                    last_mean_mins=i
-                else:
-                    new_mean_mins.append(np.nan)
-
-        low_mins=np.array(new_low_mins)
-        high_mins=np.array(new_high_mins)
-        mean_mins=np.array(new_mean_mins)
 	    
-        time=[]
-
-        for i in range(len(high)):
-            time.append(i)
-
-        time=np.array(time)
-
-        mask_mins=np.isfinite(low_mins)
-        mask2_mins=np.isfinite(high_mins)
-        mask3_mins=np.isfinite(mean_mins)
-	    
-        xs=np.arange(len(low_mins))
-        xs2=np.arange(len(high_mins))
-        xs3=np.arange(len(mean_mins))
-	    
-        fig,ax=plt.subplots()
-
-        ax.plot(xs[mask_mins],low_mins[mask_mins],linestyle='-',color='r',label='Mínimo')
-
-        ax.plot(xs[mask3_mins],mean_mins[mask3_mins],linestyle='-',color='gray',alpha=0)
-
-        ax.plot(xs[mask2_mins],high_mins[mask2_mins],linestyle='-',color='g',label='Máximo')
-	
-        #ax.plot(real,color='black',label='Real Data',alpha=0.85)
-
-        pos_high,=np.where(high_mins==max(high_mins))
-        pos_low,=np.where(low_mins==min(low_mins))
-	    
-        pos_high=pos_high.flat[0]
-        pos_low=pos_low.flat[0]
-
-        pos_high=pos_high.flat[0]
-        pos_low=pos_low.flat[0]
-	    
-        for _,i in enumerate(new_real):
-            new_real[_]=float(i.replace(',','.'))	
-        	
-        ax.scatter([pos_high,pos_low,len(low)-60],new_real,color='gray',label='Valores predichos')
-
-        ax.fill_between(xs[mask2_mins],high_mins[mask2_mins],mean_mins[mask3_mins], color="green", alpha=0.1)
-        ax.fill_between(xs[mask2_mins],mean_mins[mask3_mins],low_mins[mask_mins], color="red", alpha=0.1)
-	    
-        poss=['^','v']
-	
-        if pos_low<pos_high:
-            ax.scatter(pos_high,max(high)+0.01,marker=poss[1],color='r')
-            ax.scatter(pos_low,min(low)-0.01,marker=poss[0],color='g')
-	
-        dif=round((100-(min(low)*100)/max(high)),2)
-	
-        ax.axhline(y=max(high), color='g',linestyle='--')
-        ax.axhline(y=min(low) , color='r',linestyle='--')
-	
-        ax.axhline(y=new_real[0], color='gray', linestyle='--',alpha=0.3)
-        ax.axhline(y=new_real[1], color='gray', linestyle='--',alpha=0.3)
-	
-        #if dif>=0:
-            #ax.text(20,max(high), f'{dif} %', va='center', ha='center', backgroundcolor='w',color='g')
-        #else:
-            #ax.text(400, min(low), f'{dif} %', va='center', ha='center', backgroundcolor='w',color='r')
-	
-        plt.xlabel("Tiempo (h)")
-        plt.ylabel("Precio (€)")
-	
-        new_time=['9','10','11','12','13','14','15','16']
-	
-        #plt.xticks(np.arange(0, len(low), 60),new_time)
-	
-        ax.legend(loc="best")
-	
-        st.pyplot(plt.gcf())
-
-        #------------------------------------------------------------------------------------
-
-        st.write(" ")	    
-        st.write('**Gráfico aproximado del día (formato en 30 minutos)**')
-	    
-        low=low_mins.tolist()
-        high=high_mins.tolist()
-        mean=mean_mins.tolist()
+        low=low.tolist()
+        high=high.tolist()
+        mean=mean.tolist()
 	    
         new_low=[]
         new_high=[]
