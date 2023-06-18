@@ -319,7 +319,7 @@ if logged_in:
         pos_high=pos_high.flat[0]
         pos_low=pos_low.flat[0]
         	
-        ax.scatter([pos_high,pos_low,len(low_mins)],new_real,color='gray',label='Valores predichos')
+        ax.scatter([pos_high,pos_low,len(low_mins)-30],new_real,color='gray',label='Valores predichos')
 
         ax.fill_between(xs[mask2],high_mins[mask2],mean_mins[mask3], color="green", alpha=0.1)
         ax.fill_between(xs[mask2],mean_mins[mask3],low_mins[mask], color="red", alpha=0.1)
