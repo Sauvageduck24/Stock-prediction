@@ -144,8 +144,12 @@ if logged_in:
         sub_dia=values2[0].value
         sub_entre_dias=values2[2].value
         anotaciones=values2[4].value
-	
-	
+
+        open=float(open.replace(',','.'))
+        high=float(high.replace(',','.'))
+        low=float(low.replace(',','.'))
+        close=float(close.replace(',','.'))
+	    
         st.write('Predicciones para el día')
         
         new_real=[high,low,close]
