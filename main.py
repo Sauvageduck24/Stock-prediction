@@ -295,9 +295,9 @@ if logged_in:
 
         for _,i in enumerate(low_mins):
             if _!=len(low_mins):
-                rango=30
+                rango=60
             else:
-                rango=30
+                rango=60
 		
             for j in range(rango):
                 if j==0:
@@ -308,9 +308,9 @@ if logged_in:
 
         for _,i in enumerate(high_mins):
             if _!=len(low_mins):
-                rango=30
+                rango=60
             else:
-                rango=30
+                rango=60
 		
             for j in range(rango):
                 if j==0:
@@ -321,9 +321,9 @@ if logged_in:
 
         for _,i in enumerate(mean_mins):
             if _!=len(low_mins):
-                rango=30
+                rango=60
             else:
-                rango=30
+                rango=60
 		
             for j in range(rango):
                 if j==0:
