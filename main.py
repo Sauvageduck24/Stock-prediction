@@ -298,11 +298,11 @@ if logged_in:
 	    
         fig,ax=plt.subplots()
 
-        ax.plot(xs[mask],low[mask],linestyle='-',color='r',label='Mínimo')
+        ax.plot(xs[mask],low_mins[mask],linestyle='-',color='r',label='Mínimo')
 
-        ax.plot(xs[mask3],mean[mask3],linestyle='-',color='gray',alpha=0)
+        ax.plot(xs[mask3],mean_mins[mask3],linestyle='-',color='gray',alpha=0)
 
-        ax.plot(xs[mask2],high[mask2],linestyle='-',color='g',label='Máximo')
+        ax.plot(xs[mask2],high_mins[mask2],linestyle='-',color='g',label='Máximo')
 	
         #ax.plot(real,color='black',label='Real Data',alpha=0.85)
 
@@ -317,19 +317,19 @@ if logged_in:
         	
         ax.scatter([pos_high,pos_low,len(low)-60],new_real,color='gray',label='Valores predichos')
 
-        ax.fill_between(xs[mask2],high[mask2],mean[mask3], color="green", alpha=0.1)
-        ax.fill_between(xs[mask2],mean[mask3],low[mask], color="red", alpha=0.1)
+        ax.fill_between(xs[mask2],high_mins[mask2],mean_mins[mask3], color="green", alpha=0.1)
+        ax.fill_between(xs[mask2],mean_mins[mask3],low_mins[mask], color="red", alpha=0.1)
 	    
         poss=['^','v']
 	
         if pos_low<pos_high:
-            ax.scatter(pos_high,max(high)+0.01,marker=poss[1],color='r')
-            ax.scatter(pos_low,min(low)-0.01,marker=poss[0],color='g')
+            ax.scatter(pos_high,max(high_mins)+0.01,marker=poss[1],color='r')
+            ax.scatter(pos_low,min(low_mins)-0.01,marker=poss[0],color='g')
 	
-        dif=round((100-(min(low)*100)/max(high)),2)
+        dif=round((100-(min(low_mins)*100)/max(high_mins)),2)
 	
-        ax.axhline(y=max(high), color='g',linestyle='--')
-        ax.axhline(y=min(low) , color='r',linestyle='--')
+        ax.axhline(y=max(high_mins), color='g',linestyle='--')
+        ax.axhline(y=min(low_mins) , color='r',linestyle='--')
 	
         ax.axhline(y=new_real[0], color='gray', linestyle='--',alpha=0.3)
         ax.axhline(y=new_real[1], color='gray', linestyle='--',alpha=0.3)
