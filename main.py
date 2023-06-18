@@ -476,7 +476,7 @@ if logged_in:
 	
         new_time=['9','10','11','12','13','14','15','16']
 	
-        plt.xticks(np.arange(0, len(low), 60),new_time)
+        #plt.xticks(np.arange(0, len(low), 60),new_time)
 	
         ax.legend(loc="best")
 	
