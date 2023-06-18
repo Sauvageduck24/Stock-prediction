@@ -108,8 +108,8 @@ if logged_in:
     cell2=sheet2.find(f"{dia}")
 	
     if cell is None:
-    	st.warning('Hoy no hay bolsa 😥')
-    	st.stop()
+    	raise Exception('Hoy no hay bolsa 😥')
+    	
 	
     if not sheet.cell(cell.row,3).value:
         p_open = st.text_input('Precio Open: ')
