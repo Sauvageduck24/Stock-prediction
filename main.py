@@ -133,9 +133,6 @@ if logged_in:
 
             if not sheet5.cell(3,3).value:
                 sheet5.update('C3',p_open)	
-
-            if not sheet6.cell(3,3).value:
-                sheet6.update('C3',p_open)
 	    
         values=sheet.range(f'G{cell.row}:J{cell.row}')
         open=values[0].value
@@ -169,9 +166,6 @@ if logged_in:
         
         high_mins=sheet5.range('H3:H18')
         low_mins=sheet5.range('I3:I18')
-
-        high_mins=sheet6.range('H3:H18')
-        low_mins=sheet6.range('I3:I18')
 	    
         data = yf.download(f'{selected_stock}.MC', period=f'1d',interval=f'1m',progress=False)
 
