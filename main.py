@@ -190,11 +190,11 @@ if logged_in:
 
         for _,i in enumerate(high_mins):
             num=i.value
-            high[_]=float(num.replace(',','.'))
+            high_mins[_]=float(num.replace(',','.'))
 	
         for _,i in enumerate(low_mins):
             num=i.value
-            low[_]=float(num.replace(',','.'))
+            low_mins[_]=float(num.replace(',','.'))
 	
         mean=[]
         mean_mins=[]
