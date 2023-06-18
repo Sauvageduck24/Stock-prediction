@@ -357,18 +357,14 @@ if logged_in:
 	    
         fig,ax=plt.subplots()
 
-        #ax.plot(xs[mask],low[mask],linestyle='-',color='r',label='Mínimo')
-        
-        st.write(mask_mins)	    
-        st.write(low_mins[mask_mins])	     
-	    
+        ax.plot(xs[mask],low[mask],linestyle='-',color='r',label='Mínimo')
         ax.plot(xs[mask_mins],low_mins[mask_mins],linestyle='-',color='r',label='Mínimo')
 
-        #ax.plot(xs[mask3],mean[mask3],linestyle='-',color='gray',alpha=0)
-        #ax.plot(xs[mask3_mins],mean_mins[mask3_mins],linestyle='-',color='gray',alpha=0)
+        ax.plot(xs[mask3],mean[mask3],linestyle='-',color='gray',alpha=0)
+        ax.plot(xs[mask3_mins],mean_mins[mask3_mins],linestyle='-',color='gray',alpha=0)
 
-        #ax.plot(xs[mask2],high[mask2],linestyle='-',color='g',label='Máximo')
-        #ax.plot(xs[mask2_mins],high_mins[mask2_mins],linestyle='-',color='g',label='Máximo')
+        ax.plot(xs[mask2],high[mask2],linestyle='-',color='g',label='Máximo')
+        ax.plot(xs[mask2_mins],high_mins[mask2_mins],linestyle='-',color='g',label='Máximo')
 	
         ax.plot(real,color='black',label='Real Data',alpha=0.85)
 
