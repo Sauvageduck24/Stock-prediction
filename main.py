@@ -335,13 +335,13 @@ if logged_in:
         ax.axhline(y=max(high_mins), color='g',linestyle='--')
         ax.axhline(y=min(low_mins) , color='r',linestyle='--')
 	
-        #ax.axhline(y=new_real[0], color='gray', linestyle='--',alpha=0.3)
-        #ax.axhline(y=new_real[1], color='gray', linestyle='--',alpha=0.3)
+        ax.axhline(y=new_real[0], color='gray', linestyle='--',alpha=0.3)
+        ax.axhline(y=new_real[1], color='gray', linestyle='--',alpha=0.3)
 	
-        if dif>=0:
-            ax.text(20,max(high), f'{dif} %', va='center', ha='center', backgroundcolor='w',color='g')
-        else:
-            ax.text(400, min(low), f'{dif} %', va='center', ha='center', backgroundcolor='w',color='r')
+        #if dif>=0:
+            #ax.text(20,max(high), f'{dif} %', va='center', ha='center', backgroundcolor='w',color='g')
+        #else:
+            #ax.text(400, min(low), f'{dif} %', va='center', ha='center', backgroundcolor='w',color='r')
 	
         plt.xlabel("Tiempo (h)")
         plt.ylabel("Precio (€)")
@@ -477,7 +477,7 @@ if logged_in:
 	
         new_time=['9','10','11','12','13','14','15','16']
 	
-        #plt.xticks(np.arange(0, len(low), 60),new_time)
+        plt.xticks(np.arange(0, len(low), 60),new_time)
 	
         ax.legend(loc="best")
 	
