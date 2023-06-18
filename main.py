@@ -197,17 +197,26 @@ if logged_in:
             low[_]=float(num.replace(',','.'))
 	
         mean=[]
+        mean_mins=[]
         time=[]
 
         for i,j in zip(high,low):
             mean.append((i+j)/2)
 
+        for i,j in zip(high_mins,low_mins):
+            mean_mins.append((i+j)/2)
+	    
         for i in range(len(high)):
             time.append(i)
 
         high=np.array(high)
         low=np.array(low)
         mean=np.array(mean)
+
+        high_mins=np.array(high_mins)
+        low_mins=np.array(low_mins)
+        mean_mins=np.array(mean_mins)
+	    
         time=np.array(time)
 
         real=[]
@@ -221,13 +230,25 @@ if logged_in:
         high=high.tolist()
         mean=mean.tolist()
 
+        low_mins=low_mins.tolist()
+        high_mins=high_mins.tolist()
+        mean_mins=mean_mins.tolist()
+	    
         new_low=[]
         new_high=[]
         new_mean=[]
 
+        new_low_mins=[]
+        new_high_mins=[]
+        new_mean_mins=[]
+	    
         last_low=0
         last_high=0
         last_mean=0
+
+        last_low_mins=0
+        last_high_mins=0
+        last_mean_mins=0
 	
         for _,i in enumerate(low):
             if _!=len(low):
@@ -272,6 +293,49 @@ if logged_in:
         high=np.array(new_high)
         mean=np.array(new_mean)
 
+        for _,i in enumerate(low_mins):
+            if _!=len(low_mins):
+                rango=30
+            else:
+                rango=30
+		
+            for j in range(rango):
+                if j==0:
+                    new_low_mins.append(i)
+                    last_low_mins=i
+                else:			
+                    new_low_mins.append(np.nan)
+
+        for _,i in enumerate(high_mins):
+            if _!=len(low_mins):
+                rango=30
+            else:
+                rango=30
+		
+            for j in range(rango):
+                if j==0:
+                    new_high_mins.append(i)
+                    last_hig_minsh=i
+                else:
+                    new_high_mins.append(np.nan)
+
+        for _,i in enumerate(mean_mins):
+            if _!=len(low_mins):
+                rango=30
+            else:
+                rango=30
+		
+            for j in range(rango):
+                if j==0:
+                    new_mean_mins.append(i)
+                    last_mean_mins=i
+                else:
+                    new_mean_mins.append(np.nan)
+
+        low_mins=np.array(new_low_mins)
+        high_mins=np.array(new_high_mins)
+        mean_mins=np.array(new_mean_mins)
+	    
         time=[]
 
         for i in range(len(high)):
