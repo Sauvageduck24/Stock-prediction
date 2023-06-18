@@ -237,7 +237,9 @@ if logged_in:
         last_low=0
         last_high=0
         last_mean=0
-	
+
+        st.write(low_mins)	    
+	    
         for _,i in enumerate(low_mins):
             if _!=len(low_mins):
                 rango=30
