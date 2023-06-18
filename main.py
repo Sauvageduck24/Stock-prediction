@@ -109,6 +109,7 @@ if logged_in:
 	
     if cell is None:
     	st.warning('Hoy no hay bolsa 😥')
+    	st.stop()
 	
     if not sheet.cell(cell.row,3).value:
         p_open = st.text_input('Precio Open: ')
