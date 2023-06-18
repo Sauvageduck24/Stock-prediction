@@ -177,9 +177,8 @@ if logged_in:
         else:
             data=data[:-9*60]
 	
-	
-        if len(data)>8*60:
-            data=data[:-30]
+        #if len(data)>8*60:
+            #data=data[:-30]
 	
         for _,i in enumerate(high):
             num=i.value
@@ -188,7 +187,14 @@ if logged_in:
         for _,i in enumerate(low):
             num=i.value
             low[_]=float(num.replace(',','.'))
+
+        for _,i in enumerate(high_mins):
+            num=i.value
+            high[_]=float(num.replace(',','.'))
 	
+        for _,i in enumerate(low_mins):
+            num=i.value
+            low[_]=float(num.replace(',','.'))
 	
         mean=[]
         time=[]
