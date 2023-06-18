@@ -103,11 +103,13 @@ if logged_in:
 
     today = date.today()
     dia=today.strftime("%d-%m-%Y")
-    dia="19-06-2023"
-	
-    cell=sheet.find(f"{dia}")
-    cell2=sheet2.find(f"{dia}")
 
+    try:	
+    	cell=sheet.find(f"{dia}")
+    	cell2=sheet2.find(f"{dia}")
+    except:
+    	st.warning('Hoy no hay bolsa 😥')
+	
     if not sheet.cell(cell.row,3).value:
         p_open = st.text_input('Precio Open: ')
         try:
