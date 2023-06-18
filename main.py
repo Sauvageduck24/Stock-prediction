@@ -104,10 +104,10 @@ if logged_in:
     today = date.today()
     dia=today.strftime("%d-%m-%Y")
 
-    try:	
-    	cell=sheet.find(f"{dia}")
-    	cell2=sheet2.find(f"{dia}")
-    except:
+    cell=sheet.find(f"{dia}")
+    cell2=sheet2.find(f"{dia}")
+	
+    if cell is None:
     	st.warning('Hoy no hay bolsa 😥')
 	
     if not sheet.cell(cell.row,3).value:
