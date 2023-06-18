@@ -236,9 +236,7 @@ if logged_in:
 	    
         last_low=0
         last_high=0
-        last_mean=0
-
-        st.write(low_mins)	    
+        last_mean=0    
 	    
         for _,i in enumerate(low_mins):
             if _!=len(low_mins):
@@ -333,8 +331,8 @@ if logged_in:
         ax.axhline(y=max(high_mins), color='g',linestyle='--')
         ax.axhline(y=min(low_mins) , color='r',linestyle='--')
 	
-        ax.axhline(y=new_real[0], color='gray', linestyle='--',alpha=0.3)
-        ax.axhline(y=new_real[1], color='gray', linestyle='--',alpha=0.3)
+        #ax.axhline(y=new_real[0], color='gray', linestyle='--',alpha=0.3)
+        #ax.axhline(y=new_real[1], color='gray', linestyle='--',alpha=0.3)
 	
         #if dif>=0:
             #ax.text(20,max(high), f'{dif} %', va='center', ha='center', backgroundcolor='w',color='g')
