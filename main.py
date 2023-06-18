@@ -359,7 +359,7 @@ if logged_in:
         fig,ax=plt.subplots()
 
         ax.plot(xs[mask],low[mask],linestyle='-',color='r',label='Mínimo')
-        ax.plot(xs[mask],low_mins[mask],linestyle='-',color='r',label='Mínimo')
+        ax.plot(xs[mask_mins],low_mins[mask_mins],linestyle='-',color='r',label='Mínimo')
 
         ax.plot(xs[mask3],mean[mask3],linestyle='-',color='gray',alpha=0)
         #ax.plot(xs[mask3_mins],mean_mins[mask3_mins],linestyle='-',color='gray',alpha=0)
