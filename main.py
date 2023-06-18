@@ -362,20 +362,28 @@ if logged_in:
         fig,ax=plt.subplots()
 
         ax.plot(xs[mask],low[mask],linestyle='-',color='r',label='Mínimo')
-        ax.plot(xs_mins[mask_mins],low_mins[mask_mins],linestyle='-',color='r',label='Mínimo')
+        #ax.plot(xs_mins[mask_mins],low_mins[mask_mins],linestyle='-',color='r',label='Mínimo')
 
         ax.plot(xs[mask3],mean[mask3],linestyle='-',color='gray',alpha=0)
+        ax.plot(xs_mins[mask3_mins],mean_mins[mask3_mins],linestyle='-',color='gray',alpha=0)
 
         ax.plot(xs[mask2],high[mask2],linestyle='-',color='g',label='Máximo')
+        ax.plot(xs_mins[mask2_mins],high_mins[mask2_mins],linestyle='-',color='g',label='Máximo')
 	
         ax.plot(real,color='black',label='Real Data',alpha=0.85)
 
         pos_high,=np.where(high==max(high))
         pos_low,=np.where(low==min(low))
-	
+
+        pos_high_mins,=np.where(high_mins==max(high_mins))
+        pos_low_mins,=np.where(low_mins==min(low_mins))
+	    
         pos_high=pos_high.flat[0]
         pos_low=pos_low.flat[0]
-	
+
+        pos_high_mins=pos_high_mins.flat[0]
+        pos_low_mins=pos_low_mins.flat[0]
+	    
         for _,i in enumerate(new_real):
             new_real[_]=float(i.replace(',','.'))	
         	
