@@ -295,9 +295,9 @@ if logged_in:
 
         for _,i in enumerate(low_mins):
             if _!=len(low_mins):
-                rango=60
+                rango=30
             else:
-                rango=60
+                rango=30
 		
             for j in range(rango):
                 if j==0:
@@ -308,9 +308,9 @@ if logged_in:
 
         for _,i in enumerate(high_mins):
             if _!=len(low_mins):
-                rango=60
+                rango=30
             else:
-                rango=60
+                rango=30
 		
             for j in range(rango):
                 if j==0:
@@ -321,9 +321,9 @@ if logged_in:
 
         for _,i in enumerate(mean_mins):
             if _!=len(low_mins):
-                rango=60
+                rango=30
             else:
-                rango=60
+                rango=30
 		
             for j in range(rango):
                 if j==0:
@@ -347,18 +347,17 @@ if logged_in:
         mask2=np.isfinite(high)
         mask3=np.isfinite(mean)
 
-        xs=np.arange(len(low))
-        xs2=np.arange(len(high))
-        xs3=np.arange(len(mean))
-
         mask_mins=np.isfinite(low_mins)
         mask2_mins=np.isfinite(high_mins)
         mask3_mins=np.isfinite(mean_mins)
-
+	    
+        xs=np.arange(len(low))
+        xs2=np.arange(len(high))
+        xs3=np.arange(len(mean))
 	    
         fig,ax=plt.subplots()
 
-        ax.plot(xs[mask],low[mask],linestyle='-',color='r',label='Mínimo')
+        #ax.plot(xs[mask],low[mask],linestyle='-',color='r',label='Mínimo')
         ax.plot(xs[mask_mins],low_mins[mask_mins],linestyle='-',color='r',label='Mínimo')
 
         ax.plot(xs[mask3],mean[mask3],linestyle='-',color='gray',alpha=0)
