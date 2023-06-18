@@ -226,9 +226,9 @@ if logged_in:
 	
         #------------------------------------------------------------------------------------
 	    
-        low=low_mins.tolist()
-        high=high_mins.tolist()
-        mean=mean_mins.tolist()
+        low_mins=low_mins.tolist()
+        high_mins=high_mins.tolist()
+        mean_mins=mean_mins.tolist()
 	    
         new_low=[]
         new_high=[]
@@ -238,8 +238,8 @@ if logged_in:
         last_high=0
         last_mean=0
 	
-        for _,i in enumerate(low):
-            if _!=len(low):
+        for _,i in enumerate(low_mins):
+            if _!=len(low_mins):
                 rango=30
             else:
                 rango=30
@@ -251,8 +251,8 @@ if logged_in:
                 else:			
                     new_low.append(np.nan)
 
-        for _,i in enumerate(high):
-            if _!=len(low):
+        for _,i in enumerate(high_mins):
+            if _!=len(low_mins):
                 rango=30
             else:
                 rango=30
@@ -264,8 +264,8 @@ if logged_in:
                 else:
                     new_high.append(np.nan)
 
-        for _,i in enumerate(mean):
-            if _!=len(low):
+        for _,i in enumerate(mean_mins):
+            if _!=len(low_mins):
                 rango=30
             else:
                 rango=30
@@ -277,9 +277,9 @@ if logged_in:
                 else:
                     new_mean.append(np.nan)
 
-        low=np.array(new_low)
-        high=np.array(new_high)
-        mean=np.array(new_mean)
+        low_mins=np.array(new_low)
+        high_mins=np.array(new_high)
+        mean_mins=np.array(new_mean)
 	    
         time=[]
 
@@ -288,13 +288,13 @@ if logged_in:
 
         time=np.array(time)
 
-        mask=np.isfinite(low)
-        mask2=np.isfinite(high)
-        mask3=np.isfinite(mean)
+        mask=np.isfinite(low_mins)
+        mask2=np.isfinite(high_mins)
+        mask3=np.isfinite(mean_mins)
 	    
-        xs=np.arange(len(low))
-        xs2=np.arange(len(high))
-        xs3=np.arange(len(mean))
+        xs=np.arange(len(low_mins))
+        xs2=np.arange(len(high_mins))
+        xs3=np.arange(len(mean_mins))
 	    
         fig,ax=plt.subplots()
 
@@ -306,8 +306,8 @@ if logged_in:
 	
         #ax.plot(real,color='black',label='Real Data',alpha=0.85)
 
-        pos_high,=np.where(high==max(high))
-        pos_low,=np.where(low==min(low))
+        pos_high,=np.where(high_mins==max(high_mins))
+        pos_low,=np.where(low_mins==min(low_mins))
 	    
         pos_high=pos_high.flat[0]
         pos_low=pos_low.flat[0]
