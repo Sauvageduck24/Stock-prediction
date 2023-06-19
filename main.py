@@ -185,9 +185,6 @@ if logged_in:
         else:
             data=data[:-9*60]
 	
-        #if len(data)>7*60:
-            #data=data[:-30]
-	
         for _,i in enumerate(high):
             num=i.value
             high[_]=float(num.replace(',','.'))
@@ -228,13 +225,9 @@ if logged_in:
         time=np.array(time)
 
         real=[]
-        #real_min=[]
 	    
         for index,row in data.iterrows():
             real.append(row['Close'])
-
-        #for index,row in data_min.iterrows():
-            #real_min.append(row['Close'])
 	    
         #------------------------------------------------------------------------------------
 	    
@@ -315,7 +308,10 @@ if logged_in:
         ax.plot(xs[mask3],mean_mins[mask3],linestyle='-',color='gray',alpha=0)
 
         ax.plot(xs[mask2],high_mins[mask2],linestyle='-',color='g',label='Máximo')
-	
+
+        st.write(len(low_mins))	    
+        st.write(len(real))	    
+	    
         ax.plot(real,color='black',label='Real Data',alpha=0.85)
 
         pos_high,=np.where(high_mins==max(high_mins))
