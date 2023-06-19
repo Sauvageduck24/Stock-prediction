@@ -307,10 +307,7 @@ if logged_in:
 
         ax.plot(xs[mask3],mean_mins[mask3],linestyle='-',color='gray',alpha=0)
 
-        ax.plot(xs[mask2],high_mins[mask2],linestyle='-',color='g',label='Máximo')
-
-        st.write(len(low_mins))	    
-        st.write(len(real))	    
+        ax.plot(xs[mask2],high_mins[mask2],linestyle='-',color='g',label='Máximo')    
 	    
         ax.plot(real,color='black',label='Real Data',alpha=0.85)
 
