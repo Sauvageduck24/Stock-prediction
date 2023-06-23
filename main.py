@@ -53,12 +53,16 @@ credentials={
     }
 }
 
+preauthorized={
+    "emails": "estebansanchezgamez@gmail.com"
+}
+
 authenticator = stauth.Authenticate(
     credentials, 
     st.secrets['name_cookies'],
     st.secrets['key'],
     st.secrets['expiry_days'],
-    #st.secrets['preauthorized']
+    preauthorized
 )
 
 name, authentication_status, username = authenticator.login('Login', 'main')
