@@ -43,7 +43,7 @@ drive_credentials= {
 	"client_x509_cert_url":st.secrets['client_x509_cert_url'],
 }
 
-credentials={}
+usernames={}
 
 #credentials={
     #"usernames": {
@@ -56,7 +56,9 @@ credentials={}
 #}
 
 for i in range(len(st.secrets['usernames'])):
-    credentials[st.secrets['usernames'][i]]={"email":st.secrets["emails"][i],"name":st.secrets["usernames"][i],"password":st.secrets["passwords"][i]}
+    usernames[st.secrets['usernames'][i]]={"email":st.secrets["emails"][i],"name":st.secrets["usernames"][i],"password":st.secrets["passwords"][i]}
+
+credentials={"usernames":usernames}
 
 authenticator = stauth.Authenticate(
     credentials, 
