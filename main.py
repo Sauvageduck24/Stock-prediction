@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit_authenticator as stauth
 from datetime import date,datetime
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
@@ -9,6 +10,15 @@ import matplotlib.pyplot as plt
 import warnings
 
 st.set_page_config(page_title="Market Master")
+
+hide_streamlit_style = """
+    <style>
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    </style>
+    """
+	    
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)     # para quitar marca de agua
 
 try:
     warnings.filterwarnings("ignore", category=np.VisibleDeprecationWarning) 
@@ -33,49 +43,18 @@ drive_credentials= {
 	"client_x509_cert_url":st.secrets['client_x509_cert_url'],
 }
 
+authenticator = stauth.Authenticate(
+    st.secrets['credentials'], 
+    st.secrets['cookie']['name'],
+    st.secrets['cookie']['key'],
+    st.secrets['cookie']['expiry_days'],
+    st.secrets['preauthorized']
+)
 
-app_state = st.experimental_get_query_params()
-# Display saved result if it exist
-
-if 'session' in app_state:
-    logged_in=True
-	#saved_result = app_state["my_saved_result"][0]
-    #st.write("Here is your result", saved_result)
-else:
-    #st.write("No result to display, compute a value first.")
-    logged_in=False
+name, authentication_status, username = authenticator.login('Login', 'main')
 
 
-if not logged_in:
-
-    username = st.text_input('Usuario:')
-    password = st.text_input('Contraseña:',type='password')
-
-    submit=st.button('Entrar')
-
-    if submit:        
-        
-        credentials = st.secrets["credentials"]
-
-
-        #if username in credentials and credentials[username] == credentials[password]:
-        if credentials[0]==username and credentials[1]==password:
-            st.experimental_set_query_params(session='session')
-            logged_in = True
-
-        if not logged_in:
-			# If credentials are invalid show a message and stop rendering the webapp
-            st.warning('Invalid credentials')
-            st.stop()
-
-		#available_views = ['report']
-		#if view not in available_views:
-			# I don't know which view do you want. Beat it.
-			#st.warning('404 Error')
-			#st.stop()
-
-
-if logged_in:
+if authentication_status:
 	
     creds=ServiceAccountCredentials.from_json_keyfile_dict(drive_credentials,scopes=scopes)
 
@@ -561,17 +540,10 @@ if logged_in:
         plt.ylabel("Precio (€)")
 	
         st.pyplot(plt.gcf())
-	
-        hide_streamlit_style = """
-            <style>
-            #MainMenu {visibility: hidden;}
-            footer {visibility: hidden;}
-            </style>
-            """
-	
-        st.markdown(hide_streamlit_style, unsafe_allow_html=True)     # para quitar marca de agua
-	
 
-#poner en tabla los resultados
-#poner incremento en mismo día y entre días
-#poner anotacion
+        authenticator.logout('Logout', 'main', key='unique_key')
+
+elif authentication_status is False:
+    st.error('Username/password is incorrect')
+elif authentication_status is None:
+    st.warning('Please enter your username and password')
