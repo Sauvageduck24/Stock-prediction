@@ -70,6 +70,8 @@ authenticator = stauth.Authenticate(
 name, authentication_status, username = authenticator.login('Login', 'main')
 
 if authentication_status:
+
+    authenticator.logout('Logout', 'main', key='unique_key')
 	
     creds=ServiceAccountCredentials.from_json_keyfile_dict(drive_credentials,scopes=scopes)
 
@@ -555,8 +557,6 @@ if authentication_status:
         plt.ylabel("Precio (€)")
 	
         st.pyplot(plt.gcf())
-
-        authenticator.logout('Logout', 'main', key='unique_key')
 
 elif authentication_status is False:
     st.error('Username/password is incorrect')
