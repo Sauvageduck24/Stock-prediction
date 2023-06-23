@@ -55,9 +55,9 @@ credentials={
 
 authenticator = stauth.Authenticate(
     credentials, 
-    st.secrets['cookie']['name'],
-    st.secrets['cookie']['key'],
-    st.secrets['cookie']['expiry_days'],
+    st.secrets['name_cookies'],
+    st.secrets['key'],
+    st.secrets['expiry_days'],
     #st.secrets['preauthorized']
 )
 
