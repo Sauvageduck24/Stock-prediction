@@ -62,9 +62,6 @@ authenticator = stauth.Authenticate(
 
 name, authentication_status, username = authenticator.login('Login', 'main')
 
-st.write(name,username)
-
-
 if authentication_status:
 	
     creds=ServiceAccountCredentials.from_json_keyfile_dict(drive_credentials,scopes=scopes)
