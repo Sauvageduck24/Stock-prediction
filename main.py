@@ -56,7 +56,7 @@ credentials={}
 #}
 
 for i in range(len(st.secrets['username'])):
-    credentials[st.secrets['usernames'][i]]={"email":st.secrets["emails"][i],"name":st.secrets["usernames"][i],st.secrets["passwords"][i]}
+    credentials[st.secrets['usernames'][i]]={"email":st.secrets["emails"][i],"name":st.secrets["usernames"][i],"password":st.secrets["passwords"][i]}
 
 authenticator = stauth.Authenticate(
     credentials, 
