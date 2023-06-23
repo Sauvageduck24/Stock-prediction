@@ -44,10 +44,12 @@ drive_credentials= {
 }
 
 credentials={
-    usernames:"esteban": {
-        email=st.secrets['email']	    
-        name=st.secrets['name']	    
-        password=st.secrets['password']	    
+    usernames: {
+        "esteban": {
+            email=st.secrets['email']	    
+            name=st.secrets['name']	    
+            password=st.secrets['password']	    
+	}	    
     }
 }
 
