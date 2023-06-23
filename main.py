@@ -43,12 +43,20 @@ drive_credentials= {
 	"client_x509_cert_url":st.secrets['client_x509_cert_url'],
 }
 
+credentials={
+    usernames:"esteban": {
+        email=st.secrets['email']	    
+        name=st.secrets['name']	    
+        password=st.secrets['password']	    
+    }
+}
+
 authenticator = stauth.Authenticate(
-    st.secrets['credentials'], 
+    credentials, 
     st.secrets['cookie']['name'],
     st.secrets['cookie']['key'],
     st.secrets['cookie']['expiry_days'],
-    st.secrets['preauthorized']
+    #st.secrets['preauthorized']
 )
 
 name, authentication_status, username = authenticator.login('Login', 'main')
