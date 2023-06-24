@@ -95,11 +95,11 @@ dia=today.strftime("%d-%m-%Y")
 if authentication_status:
     pos_username=usernames_f.index(name)
 
-    if end_times_f[pos_username]!="NEVER":
-        expire_date=datetime.datetime.strptime(end_times_f[pos_username], "%d/%m/%Y").date()
-        if expire_date>dia:
-            authentication_status=False	
-            break
+    #if end_times_f[pos_username]!="NEVER":
+        #expire_date=datetime.datetime.strptime(end_times_f[pos_username], "%d/%m/%Y").date()
+        #if expire_date>dia:
+            #authentication_status=False	
+            #return
 	
     col1,col2=st.columns([1,1])
 
