@@ -99,7 +99,7 @@ if authentication_status:
     cell2=sheet2.find(f"{dia}")
 	
     if cell is None:
-    	st.error('Hoy no hay bolsa 😥', icon="🚨")
+    	st.warning('Hoy no hay bolsa 😥', icon="⚠️")
     	raise Exception('Hoy no hay bolsa 😥')
 
 	
@@ -262,9 +262,9 @@ if authentication_status:
 
         for _,i in enumerate(mean_mins):
             if _!=len(low_mins):
-                rango=30
+                rango=15
             else:
-                rango=30
+                rango=15
 		
             for j in range(rango):
                 if j==0:
