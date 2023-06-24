@@ -88,7 +88,9 @@ authenticator = stauth.Authenticate(
 )
 
 name, authentication_status, username = authenticator.login('Login', 'main')
-pos_username=usernames_f.index(username)
+st.write(usernames_f)
+st.write(name)
+pos_username=usernames_f.index(name)
 
 today = date.today()
 dia=today.strftime("%d-%m-%Y")
