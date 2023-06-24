@@ -143,8 +143,9 @@ if authentication_status:
         high=float(high.replace(',','.'))
         low=float(low.replace(',','.'))
         close=float(close.replace(',','.'))
-	    
-        st.write(f"Precisión media del código en acciones de {selected_stock}: {accuracy}")
+
+        st.write(" ")	    
+        st.write(f"Precisión media del código en acciones de {selected_stock}:  {accuracy}")
         st.write(" ")    
         st.write('Predicciones para el día')
         
