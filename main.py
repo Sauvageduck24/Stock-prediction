@@ -45,16 +45,6 @@ drive_credentials= {
 
 usernames={}
 
-#credentials={
-    #"usernames": {
-        #"esteban": {
-            #"email":st.secrets['email'],    
-            #"name":st.secrets['name'],    
-            #"password":st.secrets['password']
-#	}	    
-    #}
-#}
-
 for i in range(len(st.secrets['usernames'])):
     usernames[st.secrets['usernames'][i]]={"email":st.secrets["emails"][i],"name":st.secrets["usernames"][i],"password":st.secrets["passwords"][i]}
 
@@ -70,8 +60,13 @@ authenticator = stauth.Authenticate(
 name, authentication_status, username = authenticator.login('Login', 'main')
 
 if authentication_status:
+    col1,col2=st.columns([1,1])
 
-    authenticator.logout('Logout', 'main', key='unique_key')
+    with col1:
+        st.write(f"Has iniciado sesión como: {name}")
+
+    with col2:
+        authenticator.logout('Logout', 'main', key='unique_key')
 	
     creds=ServiceAccountCredentials.from_json_keyfile_dict(drive_credentials,scopes=scopes)
 
