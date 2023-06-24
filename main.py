@@ -94,6 +94,7 @@ if authentication_status:
 
     today = date.today()
     dia=today.strftime("%d-%m-%Y")
+    dia="23-06-2023"
 
     cell=sheet.find(f"{dia}")
     cell2=sheet2.find(f"{dia}")
@@ -236,9 +237,9 @@ if authentication_status:
 	    
         for _,i in enumerate(low_mins):
             if _!=len(low_mins):
-                rango=30
+                rango=15
             else:
-                rango=30
+                rango=15
 		
             for j in range(rango):
                 if j==0:
@@ -249,9 +250,9 @@ if authentication_status:
 
         for _,i in enumerate(high_mins):
             if _!=len(low_mins):
-                rango=30
+                rango=15
             else:
-                rango=30
+                rango=15
 		
             for j in range(rango):
                 if j==0:
