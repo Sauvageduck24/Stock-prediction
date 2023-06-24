@@ -88,6 +88,15 @@ authenticator = stauth.Authenticate(
 )
 
 name, authentication_status, username = authenticator.login('Login', 'main')
+pos_username=usernames_f.index(username)
+
+today = date.today()
+dia=today.strftime("%d-%m-%Y")
+
+if end_times_f[pos_username]!="NEVER":
+    expire_date=datetime.datetime.strptime(end_times_f[pos_username], "%d/%m/%Y").date()
+    if expire_date>dia:
+        authentication_status=False	
 
 if authentication_status:
     col1,col2=st.columns([1,1])
@@ -115,9 +124,6 @@ if authentication_status:
     sheet4 = workbook.worksheet('DAY DATA')
 	
     st.subheader('Predicción para el día siguiente')
-
-    today = date.today()
-    dia=today.strftime("%d-%m-%Y")
 
     cell=sheet.find(f"{dia}")
     cell2=sheet2.find(f"{dia}")
