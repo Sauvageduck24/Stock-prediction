@@ -47,8 +47,8 @@ creds=ServiceAccountCredentials.from_json_keyfile_dict(drive_credentials,scopes=
 file = gspread.authorize(creds)
 
 search_db="1VDwSucmsEn0hiTgvGYQGTr9ZBWLpQ0yyXG7sYn0Srw8"
-workbook=file.open_by_key(search_db)
-sheet_db = workbook.worksheet('DB')
+workbook_db=file.open_by_key(search_db)
+sheet_db = workbook_db.worksheet('DB')
 
 usernames=sheet_db.range('B2:B1000')
 passwords=sheet_db.range('D2:D1000')
