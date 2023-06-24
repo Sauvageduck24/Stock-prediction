@@ -136,12 +136,16 @@ if authentication_status:
         sub_dia=values2[0].value
         sub_entre_dias=values2[2].value
         anotaciones=values2[4].value
-
+        accuracy=sheet2.range(f"F3:F3")
+        accuracy=accuracy[0].values
+	    
         open=float(open.replace(',','.'))
         high=float(high.replace(',','.'))
         low=float(low.replace(',','.'))
         close=float(close.replace(',','.'))
-	    
+
+	st.write(f"Precisión media del código en acciones de {selected_stock}: {int(accuracy)*100} %")
+	st.write(" ")    
         st.write('Predicciones para el día')
         
         new_real=[high,low,close]
@@ -153,9 +157,6 @@ if authentication_status:
 	
         df=pd.DataFrame([[sub_dia,sub_entre_dias]],columns=['Subida mismo dia (Open-High)','Subida entre dias'])
         st.dataframe(df)
-	
-        st.write(" ")
-        st.write('**Gráfico aproximado del día (formato en 30 minutos)**')
 	
         high=sheet3.range('H3:H10')
         low=sheet3.range('I3:I10')
