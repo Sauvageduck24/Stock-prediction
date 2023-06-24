@@ -88,7 +88,6 @@ if authentication_status:
     sheet2= workbook.worksheet('CALC')
     sheet3 = workbook.worksheet('HOUR DATA')
     sheet4 = workbook.worksheet('DAY DATA')
-    sheet5 = workbook.worksheet('MINS DATA')
 	
     st.subheader('Predicción para el día siguiente')
 
@@ -126,9 +125,6 @@ if authentication_status:
 
             if not sheet4.cell(3,3).value:
                 sheet4.update('C3',p_open)	
-
-            if not sheet5.cell(3,3).value:
-                sheet5.update('C3',p_open)	
 	    
         values=sheet.range(f'G{cell.row}:J{cell.row}')
         open=values[0].value
@@ -163,9 +159,6 @@ if authentication_status:
 	
         high=sheet3.range('H3:H10')
         low=sheet3.range('I3:I10')
-        
-        high_mins=sheet5.range('H3:H31')
-        low_mins=sheet5.range('I3:I31')
 	    
         data = yf.download(f'{selected_stock}.MC', period=f'1d',interval=f'1m',progress=False)
 
@@ -184,24 +177,12 @@ if authentication_status:
         for _,i in enumerate(low):
             num=i.value
             low[_]=float(num.replace(',','.'))
-
-        for _,i in enumerate(high_mins):
-            num=i.value
-            high_mins[_]=float(num.replace(',','.'))
-	
-        for _,i in enumerate(low_mins):
-            num=i.value
-            low_mins[_]=float(num.replace(',','.'))
 	
         mean=[]
-        mean_mins=[]
         time=[]
 
         for i,j in zip(high,low):
             mean.append((i+j)/2)
-
-        for i,j in zip(high_mins,low_mins):
-            mean_mins.append((i+j)/2)
 	    
         for i in range(len(high)):
             time.append(i)
@@ -209,10 +190,6 @@ if authentication_status:
         high=np.array(high)
         low=np.array(low)
         mean=np.array(mean)
-
-        high_mins=np.array(high_mins)
-        low_mins=np.array(low_mins)
-        mean_mins=np.array(mean_mins)
 	    
         time=np.array(time)
 
@@ -221,132 +198,6 @@ if authentication_status:
         for index,row in data.iterrows():
             real.append(row['Close'])
 	    
-        #------------------------------------------------------------------------------------
-	    
-        low_mins=low_mins.tolist()
-        high_mins=high_mins.tolist()
-        mean_mins=mean_mins.tolist()
-	    
-        new_low=[]
-        new_high=[]
-        new_mean=[]
-	    
-        last_low=0
-        last_high=0
-        last_mean=0    
-	    
-        for _,i in enumerate(low_mins):
-            if _!=len(low_mins):
-                rango=15
-            else:
-                rango=15
-		
-            for j in range(rango):
-                if j==0:
-                    new_low.append(i)
-                    last_low=i
-                else:			
-                    new_low.append(last_low)
-
-        for _,i in enumerate(high_mins):
-            if _!=len(low_mins):
-                rango=15
-            else:
-                rango=15
-		
-            for j in range(rango):
-                if j==0:
-                    new_high.append(i)
-                    last_high=i
-                else:
-                    new_high.append(last_high)
-
-        for _,i in enumerate(mean_mins):
-            if _!=len(low_mins):
-                rango=15
-            else:
-                rango=15
-		
-            for j in range(rango):
-                if j==0:
-                    new_mean.append(i)
-                    last_mean=i
-                else:
-                    new_mean.append(last_mean)
-
-        low_mins=np.array(new_low)
-        high_mins=np.array(new_high)
-        mean_mins=np.array(new_mean)
-	    
-        time=[]
-
-        for i in range(len(high)):
-            time.append(i)
-
-        time=np.array(time)
-
-        mask=np.isfinite(low_mins)
-        mask2=np.isfinite(high_mins)
-        mask3=np.isfinite(mean_mins)
-	    
-        xs=np.arange(len(low_mins))
-        xs2=np.arange(len(high_mins))
-        xs3=np.arange(len(mean_mins))
-	    
-        fig,ax=plt.subplots()
-
-        ax.plot(xs[mask],low_mins[mask],linestyle='-',color='r',label='Mínimo')
-
-        ax.plot(xs[mask3],mean_mins[mask3],linestyle='-',color='gray',alpha=0)
-
-        ax.plot(xs[mask2],high_mins[mask2],linestyle='-',color='g',label='Máximo')    
-	    
-        ax.plot(real,color='black',label='Real Data',alpha=0.85)
-
-        pos_high,=np.where(high_mins==max(high_mins))
-        pos_low,=np.where(low_mins==min(low_mins))
-	    
-        pos_high=pos_high.flat[0]
-        pos_low=pos_low.flat[0]
-
-        pos_high=pos_high.flat[0]
-        pos_low=pos_low.flat[0]
-        	
-        ax.scatter([pos_high,pos_low,len(low_mins)-30],new_real,color='gray',label='Valores predichos')
-
-        ax.fill_between(xs[mask2],high_mins[mask2],mean_mins[mask3], color="green", alpha=0.1)
-        ax.fill_between(xs[mask2],mean_mins[mask3],low_mins[mask], color="red", alpha=0.1)
-	    
-        poss=['^','v']
-	
-        if pos_low<pos_high:
-            ax.scatter(pos_high,max(high_mins)+0.01,marker=poss[1],color='r')
-            ax.scatter(pos_low,min(low_mins)-0.01,marker=poss[0],color='g')
-	
-        dif=round((100-(min(low_mins)*100)/max(high_mins)),2)
-	
-        ax.axhline(y=max(high_mins), color='g',linestyle='--')
-        ax.axhline(y=min(low_mins) , color='r',linestyle='--')
-	
-        ax.axhline(y=new_real[0], color='gray', linestyle='--',alpha=0.3)
-        ax.axhline(y=new_real[1], color='gray', linestyle='--',alpha=0.3)
-	
-        #if dif>=0:
-            #ax.text(20,max(high), f'{dif} %', va='center', ha='center', backgroundcolor='w',color='g')
-        #else:
-            #ax.text(400, min(low), f'{dif} %', va='center', ha='center', backgroundcolor='w',color='r')
-	
-        plt.xlabel("Tiempo (h)")
-        plt.ylabel("Precio (€)")
-	
-        new_time=['9','10','11','12','13','14','15','16']
-	
-        #plt.xticks(np.arange(0, len(low_mins), 60),new_time)
-	
-        ax.legend(loc="best")
-	
-        st.pyplot(plt.gcf())
-
         #------------------------------------------------------------------------------------
 
         st.write(" ")	    
