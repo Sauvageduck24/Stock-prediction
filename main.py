@@ -63,7 +63,7 @@ if authentication_status:
     col1,col2=st.columns([1,1])
 
     with col1:
-        st.write(f"Has iniciado sesión como: {name}")
+        st.write(f"Has iniciado sesión como: {name.upper()}")
 
     with col2:
         authenticator.logout('Logout', 'main', key='unique_key')
