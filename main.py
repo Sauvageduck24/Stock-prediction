@@ -93,7 +93,6 @@ if authentication_status:
 
     today = date.today()
     dia=today.strftime("%d-%m-%Y")
-    dia="23-06-2023"
 
     cell=sheet.find(f"{dia}")
     cell2=sheet2.find(f"{dia}")
