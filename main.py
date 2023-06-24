@@ -137,7 +137,7 @@ if authentication_status:
         sub_entre_dias=values2[2].value
         anotaciones=values2[4].value
         accuracy=sheet2.range(f"F3:F3")
-        accuracy=accuracy[0].values
+        accuracy=accuracy[0].value
 	    
         open=float(open.replace(',','.'))
         high=float(high.replace(',','.'))
