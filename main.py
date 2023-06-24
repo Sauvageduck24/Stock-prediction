@@ -144,6 +144,7 @@ if authentication_status:
         low=float(low.replace(',','.'))
         close=float(close.replace(',','.'))
 
+        st.write(accuracy)	    
         accuracy=float(accuracy.replace(",","."))
 	    
         st.write(f"Precisión media del código en acciones de {selected_stock}: {accuracy*100} %")
