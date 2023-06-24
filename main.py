@@ -43,10 +43,40 @@ drive_credentials= {
 	"client_x509_cert_url":st.secrets['client_x509_cert_url'],
 }
 
+creds=ServiceAccountCredentials.from_json_keyfile_dict(drive_credentials,scopes=scopes)
+file = gspread.authorize(creds)
+
+search="1VDwSucmsEn0hiTgvGYQGTr9ZBWLpQ0yyXG7sYn0Srw8"
+workbook=file.open_by_key(search)
+sheet_db = workbook.worksheet('DB')
+
+usernames=sheet_db.range('B2:B1000')
+passwords=sheet_db.range('D2:D1000')
+emails=sheet_db.range("E2:E1000")
+end_times=sheet_db.range('F2:F1000')
+
+usernames_f=[];passwords_f=[];end_times_f=[];emails_f=[]
+
+for i in usernames:
+    if i.value!='':
+        usernames_f.append(i.value)
+
+for i in passwords:
+    if i.value!='':
+        passwords_f.append(i.value)
+
+for i in end_times:
+    if i.value!='':
+        end_times_f.append(i.value)
+
+for i in emails:
+    if i.value!='':
+        emails_f.append(i.value)
+
 usernames={}
 
-for i in range(len(st.secrets['usernames'])):
-    usernames[st.secrets['usernames'][i]]={"email":st.secrets["emails"][i],"name":st.secrets["usernames"][i],"password":st.secrets["passwords"][i]}
+for i in range(len(usernames_f)):
+    usernames[usernames_f[i]]={"email":emails_f[i],"name":usernames_f[i],"password":passwords_f[i]}
 
 credentials={"usernames":usernames}
 
@@ -67,10 +97,6 @@ if authentication_status:
 
     with col2:
         authenticator.logout('Logout', 'main', key='unique_key')
-	
-    creds=ServiceAccountCredentials.from_json_keyfile_dict(drive_credentials,scopes=scopes)
-
-    file = gspread.authorize(creds)
 		
     st.title('Market Master')
 
@@ -81,7 +107,6 @@ if authentication_status:
     if selected_stock=='BBVA':
         search='1COITRN8LVx3Sa2zDQRYn-Igt91bg_mZlYqdeGE5KpAQ'
 	
-    #workbook=file.open(f'Market Master {selected_stock}')
     workbook=file.open_by_key(search)
 
     sheet = workbook.worksheet('ONE DAY DATA')
