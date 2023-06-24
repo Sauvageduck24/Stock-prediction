@@ -88,19 +88,19 @@ authenticator = stauth.Authenticate(
 )
 
 name, authentication_status, username = authenticator.login('Login', 'main')
-st.write(usernames_f)
-st.write(name)
-pos_username=usernames_f.index(name)
 
 today = date.today()
 dia=today.strftime("%d-%m-%Y")
 
-if end_times_f[pos_username]!="NEVER":
-    expire_date=datetime.datetime.strptime(end_times_f[pos_username], "%d/%m/%Y").date()
-    if expire_date>dia:
-        authentication_status=False	
-
 if authentication_status:
+    pos_username=usernames_f.index(name)
+
+    if end_times_f[pos_username]!="NEVER":
+        expire_date=datetime.datetime.strptime(end_times_f[pos_username], "%d/%m/%Y").date()
+        if expire_date>dia:
+            authentication_status=False	
+            break
+	
     col1,col2=st.columns([1,1])
 
     with col1:
