@@ -144,8 +144,8 @@ if authentication_status:
         low=float(low.replace(',','.'))
         close=float(close.replace(',','.'))
 
-	st.write(f"Precisión media del código en acciones de {selected_stock}: {int(accuracy)*100} %")
-	st.write(" ")    
+        st.write(f"Precisión media del código en acciones de {selected_stock}: {int(accuracy)*100} %")
+        st.write(" ")    
         st.write('Predicciones para el día')
         
         new_real=[high,low,close]
