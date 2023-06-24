@@ -164,8 +164,8 @@ if authentication_status:
         high=sheet3.range('H3:H10')
         low=sheet3.range('I3:I10')
         
-        high_mins=sheet5.range('H3:H18')
-        low_mins=sheet5.range('I3:I18')
+        high_mins=sheet5.range('H3:H31')
+        low_mins=sheet5.range('I3:I31')
 	    
         data = yf.download(f'{selected_stock}.MC', period=f'1d',interval=f'1m',progress=False)
 
