@@ -96,10 +96,9 @@ if authentication_status:
     pos_username=usernames_f.index(name)
 
     if end_times_f[pos_username]!="NEVER":
-        expire_date=datetime.strptime(end_times_f[pos_username], "%d/%m/%Y").date()
-        dia_actual=datetime.strptime(dia,"%d-%m-%Y").date()
-        st.write(dia_actual)
-        if expire_date>dia_actual:
+        expire_date=datetime.strptime(end_times_f[pos_username], "%d/%m/%Y").date()    
+        dia_actual=datetime.strptime(today.strftime("%d/%m/%Y"),"%d/%m/%Y").date()
+        if dia_actual>expire_date:
             self.cookie_manager.delete(self.cookie_name)
             st.session_state['logout'] = True
             st.session_state['name'] = None
