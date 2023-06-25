@@ -265,7 +265,7 @@ if authentication_status:
                     new_low.append(i)
                     last_low=i
                 else:			
-                    new_low.append(last_low)
+                    new_low.append(np.nan)
 
         for _,i in enumerate(high):
             if _!=len(low):
@@ -278,7 +278,7 @@ if authentication_status:
                     new_high.append(i)
                     last_high=i
                 else:
-                    new_high.append(last_high)
+                    new_high.append(np.nan)
 
         for _,i in enumerate(mean):
             if _!=len(low):
@@ -291,7 +291,7 @@ if authentication_status:
                     new_mean.append(i)
                     last_mean=i
                 else:
-                    new_mean.append(last_mean)
+                    new_mean.append(np.nan)
 
         low=np.array(new_low)
         high=np.array(new_high)
