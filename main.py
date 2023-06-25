@@ -95,11 +95,14 @@ dia=today.strftime("%d-%m-%Y")
 if authentication_status:
     pos_username=usernames_f.index(name)
 
-    #if end_times_f[pos_username]!="NEVER":
-        #expire_date=datetime.datetime.strptime(end_times_f[pos_username], "%d/%m/%Y").date()
-        #if expire_date>dia:
-            #authentication_status=False	
-            #return
+    if end_times_f[pos_username]!="NEVER":
+        expire_date=datetime.datetime.strptime(end_times_f[pos_username], "%d/%m/%Y").date()
+        if expire_date>dia:
+            self.cookie_manager.delete(self.cookie_name)
+            st.session_state['logout'] = True
+            st.session_state['name'] = None
+            st.session_state['username'] = None
+            st.session_state['authentication_status'] = None
 	
     col1,col2=st.columns([1,1])
 
