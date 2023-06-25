@@ -100,12 +100,12 @@ if authentication_status:
         #dia_actual=datetime.strptime(today.strftime("%d/%m/%Y"),"%d/%m/%Y").date()
         dia_actual=datetime.strptime("20/07/2023","%d/%m/%Y").date()
         if dia_actual>expire_date:
-            st.write("srogritn")		
             authenticator.cookie_manager.delete(authenticator.cookie_name)
             st.session_state['logout'] = True
             st.session_state['name'] = None
             st.session_state['username'] = None
             st.session_state['authentication_status'] = None
+            st.experimental_rerun()
 	
     col1,col2=st.columns([1,1])
 
