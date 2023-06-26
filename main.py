@@ -61,7 +61,11 @@ db_data=sheet_db.get_all_values()
 usernames_f=[];passwords_f=[];end_times_f=[];emails_f=[]
 
 for i in range(len(db_data)):
-    st.write(db_data[i])
+    if i==0:
+        continue
+
+    if db_data[i][3]!='':
+        st.write(db_data[i])
 
 
 #for i in usernames:
