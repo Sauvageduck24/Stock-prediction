@@ -54,16 +54,18 @@ sheet_db = workbook_db.worksheet('DB')
 
 db_data=sheet_db.get_all_values()
 
-st.write(db_data)
-st.write(len(db_data))
-st.write(db_data[0])
+#st.write(db_data)
+#st.write(len(db_data))
+#st.write(db_data[0])
 
 usernames_f=[];passwords_f=[];end_times_f=[];emails_f=[]
 
 for i in range(len(db_data)):
-    if db_data[i].value!='':
-        usernames_f.append(db_data[i].value);passwords_f.append(db_data[i].value);emails_f.append(db_data[i].value);end_times_f.append(db_data[i].value)
-
+    data=db_data[i+1]
+    if data[3]!="":
+        st.write(data[1])
+        #usernames_f.append(data[1]);passwords_f.append()
+	    
 
 #for i in usernames:
     #if i.value!='':
