@@ -65,8 +65,12 @@ for i in range(len(db_data)):
         continue
 
     if db_data[i][3]!='':
-        st.write(db_data[i])
+        usernames_f.append(db_data[i][1])
+        passwords_f.append(db_data[i][2])
+        emails_f.append(db_data[i][3])
+        end_times_f.append(db_data[i][4])
 
+st.write(usernames_f)
 
 #for i in usernames:
     #if i.value!='':
