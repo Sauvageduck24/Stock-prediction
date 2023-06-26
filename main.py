@@ -62,12 +62,12 @@ usernames_f=[];passwords_f=[];end_times_f=[];emails_f=[]
 
 st.write(db_data[1])
 
-for i in range(len(db_data)):
-    data=db_data[i+1]
-    if data[3]!="":
-        st.write(data[1])
-        #usernames_f.append(data[1]);passwords_f.append()
-	    
+usernames_f.append(db_data[1])
+passwords_f.append(db_data[2])
+emails_f.append(db_data[3])
+end_times_f.append(db_data[4])	    
+
+st.write(usernames_f)
 
 #for i in usernames:
     #if i.value!='':
@@ -84,8 +84,6 @@ for i in range(len(db_data)):
 #for i in emails:
     #if i.value!='':
         #emails_f.append(i.value)
-
-st.write(usernames_f)
 
 usernames={}
 
