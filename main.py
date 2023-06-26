@@ -52,27 +52,28 @@ sheet_db = workbook_db.worksheet('DB')
 
 db_data=sheet_db.range("B2:E1000")
 
-usernames=db_data[0];passwords=db_data[1];emails=db_data[2];end_times=db_data[3]
-
-st.write(len(db_data))
-
 usernames_f=[];passwords_f=[];end_times_f=[];emails_f=[]
 
-for i in usernames:
-    if i.value!='':
-        usernames_f.append(i.value)
+for i in range(len(db_data)):
+    if db_data[i].value!='':
+        usernames_f.append(db_data[i].value);passwords_f.append(db_data[i].value);emails.append(db_data[i].value);end_times.append(db_data[i].value)
 
-for i in passwords:
-    if i.value!='':
-        passwords_f.append(i.value)
 
-for i in end_times:
-    if i.value!='':
-        end_times_f.append(i.value)
+#for i in usernames:
+    #if i.value!='':
+        #usernames_f.append(i.value)
 
-for i in emails:
-    if i.value!='':
-        emails_f.append(i.value)
+#for i in passwords:
+    #if i.value!='':
+        #passwords_f.append(i.value)
+
+#for i in end_times:
+    #if i.value!='':
+        #end_times_f.append(i.value)
+
+#for i in emails:
+    #if i.value!='':
+        #emails_f.append(i.value)
 
 usernames={}
 
