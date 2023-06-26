@@ -363,7 +363,10 @@ if authentication_status:
         plt.xticks(np.arange(0, len(low), 60),new_time)
 	
         ax.legend(loc="best")
-	
+
+        plt.grid(axis="x",alpha=0.1)
+        plt.grid(axis="y",alpha=0.1)
+	    
         st.pyplot(plt.gcf())
 
         #------------------------------------------------------------------------------------
@@ -441,7 +444,10 @@ if authentication_status:
 	
         plt.xlabel("Tiempo (d)")
         plt.ylabel("Precio (€)")
-	
+
+        plt.grid(axis="x",alpha=0.1)
+        plt.grid(axis="y",alpha=0.1)
+	    
         st.pyplot(plt.gcf())
 
 elif authentication_status is False:
