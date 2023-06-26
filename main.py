@@ -50,7 +50,11 @@ search_db="1VDwSucmsEn0hiTgvGYQGTr9ZBWLpQ0yyXG7sYn0Srw8"
 workbook_db=file.open_by_key(search_db)
 sheet_db = workbook_db.worksheet('DB')
 
-db_data=sheet_db.range("B2:E1000")
+#db_data=sheet_db.range("B2:E1000")
+
+db_data=sheet_db.get_all_values()
+
+st.write(db_data)
 
 usernames_f=[];passwords_f=[];end_times_f=[];emails_f=[]
 
