@@ -60,6 +60,8 @@ db_data=sheet_db.get_all_values()
 
 usernames_f=[];passwords_f=[];end_times_f=[];emails_f=[]
 
+st.write(db_data[1])
+
 for i in range(len(db_data)):
     data=db_data[i+1]
     if data[3]!="":
