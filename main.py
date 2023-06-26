@@ -50,10 +50,9 @@ search_db="1VDwSucmsEn0hiTgvGYQGTr9ZBWLpQ0yyXG7sYn0Srw8"
 workbook_db=file.open_by_key(search_db)
 sheet_db = workbook_db.worksheet('DB')
 
-usernames=sheet_db.range('B2:B1000')
-passwords=sheet_db.range('D2:D1000')
-emails=sheet_db.range("E2:E1000")
-end_times=sheet_db.range('F2:F1000')
+db_data=sheet_db.range("B2:E1000")
+
+usernames=db_data[0];passwords=db_data[1];emails=db_data[2];end_times=db_data[3]
 
 usernames_f=[];passwords_f=[];end_times_f=[];emails_f=[]
 
