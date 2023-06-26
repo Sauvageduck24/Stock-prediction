@@ -54,8 +54,7 @@ db_data=sheet_db.range("B2:E1000")
 
 usernames=db_data[0];passwords=db_data[1];emails=db_data[2];end_times=db_data[3]
 
-st.write(usernames)
-st.write(passwords)
+st.write(len(db_data))
 
 usernames_f=[];passwords_f=[];end_times_f=[];emails_f=[]
 
