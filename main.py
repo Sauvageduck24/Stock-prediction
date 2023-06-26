@@ -50,15 +50,13 @@ search_db="1VDwSucmsEn0hiTgvGYQGTr9ZBWLpQ0yyXG7sYn0Srw8"
 workbook_db=file.open_by_key(search_db)
 sheet_db = workbook_db.worksheet('DB')
 
-#db_data=sheet_db.range("B2:E1000")
-
 db_data=sheet_db.get_all_values()
 
 #st.write(db_data)
 #st.write(len(db_data))
 #st.write(db_data[0])
 
-usernames_f=[];passwords_f=[];end_times_f=[];emails_f=[]
+usernames_f=[];passwords_f=[];end_times_f=[];emails_f=[];roles_f=[]
 
 for i in range(len(db_data)):
     if i==0:
@@ -69,6 +67,7 @@ for i in range(len(db_data)):
         passwords_f.append(db_data[i][2])
         emails_f.append(db_data[i][3])
         end_times_f.append(db_data[i][4])
+        roles_f.append(db_data[i][5])
 
 
 usernames={}
@@ -138,7 +137,7 @@ if authentication_status:
     	raise Exception('Hoy no hay bolsa 😥')
 
 	
-    if not sheet.cell(cell.row,3).value:
+    if not sheet.cell(cell.row,3).value and roles_f[pos_username]=='ADMIN':
         p_open = st.text_input('Precio Open: ')
         try:
             p_open = p_open.replace('.',',')
