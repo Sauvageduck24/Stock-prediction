@@ -75,6 +75,8 @@ for i in range(len(db_data)):
     #if i.value!='':
         #emails_f.append(i.value)
 
+st.write(usernames_f)
+
 usernames={}
 
 for i in range(len(usernames_f)):
