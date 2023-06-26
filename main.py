@@ -55,6 +55,8 @@ sheet_db = workbook_db.worksheet('DB')
 db_data=sheet_db.get_all_values()
 
 st.write(db_data)
+st.write(len(db_data))
+st.write(db_data[0])
 
 usernames_f=[];passwords_f=[];end_times_f=[];emails_f=[]
 
