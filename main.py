@@ -70,23 +70,6 @@ for i in range(len(db_data)):
         emails_f.append(db_data[i][3])
         end_times_f.append(db_data[i][4])
 
-st.write(usernames_f)
-
-#for i in usernames:
-    #if i.value!='':
-        #usernames_f.append(i.value)
-
-#for i in passwords:
-    #if i.value!='':
-        #passwords_f.append(i.value)
-
-#for i in end_times:
-    #if i.value!='':
-        #end_times_f.append(i.value)
-
-#for i in emails:
-    #if i.value!='':
-        #emails_f.append(i.value)
 
 usernames={}
 
