@@ -317,7 +317,7 @@ if authentication_status:
 
         ax.plot(xs[mask2],high[mask2],linestyle='-',color='g',label='Máximo')
 	
-        ax.plot(real,color='black',label='Real Data',alpha=0.85)
+        ax.plot(real,color='white',label='Real Data',alpha=0.85)
 
         pos_high,=np.where(high==max(high))
         pos_low,=np.where(low==min(low))
