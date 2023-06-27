@@ -375,8 +375,9 @@ if authentication_status:
 	    
         plt.grid(axis="x",alpha=0.1)
         plt.grid(axis="y",alpha=0.1)
-	    
-        st.pyplot(plt.gcf())
+
+        with col2:	    
+            st.pyplot(plt.gcf())
 
         #------------------------------------------------------------------------------------
 	    
