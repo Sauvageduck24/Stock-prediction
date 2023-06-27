@@ -372,7 +372,7 @@ if authentication_status:
         plt.grid(axis="x",alpha=0.1)
         plt.grid(axis="y",alpha=0.1)
 	    
-        st.pyplot(plt.gcf().autofmt_xdate())
+        st.pyplot(plt.gcf())
 
         #------------------------------------------------------------------------------------
 	    
