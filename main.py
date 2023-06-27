@@ -112,9 +112,9 @@ if authentication_status:
         authenticator.logout('Logout', 'main', key='unique_key')
         st.title('Market Master')
 
-    stocks = ('BBVA','IAG')
+        stocks = ('BBVA','IAG')
 	
-    selected_stock = st.selectbox('Seleccione la compañía para hacer la predicción', stocks)
+        selected_stock = st.selectbox('Seleccione la compañía para hacer la predicción', stocks)
 
     if selected_stock=='BBVA':
         search='1COITRN8LVx3Sa2zDQRYn-Igt91bg_mZlYqdeGE5KpAQ'
@@ -125,8 +125,9 @@ if authentication_status:
     sheet2= workbook.worksheet('CALC')
     sheet3 = workbook.worksheet('HOUR DATA')
     sheet4 = workbook.worksheet('DAY DATA')
-	
-    st.subheader('Predicción para el día siguiente')
+
+    with col2:
+        st.subheader('Predicción para el día siguiente')
 
     cell=sheet.find(f"{dia}")
     cell2=sheet2.find(f"{dia}")
@@ -145,8 +146,9 @@ if authentication_status:
     
     else:
         p_open=''
-	
-    prediction=st.button('Hacer predicción',key='4')
+
+    with col2:
+        prediction=st.button('Hacer predicción',key='4')
 
     if prediction:
 
