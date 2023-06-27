@@ -425,7 +425,7 @@ if authentication_status:
         ax.legend(loc="upper right")
 
         if real:	
-            ax.scatter([0],real,color='black',label='Día actual')
+            ax.scatter([0],real,color='white',label='Día actual')
             ax.legend(loc="best")
 	
         ax.fill_between(time,high,mean, color="green", alpha=0.1)
