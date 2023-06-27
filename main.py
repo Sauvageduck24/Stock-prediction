@@ -241,9 +241,9 @@ if authentication_status:
 	    
         #------------------------------------------------------------------------------------
 	    
-        low=low.tolist()
-        high=high.tolist()
-        mean=mean.tolist()
+        low_=low.tolist()
+        high_=high.tolist()
+        mean_=mean.tolist()
 	    
         new_low=[]
         new_high=[]
@@ -253,8 +253,8 @@ if authentication_status:
         last_high=0
         last_mean=0
 	
-        for _,i in enumerate(low):
-            if _!=len(low):
+        for _,i in enumerate(low_):
+            if _!=len(low_):
                 rango=60
             else:
                 rango=60
@@ -266,8 +266,8 @@ if authentication_status:
                 else:			
                     new_low.append(np.nan)
 
-        for _,i in enumerate(high):
-            if _!=len(low):
+        for _,i in enumerate(high_):
+            if _!=len(low_):
                 rango=60
             else:
                 rango=60
@@ -279,8 +279,8 @@ if authentication_status:
                 else:
                     new_high.append(np.nan)
 
-        for _,i in enumerate(mean):
-            if _!=len(low):
+        for _,i in enumerate(mean_):
+            if _!=len(low_):
                 rango=60
             else:
                 rango=60
@@ -314,11 +314,12 @@ if authentication_status:
         fig,ax=plt.subplots() #ancho , alto
 
         ax.plot(xs[mask],low[mask],linestyle='-',color='r',label='Mínimo')
-
         ax.plot(xs[mask3],mean[mask3],linestyle='-',color='gray',alpha=0)
-
         ax.plot(xs[mask2],high[mask2],linestyle='-',color='g',label='Máximo')
-	
+
+        ax.scatter(xs[mask],low_,color='#66fcf0')
+        ax.scatter(xs[mask2],high_,color='#66fcf0')
+	    
         ax.plot(real,color='white',label='Real Data',alpha=0.85)
 
         pos_high,=np.where(high==max(high))
