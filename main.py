@@ -422,7 +422,10 @@ if authentication_status:
         for index,row in data.iterrows():
             new_data=(row['High']+row['Low']+row['Close'])/3
             real.append(new_data)
-		
+
+        time=[]
+        for i in range(len(high)):
+            time.append(i)
 	
         fig,ax=plt.subplots()
 		
@@ -432,8 +435,8 @@ if authentication_status:
         ax.plot(low,'r',label='Mínimo')
         ax.legend(loc="upper right")
 
-        ax.scatter(high,color="g")
-        ax.scatter(low,color="r")
+        ax.scatter(high,time,color="g")
+        ax.scatter(low,time,color="r")
 	    
         if real:	
             ax.scatter([0],real,color='white',label='Día actual')
