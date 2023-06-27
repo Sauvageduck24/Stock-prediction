@@ -364,6 +364,8 @@ if authentication_status:
         ax.xaxis.label.set_color('white')
         ax.yaxis.label.set_color('white')
 
+        ax.tick_params(colors='white')
+	    
         ax.set_facecolor((0, 0, 0))
         fig.patch.set_facecolor((0, 0, 0))
 	    
