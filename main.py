@@ -374,7 +374,7 @@ if authentication_status:
         ax.set_facecolor((0, 0, 0))
         fig.patch.set_facecolor((0, 0, 0))
 
-        ax.title.set_text('Gráfico aproximado del día (formato en 1 hora)',color='white')
+        ax.set_title('Gráfico aproximado del día (formato en 1 hora)',color='white')
 	    
         plt.grid(axis="x",alpha=0.1)
         plt.grid(axis="y",alpha=0.1)
@@ -469,7 +469,7 @@ if authentication_status:
         plt.xlabel("Tiempo (d)")
         plt.ylabel("Precio (€)")
 
-        ax.title.set_text('Gráfico aproximado para 8 días (orgánicos)',color='white')
+        ax.set_title('Gráfico aproximado para 8 días (orgánicos)',color='white')
 	    
         plt.grid(axis="x",alpha=0.1)
         plt.grid(axis="y",alpha=0.1)
