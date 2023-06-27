@@ -115,7 +115,7 @@ if authentication_status:
         authenticator.logout('Logout', 'main', key='unique_key')
 	    
     #st.title('Market Master')
-    st.image(image, caption='Market Master Logo')
+    st.image(image)
 
     stocks = ('BBVA','IAG')
 	
