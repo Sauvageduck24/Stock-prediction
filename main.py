@@ -240,9 +240,9 @@ if authentication_status:
 	    
         #------------------------------------------------------------------------------------
 
-        with col2:
-            st.write(" ")	    
-            st.write('**Gráfico aproximado del día (formato en 1 hora)**')
+        #with col2:
+            #st.write(" ")	    
+            #st.write('**Gráfico aproximado del día (formato en 1 hora)**')
 	    
         low=low.tolist()
         high=high.tolist()
@@ -373,6 +373,8 @@ if authentication_status:
 	    
         ax.set_facecolor((0, 0, 0))
         fig.patch.set_facecolor((0, 0, 0))
+
+        ax.title.set_text('Gráfico aproximado del día (formato en 1 hora)')
 	    
         plt.grid(axis="x",alpha=0.1)
         plt.grid(axis="y",alpha=0.1)
@@ -381,10 +383,10 @@ if authentication_status:
 
         #------------------------------------------------------------------------------------
 
-        with col2:
-            st.write(" ")	
-            st.write('**Gráfico aproximado para 8 días (orgánicos)**')
-	
+        #with col2:
+            #st.write(" ")	
+            #st.write('**Gráfico aproximado para 8 días (orgánicos)**')
+	    
         high=sheet4.range('H3:H10')
         low=sheet4.range('I3:I10')
 	
@@ -467,6 +469,8 @@ if authentication_status:
         plt.xlabel("Tiempo (d)")
         plt.ylabel("Precio (€)")
 
+        ax.title.set_text('Gráfico aproximado para 8 días (orgánicos)')
+	    
         plt.grid(axis="x",alpha=0.1)
         plt.grid(axis="y",alpha=0.1)
 	    
