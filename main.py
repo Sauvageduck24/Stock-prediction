@@ -105,10 +105,10 @@ if authentication_status:
 	
     col1,col2,col3=st.columns([1,1,1])
 
-    with col1:
+    with col2:
         st.write(f"Has iniciado sesión como: {name.upper()}")
 
-    with col2:
+    with col3:
         authenticator.logout('Logout', 'main', key='unique_key')
         st.title('Market Master')
 
@@ -179,20 +179,23 @@ if authentication_status:
         low=float(low.replace(',','.'))
         close=float(close.replace(',','.'))
 
-        st.write(" ")	    
-        st.write(f"Precisión media del código en acciones de {selected_stock}:  {accuracy}")
-        st.write(" ")    
-        st.write('Predicciones para el día')
+        with col2:	    
+            st.write(" ")	    
+            st.write(f"Precisión media del código en acciones de {selected_stock}:  {accuracy}")
+            st.write(" ")    
+            st.write('Predicciones para el día')
         
         new_real=[high,low,close]
 	
         df=pd.DataFrame([[open,high,low,close]],columns=['Apertura','Máximo','Mínimo','Cierre'])
-        st.dataframe(df)
+	    
+        with col2:
+            st.dataframe(df)
 	
-        st.write('Estadísticas día')	
+            st.write('Estadísticas día')	
 	
-        df=pd.DataFrame([[sub_dia,sub_entre_dias]],columns=['Subida mismo dia (Open-High)','Subida entre dias'])
-        st.dataframe(df)
+            df=pd.DataFrame([[sub_dia,sub_entre_dias]],columns=['Subida mismo dia (Open-High)','Subida entre dias'])
+            st.dataframe(df)
 	
         high=sheet3.range('H3:H10')
         low=sheet3.range('I3:I10')
