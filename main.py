@@ -110,8 +110,6 @@ if authentication_status:
 
     with col2:
         authenticator.logout('Logout', 'main', key='unique_key')
-
-    with col3:
         st.title('Market Master')
 
     stocks = ('BBVA','IAG')
