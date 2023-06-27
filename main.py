@@ -8,6 +8,9 @@ import numpy as np
 import yfinance as yf
 import matplotlib.pyplot as plt
 import warnings
+from PIL import Image
+
+image = Image.open('market-master-logo.png')
 
 st.set_page_config(page_title="Market Master",page_icon="market-master-web-logo.ico",initial_sidebar_state="auto",layout='wide')
 
@@ -110,7 +113,8 @@ if authentication_status:
 
     with col2:
         authenticator.logout('Logout', 'main', key='unique_key')
-        st.title('Market Master')
+        #st.title('Market Master')
+        st.image(image, caption='Market Master Logo')
 
         stocks = ('BBVA','IAG')
 	
