@@ -12,7 +12,7 @@ from PIL import Image
 
 image = Image.open('market-master-logo.png')
 
-st.set_page_config(page_title="Market Master",page_icon="market-master-web-logo.ico",initial_sidebar_state="auto",layout='wide')
+st.set_page_config(page_title="Market Master",page_icon="market-master-web-logo.ico",initial_sidebar_state="auto")#,layout='wide')
 
 hide_streamlit_style = """
     <style>
