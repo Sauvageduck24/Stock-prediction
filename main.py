@@ -106,19 +106,20 @@ if authentication_status:
             st.session_state['authentication_status'] = None
             st.experimental_rerun()
 	
-    col1,col2,col3=st.columns([1,1,1])
+    col1,col2=st.columns([1,1])
 
-    with col2:
+    with col1:
         st.write(f"Has iniciado sesión como: {name.upper()}")
 
     with col2:
         authenticator.logout('Logout', 'main', key='unique_key')
-        #st.title('Market Master')
-        st.image(image, caption='Market Master Logo')
+	    
+    #st.title('Market Master')
+    st.image(image, caption='Market Master Logo')
 
-        stocks = ('BBVA','IAG')
+    stocks = ('BBVA','IAG')
 	
-        selected_stock = st.selectbox('Seleccione la compañía para hacer la predicción', stocks)
+    selected_stock = st.selectbox('Seleccione la compañía para hacer la predicción', stocks)
 
     if selected_stock=='BBVA':
         search='1COITRN8LVx3Sa2zDQRYn-Igt91bg_mZlYqdeGE5KpAQ'
@@ -130,8 +131,7 @@ if authentication_status:
     sheet3 = workbook.worksheet('HOUR DATA')
     sheet4 = workbook.worksheet('DAY DATA')
 
-    with col2:
-        st.subheader('Predicción para el día siguiente')
+    st.subheader('Predicción para el día siguiente')
 
     cell=sheet.find(f"{dia}")
     cell2=sheet2.find(f"{dia}")
@@ -151,8 +151,7 @@ if authentication_status:
     else:
         p_open=''
 
-    with col2:
-        prediction=st.button('Hacer predicción',key='4')
+    prediction=st.button('Hacer predicción',key='4')
 
     if prediction:
 
@@ -183,23 +182,21 @@ if authentication_status:
         low=float(low.replace(',','.'))
         close=float(close.replace(',','.'))
 
-        with col2:	    
-            st.write(" ")	    
-            st.write(f"Precisión media del código en acciones de {selected_stock}:  {accuracy}")
-            st.write(" ")    
-            st.write('Predicciones para el día')
+        st.write(" ")	    
+        st.write(f"Precisión media del código en acciones de {selected_stock}:  {accuracy}")
+        st.write(" ")    
+        st.write('Predicciones para el día')
         
         new_real=[high,low,close]
 	
         df=pd.DataFrame([[open,high,low,close]],columns=['Apertura','Máximo','Mínimo','Cierre'])
 	    
-        with col2:
-            st.dataframe(df)
+        st.dataframe(df)
 	
-            st.write('Estadísticas día')	
+        st.write('Estadísticas día')	
 	
-            df=pd.DataFrame([[sub_dia,sub_entre_dias]],columns=['Subida mismo dia (Open-High)','Subida entre dias'])
-            st.dataframe(df)
+        df=pd.DataFrame([[sub_dia,sub_entre_dias]],columns=['Subida mismo dia (Open-High)','Subida entre dias'])
+        st.dataframe(df)
 	
         high=sheet3.range('H3:H10')
         low=sheet3.range('I3:I10')
@@ -243,10 +240,6 @@ if authentication_status:
             real.append(row['Close'])
 	    
         #------------------------------------------------------------------------------------
-
-        #with col2:
-            #st.write(" ")	    
-            #st.write('**Gráfico aproximado del día (formato en 1 hora)**')
 	    
         low=low.tolist()
         high=high.tolist()
@@ -386,10 +379,6 @@ if authentication_status:
         st.pyplot(plt.gcf())
 
         #------------------------------------------------------------------------------------
-
-        #with col2:
-            #st.write(" ")	
-            #st.write('**Gráfico aproximado para 8 días (orgánicos)**')
 	    
         high=sheet4.range('H3:H10')
         low=sheet4.range('I3:I10')
