@@ -309,7 +309,7 @@ if authentication_status:
         xs2=np.arange(len(high))
         xs3=np.arange(len(mean))
 	    
-        fig,ax=plt.subplots(figsize=(300, 300)) #ancho , alto
+        fig,ax=plt.subplots(figsize=(8, 6)) #ancho , alto
 
         ax.plot(xs[mask],low[mask],linestyle='-',color='r',label='Mínimo')
 
