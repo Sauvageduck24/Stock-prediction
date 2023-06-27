@@ -361,6 +361,8 @@ if authentication_status:
 	
         ax.legend(loc="best")
 
+        ax.set_facecolor((0, 0, 0))
+	    
         plt.grid(axis="x",alpha=0.1)
         plt.grid(axis="y",alpha=0.1)
 	    
