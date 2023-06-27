@@ -317,8 +317,8 @@ if authentication_status:
         ax.plot(xs[mask3],mean[mask3],linestyle='-',color='gray',alpha=0)
         ax.plot(xs[mask2],high[mask2],linestyle='-',color='g',label='Máximo')
 
-        ax.scatter(xs[mask],low_,color='#66fcf0')
-        ax.scatter(xs[mask2],high_,color='#66fcf0')
+        ax.scatter(xs[mask],low_,color='r')
+        ax.scatter(xs[mask2],high_,color='g')
 	    
         ax.plot(real,color='white',label='Real Data',alpha=0.85)
 
