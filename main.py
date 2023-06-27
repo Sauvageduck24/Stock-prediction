@@ -435,8 +435,8 @@ if authentication_status:
         ax.plot(low,'r',label='Mínimo')
         ax.legend(loc="upper right")
 
-        ax.scatter(high,time,color="g")
-        ax.scatter(low,time,color="r")
+        ax.scatter(time,high,color="g")
+        ax.scatter(time,low,color="r")
 	    
         if real:	
             ax.scatter([0],real,color='white',label='Día actual')
