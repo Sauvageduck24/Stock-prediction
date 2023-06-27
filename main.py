@@ -432,6 +432,9 @@ if authentication_status:
         ax.plot(low,'r',label='Mínimo')
         ax.legend(loc="upper right")
 
+        ax.scatter(high,color="g")
+        ax.scatter(low,color="r")
+	    
         if real:	
             ax.scatter([0],real,color='white',label='Día actual')
             ax.legend(loc="best")
