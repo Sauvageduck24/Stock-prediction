@@ -105,7 +105,7 @@ if authentication_status:
 	
     col1,col2,col3=st.columns([1,1,1])
 
-    with col1:
+    with col2:
         st.write(f"Has iniciado sesión como: {name.upper()}")
 
     with col2:
