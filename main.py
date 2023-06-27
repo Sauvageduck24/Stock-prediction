@@ -240,8 +240,9 @@ if authentication_status:
 	    
         #------------------------------------------------------------------------------------
 
-        st.write(" ")	    
-        st.write('**Gráfico aproximado del día (formato en 1 hora)**')
+        with col2:
+            st.write(" ")	    
+            st.write('**Gráfico aproximado del día (formato en 1 hora)**')
 	    
         low=low.tolist()
         high=high.tolist()
@@ -375,14 +376,14 @@ if authentication_status:
 	    
         plt.grid(axis="x",alpha=0.1)
         plt.grid(axis="y",alpha=0.1)
-
-        with col2:	    
-            st.pyplot(plt.gcf())
+   
+        st.pyplot(plt.gcf())
 
         #------------------------------------------------------------------------------------
-	    
-        st.write(" ")	
-        st.write('**Gráfico aproximado para 8 días (orgánicos)**')
+
+        with col2:
+            st.write(" ")	
+            st.write('**Gráfico aproximado para 8 días (orgánicos)**')
 	
         high=sheet4.range('H3:H10')
         low=sheet4.range('I3:I10')
