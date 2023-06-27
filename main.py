@@ -9,7 +9,7 @@ import yfinance as yf
 import matplotlib.pyplot as plt
 import warnings
 
-st.set_page_config(page_title="Market Master",page_icon="market-master-web-logo.ico")
+st.set_page_config(page_title="Market Master",page_icon="market-master-web-logo.ico",initial_sidebar_state="auto")
 
 hide_streamlit_style = """
     <style>
