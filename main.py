@@ -440,7 +440,9 @@ if authentication_status:
             #ax.text(1,max(high), f'{dif} %', va='center', ha='center', backgroundcolor='w',color='g')
         #else:
             #ax.text(7, min(low), f'{dif} %', va='center', ha='center', backgroundcolor='w',color='r')
-	
+
+        ax.set_facecolor((0, 0, 0))
+	    
         plt.xlabel("Tiempo (d)")
         plt.ylabel("Precio (€)")
 
