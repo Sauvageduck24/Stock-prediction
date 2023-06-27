@@ -447,7 +447,16 @@ if authentication_status:
         #else:
             #ax.text(7, min(low), f'{dif} %', va='center', ha='center', backgroundcolor='w',color='r')
 
+        ax.xaxis.label.set_color('white')
+        ax.yaxis.label.set_color('white')
+
+        ax.tick_params(colors='white')
+	    
         ax.set_facecolor((0, 0, 0))
+        fig.patch.set_facecolor((0, 0, 0))
+	    
+        plt.grid(axis="x",alpha=0.1)
+        plt.grid(axis="y",alpha=0.1)
 	    
         plt.xlabel("Tiempo (d)")
         plt.ylabel("Precio (€)")
