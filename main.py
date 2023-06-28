@@ -59,7 +59,7 @@ db_data=sheet_db.get_all_values()
 #st.write(len(db_data))
 #st.write(db_data[0])
 
-usernames_f=[];passwords_f=[];end_times_f=[];emails_f=[];roles_f=[]
+usernames_f=[];passwords_f=[];end_times_f=[];emails_f=[];roles_f=[];stock_f=[]
 
 for i in range(len(db_data)):
     if i==0:
@@ -71,6 +71,7 @@ for i in range(len(db_data)):
         emails_f.append(db_data[i][3])
         end_times_f.append(db_data[i][4])
         roles_f.append(db_data[i][5])
+        stock_f.append(db_data[i][6])
 
 
 usernames={}
@@ -117,7 +118,11 @@ if authentication_status:
     #st.title('Market Master')
     st.image(image)
 
-    stocks = ('BBVA','IAG')
+    stocks = ['BBVA','IAG']
+
+    if stocks_f[pos_username] in stocks:
+        del stocks[stocks.index(stocks_f[pos_username])]
+        stocks.insert(0,stocks_f[pos_username])
 	
     selected_stock = st.selectbox('Seleccione la compañía para hacer la predicción', stocks)
 
