@@ -119,13 +119,10 @@ if authentication_status:
     st.image(image)
 
     stocks = ['BBVA','IAG']
-
-    st.write('hola')
-    st.write(stocks_f)
 	
-    if stocks_f[pos_username] in stocks:
-        del stocks[stocks.index(stocks_f[pos_username])]
-        stocks.insert(0,stocks_f[pos_username])
+    if stock_f[pos_username] in stocks:
+        del stocks[stocks.index(stock_f[pos_username])]
+        stocks.insert(0,stock_f[pos_username])
 	
     selected_stock = st.selectbox('Seleccione la compañía para hacer la predicción', stocks)
 
