@@ -489,4 +489,3 @@ elif authentication_status is None:
 
 #todo: poner pie de pagina
 #cambiar el punto de maximo y minimo por una recta en las predicciones por horas
-#hacer lo de la primera accion en la lista desde la base de datos
