@@ -120,6 +120,7 @@ if authentication_status:
 
     stocks = ['BBVA','IAG']
 
+    st.write('hola')
     st.write(stocks_f)
 	
     if stocks_f[pos_username] in stocks:
