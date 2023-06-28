@@ -120,7 +120,7 @@ if authentication_status:
 
     stocks = ['BBVA','IAG']
 
-    st.write(stocks_f[pos_username])
+    st.write(stocks_f)
 	
     if stocks_f[pos_username] in stocks:
         del stocks[stocks.index(stocks_f[pos_username])]
