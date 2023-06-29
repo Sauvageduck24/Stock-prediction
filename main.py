@@ -556,7 +556,7 @@ if authentication_status:
         ax.set_facecolor((0, 0, 0))
         fig.patch.set_facecolor((0, 0, 0))
 
-        ax.set_title('Gráfico aproximado del día (formato en 1 hora)',color='white')
+        ax.set_title('Gráfico aproximado del día (formato en 5 min)',color='white')
 	    
         plt.grid(axis="x",alpha=0.2)
         plt.grid(axis="y",alpha=0.2)
