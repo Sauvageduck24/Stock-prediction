@@ -186,9 +186,9 @@ if authentication_status:
         
         new_real=[high,low,close]
 	
-        df=pd.DataFrame([[open,high,low,close]],columns=['Open','High','Low','Close'])
+        df_=pd.DataFrame([[open,high,low,close]],columns=['Open','High','Low','Close'])
 	    
-        st.dataframe(df)
+        st.dataframe(df_)
 	
         st.write('Estadísticas día')	
 	
@@ -395,8 +395,8 @@ if authentication_status:
         ax.set_facecolor((0, 0, 0))
         fig.patch.set_facecolor((0, 0, 0))
 
-        real_h_=real_h.append(df.iloc[0]['High'])
-        real_l_=real_l.append(df.iloc[0]['Low'])
+        real_h_=real_h.append(df_.iloc[0]['High'])
+        real_l_=real_l.append(df_.iloc[0]['Low'])
 	    
         ax.set_title('Predicciones de día actual en relacion con los anteriores reales',color='white')
 
