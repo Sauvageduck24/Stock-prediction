@@ -383,8 +383,8 @@ if authentication_status:
 
         #------------------------------------------------------------------------------------
 	    
-        high=sheet4.range('H3:H99')
-        low=sheet4.range('I3:I99')
+        high=sheet4.range('H3:H98')
+        low=sheet4.range('I3:I98')
 	
         for _,i in enumerate(high):
             num=i.value
