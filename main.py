@@ -379,6 +379,24 @@ if authentication_status:
 
         #------------------------------------------------------------------------------------
 
+        data = yf.download(f'{selected_stock}.MC', period=f'7d',interval=f'1d',progress=False)
+
+        real_h=[]
+        real_l=[]
+	    
+        for index,row in data.iterrows():
+            real_h.append(row['High'])
+            real_l.append(row['Low'])
+
+        fig,ax=plt.subplots() #ancho , alto
+
+        ax.set_facecolor((0, 0, 0))
+        fig.patch.set_facecolor((0, 0, 0))
+
+        ax.set_title('Predicciones de día actual en relacion con los anteriores reales',color='white')
+
+        ax.plot(real,color='white',label='Real Data',alpha=0.9)
+
 elif authentication_status is False:
     st.error('Username/password is incorrect')
 elif authentication_status is None:
