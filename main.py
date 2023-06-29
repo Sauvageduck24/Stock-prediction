@@ -186,7 +186,7 @@ if authentication_status:
         
         new_real=[high,low,close]
 	
-        df=pd.DataFrame([[open,high,low,close]],columns=['Apertura','Máximo','Mínimo','Cierre'])
+        df=pd.DataFrame([[open,high,low,close]],columns=['Open','High','Low','Close'])
 	    
         st.dataframe(df)
 	
@@ -389,19 +389,25 @@ if authentication_status:
         for index,row in data.iterrows():
             real_h.append(row['High'])
             real_l.append(row['Low'])
-
+	    
         fig,ax=plt.subplots() #ancho , alto
 
         ax.set_facecolor((0, 0, 0))
         fig.patch.set_facecolor((0, 0, 0))
 
+        real_h_=real_h.append(df['High'][0])
+        real_l_=real_l.append(df['Low'][0])
+	    
         ax.set_title('Predicciones de día actual en relacion con los anteriores reales',color='white')
 
+        ax.plot(real_h_,color='g',label='Real Data High',alpha=0.9)
+        ax.plot(real_l_,color='r',label='Real Data Low',alpha=0.9)	    
+	    
         ax.plot(real_h,color='white',label='Real Data High',alpha=0.9)
         ax.plot(real_l,color='white',label='Real Data Low',alpha=0.9)
 	    
-        ax.scatter(time,real_l,color='r')
-        ax.scatter(time,real_h,color='g')
+        ax.scatter(time,real_l_,color='r')
+        ax.scatter(time,real_h_,color='g')
 	    
         plt.grid(axis="x",alpha=0.2)
         plt.grid(axis="y",alpha=0.2)
