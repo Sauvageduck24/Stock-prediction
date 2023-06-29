@@ -381,6 +381,8 @@ if authentication_status:
 
         data = yf.download(f'{selected_stock}.MC', period=f'7d',interval=f'1d',progress=False)
 
+        time=[0,1,2,3,4,5,6,7]
+	    
         real_h=[]
         real_l=[]
 	    
@@ -397,7 +399,10 @@ if authentication_status:
 
         ax.plot(real_h,color='white',label='Real Data High',alpha=0.9)
         ax.plot(real_l,color='white',label='Real Data Low',alpha=0.9)
-
+	    
+        ax.scatter(time,real_l,color='r')
+        ax.scatter(time,real_h,color='g')
+	    
         plt.grid(axis="x",alpha=0.2)
         plt.grid(axis="y",alpha=0.2)
 
