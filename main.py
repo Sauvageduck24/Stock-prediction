@@ -395,11 +395,19 @@ if authentication_status:
 
         ax.set_title('Predicciones de día actual en relacion con los anteriores reales',color='white')
 
-        ax.plot(real,color='white',label='Real Data',alpha=0.9)
+        ax.plot(real_h,color='white',label='Real Data High',alpha=0.9)
+        ax.plot(real_l,color='white',label='Real Data Low',alpha=0.9)
 
         plt.grid(axis="x",alpha=0.2)
         plt.grid(axis="y",alpha=0.2)
-   
+
+        ax.legend(loc="best")
+
+        ax.xaxis.label.set_color('white')
+        ax.yaxis.label.set_color('white')
+
+        ax.tick_params(colors='white')
+	    
         st.pyplot(plt.gcf())
 	    
 elif authentication_status is False:
