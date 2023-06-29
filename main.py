@@ -395,8 +395,8 @@ if authentication_status:
         ax.set_facecolor((0, 0, 0))
         fig.patch.set_facecolor((0, 0, 0))
 
-        real_h_=real_h.append(df_.iloc[0]['High'])
-        real_l_=real_l.append(df_.iloc[0]['Low'])
+        real_h_=real_h.copy().append(df_.iloc[0]['High'])
+        real_l_=real_l.copy().append(df_.iloc[0]['Low'])
 	    
         ax.set_title('Predicciones de día actual en relacion con los anteriores reales',color='white')
 
@@ -419,7 +419,7 @@ if authentication_status:
         ax.xaxis.label.set_color('white')
         ax.yaxis.label.set_color('white')
 
-        ax.tick_params(colors='white')
+        ax.tick_params(colors='white')1
 
         plt.ylabel("Precio")	    
         plt.xlabel("Tiempo (1 día)")
