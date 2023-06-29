@@ -55,10 +55,6 @@ sheet_db = workbook_db.worksheet('DB')
 
 db_data=sheet_db.get_all_values()
 
-#st.write(db_data)
-#st.write(len(db_data))
-#st.write(db_data[0])
-
 usernames_f=[];passwords_f=[];end_times_f=[];emails_f=[];roles_f=[];stock_f=[]
 
 for i in range(len(db_data)):
@@ -134,7 +130,7 @@ if authentication_status:
     sheet = workbook.worksheet('ONE DAY DATA')
     sheet2= workbook.worksheet('CALC')
     sheet3 = workbook.worksheet('HOUR DATA')
-    sheet4 = workbook.worksheet('DAY DATA')
+    sheet4 = workbook.worksheet('MINS DATA')
 
     st.subheader('Predicción para el día siguiente')
 
@@ -387,8 +383,8 @@ if authentication_status:
 
         #------------------------------------------------------------------------------------
 	    
-        high=sheet4.range('H3:H10')
-        low=sheet4.range('I3:I10')
+        high=sheet4.range('H3:H99')
+        low=sheet4.range('I3:I99')
 	
         for _,i in enumerate(high):
             num=i.value
@@ -401,16 +397,15 @@ if authentication_status:
         mean=[]
         time=[]
 
-        data = yf.download(f'{selected_stock}.MC', period=f'1d',interval=f'1d',progress=False)
+        data = yf.download(f'{selected_stock}.MC', period=f'1d',interval=f'1m',progress=False)
 	
         now = datetime.now()
-        #now=now.replace(tzinfo=datetime.timezone.utc)
 	
         if now.hour+2>9:
             if now.minute>15:
                 pass
         else:
-            data=data[:-1]
+            data=data[:-9*60]
 	
         for i,j in zip(high,low):
             mean.append((i+j)/2)
@@ -432,34 +427,129 @@ if authentication_status:
         time=[]
         for i in range(len(high)):
             time.append(i)
-	
-        fig,ax=plt.subplots()
 		
-        ax.plot(high,'g',label='Máximo')
-        ax.legend(loc="upper right")
-        ax.plot(mean,'gray',alpha=0)
-        ax.plot(low,'r',label='Mínimo')
-        ax.legend(loc="upper right")
-
-        ax.scatter(time,high,color="g")
-        ax.scatter(time,low,color="r")
+	low_=low.tolist()
+        high_=high.tolist()
+        mean_=mean.tolist()
 	    
-        if real:	
-            ax.scatter([0],real,color='white',label='Día actual')
-            ax.legend(loc="best")
+        new_low=[]
+        new_high=[]
+        new_mean=[]
+	    
+        last_low=0
+        last_high=0
+        last_mean=0
 	
-        ax.fill_between(time,high,mean, color="green", alpha=0.1)
-        ax.fill_between(time,mean,low, color="red", alpha=0.1)
+        for _,i in enumerate(low_):
+            if _!=len(low_):
+                rango=5
+            else:
+                rango=5
+		
+            for j in range(rango):
+                if j==0:
+                    new_low.append(i)
+                    last_low=i
+                else:			
+                    new_low.append(np.nan)
+
+        for _,i in enumerate(high_):
+            if _!=len(low_):
+                rango=5
+            else:
+                rango=5
+		
+            for j in range(rango):
+                if j==0:
+                    new_high.append(i)
+                    last_high=i
+                else:
+                    new_high.append(np.nan)
+
+        for _,i in enumerate(mean_):
+            if _!=len(low_):
+                rango=5
+            else:
+                rango=5
+		
+            for j in range(rango):
+                if j==0:
+                    new_mean.append(i)
+                    last_mean=i
+                else:
+                    new_mean.append(np.nan)
+
+        low=np.array(new_low)
+        high=np.array(new_high)
+        mean=np.array(new_mean)
+	    
+        time=[]
+
+        for i in range(len(high)):
+            time.append(i)
+
+        time=np.array(time)
+
+        mask=np.isfinite(low)
+        mask2=np.isfinite(high)
+        mask3=np.isfinite(mean)
+	    
+        xs=np.arange(len(low))
+        xs2=np.arange(len(high))
+        xs3=np.arange(len(mean))
+	    
+        fig,ax=plt.subplots() #ancho , alto
+
+        ax.plot(xs[mask],low[mask],linestyle='-',color='r',label='Mínimo')
+        ax.plot(xs[mask3],mean[mask3],linestyle='-',color='gray',alpha=0)
+        ax.plot(xs[mask2],high[mask2],linestyle='-',color='g',label='Máximo')
+
+        ax.scatter(xs[mask],low_,color='r')
+        ax.scatter(xs[mask2],high_,color='g')
+	    
+        ax.plot(real,color='white',label='Real Data',alpha=0.85)
+
+        pos_high,=np.where(high==max(high))
+        pos_low,=np.where(low==min(low))
+	    
+        pos_high=pos_high.flat[0]
+        pos_low=pos_low.flat[0]
+
+        pos_high=pos_high.flat[0]
+        pos_low=pos_low.flat[0]
+        	
+        ax.scatter([pos_high,pos_low,len(low)-60],new_real,color='gray',label='Valores predichos')
+
+        ax.fill_between(xs[mask2],high[mask2],mean[mask3], color="green", alpha=0.1)
+        ax.fill_between(xs[mask2],mean[mask3],low[mask], color="red", alpha=0.1)
+	    
+        poss=['^','v']
+	
+        if pos_low<pos_high:
+            ax.scatter(pos_high,max(high)+0.01,marker=poss[1],color='r')
+            ax.scatter(pos_low,min(low)-0.01,marker=poss[0],color='g')
 	
         dif=round((100-(min(low)*100)/max(high)),2)
 	
         ax.axhline(y=max(high), color='g',linestyle='--')
         ax.axhline(y=min(low) , color='r',linestyle='--')
 	
+        ax.axhline(y=new_real[0], color='gray', linestyle='--',alpha=0.5)
+        ax.axhline(y=new_real[1], color='gray', linestyle='--',alpha=0.5)
+	
         #if dif>=0:
-            #ax.text(1,max(high), f'{dif} %', va='center', ha='center', backgroundcolor='w',color='g')
+            #ax.text(20,max(high), f'{dif} %', va='center', ha='center', backgroundcolor='w',color='g')
         #else:
-            #ax.text(7, min(low), f'{dif} %', va='center', ha='center', backgroundcolor='w',color='r')
+            #ax.text(400, min(low), f'{dif} %', va='center', ha='center', backgroundcolor='w',color='r')
+	
+        plt.xlabel("Tiempo (h)")
+        plt.ylabel("Precio (€)")
+	
+        new_time=['9','10','11','12','13','14','15','16']
+	
+        plt.xticks(np.arange(0, len(low), 60),new_time)
+	
+        ax.legend(loc="best")
 
         ax.xaxis.label.set_color('white')
         ax.yaxis.label.set_color('white')
@@ -468,18 +558,12 @@ if authentication_status:
 	    
         ax.set_facecolor((0, 0, 0))
         fig.patch.set_facecolor((0, 0, 0))
-	    
-        plt.grid(axis="x",alpha=0.1)
-        plt.grid(axis="y",alpha=0.1)
-	    
-        plt.xlabel("Tiempo (d)")
-        plt.ylabel("Precio (€)")
 
-        ax.set_title('Gráfico aproximado para 8 días (orgánicos)',color='white')
+        ax.set_title('Gráfico aproximado del día (formato en 1 hora)',color='white')
 	    
         plt.grid(axis="x",alpha=0.1)
         plt.grid(axis="y",alpha=0.1)
-	    
+   
         st.pyplot(plt.gcf())
 
 elif authentication_status is False:
