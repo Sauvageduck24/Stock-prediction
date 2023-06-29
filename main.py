@@ -354,7 +354,7 @@ if authentication_status:
             #ax.text(400, min(low), f'{dif} %', va='center', ha='center', backgroundcolor='w',color='r')
 	
         plt.xlabel("Tiempo (h)")
-        plt.ylabel("Precio (€)")
+        plt.ylabel("Precio")
 	
         new_time=['9','10','11','12','13','14','15','16']
 	
@@ -407,6 +407,9 @@ if authentication_status:
         ax.yaxis.label.set_color('white')
 
         ax.tick_params(colors='white')
+
+        plt.ylabel("Precio")	    
+        plt.xlabel("Tiempo (1 día)")
 	    
         st.pyplot(plt.gcf())
 	    
