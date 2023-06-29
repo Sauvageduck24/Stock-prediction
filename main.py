@@ -395,8 +395,8 @@ if authentication_status:
         ax.set_facecolor((0, 0, 0))
         fig.patch.set_facecolor((0, 0, 0))
 
-        real_h_=real_h.append(df['High'][0])
-        real_l_=real_l.append(df['Low'][0])
+        real_h_=real_h.append(df.iloc[0]['High'])
+        real_l_=real_l.append(df.iloc[0]['Low'])
 	    
         ax.set_title('Predicciones de día actual en relacion con los anteriores reales',color='white')
 
