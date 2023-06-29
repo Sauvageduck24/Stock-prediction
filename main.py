@@ -205,6 +205,7 @@ if authentication_status:
 	
         high=sheet3.range('H3:H10')
         low=sheet3.range('I3:I10')
+        #arreglar para que esto sea 1 sola inferencia
 	    
         data = yf.download(f'{selected_stock}.MC', period=f'1d',interval=f'1m',progress=False)
 
