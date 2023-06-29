@@ -419,7 +419,7 @@ if authentication_status:
         ax.xaxis.label.set_color('white')
         ax.yaxis.label.set_color('white')
 
-        ax.tick_params(colors='white')1
+        ax.tick_params(colors='white')
 
         plt.ylabel("Precio")	    
         plt.xlabel("Tiempo (1 día)")
