@@ -376,8 +376,8 @@ if authentication_status:
 
         ax.set_title('Gráfico aproximado del día (formato en 1 hora)',color='white')
 	    
-        plt.grid(axis="x",alpha=0.1)
-        plt.grid(axis="y",alpha=0.1)
+        plt.grid(axis="x",alpha=0.2)
+        plt.grid(axis="y",alpha=0.2)
    
         st.pyplot(plt.gcf())
 
@@ -503,9 +503,6 @@ if authentication_status:
         ax.plot(xs[mask],low[mask],linestyle='-',color='r',label='Mínimo')
         ax.plot(xs[mask3],mean[mask3],linestyle='-',color='gray',alpha=0)
         ax.plot(xs[mask2],high[mask2],linestyle='-',color='g',label='Máximo')
-
-        ax.scatter(xs[mask],low_,color='r')
-        ax.scatter(xs[mask2],high_,color='g')
 	    
         ax.plot(real,color='white',label='Real Data',alpha=0.85)
 
@@ -561,8 +558,8 @@ if authentication_status:
 
         ax.set_title('Gráfico aproximado del día (formato en 1 hora)',color='white')
 	    
-        plt.grid(axis="x",alpha=0.1)
-        plt.grid(axis="y",alpha=0.1)
+        plt.grid(axis="x",alpha=0.2)
+        plt.grid(axis="y",alpha=0.2)
    
         st.pyplot(plt.gcf())
 
