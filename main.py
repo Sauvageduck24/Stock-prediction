@@ -383,7 +383,3 @@ elif authentication_status is False:
     st.error('Username/password is incorrect')
 elif authentication_status is None:
     st.warning('Please enter your username and password')
-
-
-#todo: poner pie de pagina
-#cambiar el punto de maximo y minimo por una recta en las predicciones por horas
