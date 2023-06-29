@@ -400,6 +400,8 @@ if authentication_status:
 	    
         ax.set_title('Predicciones de día actual en relacion con los anteriores reales',color='white')
 
+        st.write(real_h_)
+	    
         ax.plot(real_h_,color='g',label='Real Data High',alpha=0.9)
         ax.plot(real_l_,color='r',label='Real Data Low',alpha=0.9)	    
 	    
