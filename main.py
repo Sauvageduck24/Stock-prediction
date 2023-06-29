@@ -318,7 +318,7 @@ if authentication_status:
         ax.scatter(xs[mask],low_,color='r')
         ax.scatter(xs[mask2],high_,color='g')
 	    
-        ax.plot(real,color='white',label='Real Data',alpha=0.85)
+        ax.plot(real,color='white',label='Real Data',alpha=0.9)
 
         pos_high,=np.where(high==max(high))
         pos_low,=np.where(low==min(low))
@@ -397,6 +397,11 @@ if authentication_status:
 
         ax.plot(real,color='white',label='Real Data',alpha=0.9)
 
+        plt.grid(axis="x",alpha=0.2)
+        plt.grid(axis="y",alpha=0.2)
+   
+        st.pyplot(plt.gcf())
+	    
 elif authentication_status is False:
     st.error('Username/password is incorrect')
 elif authentication_status is None:
