@@ -405,9 +405,11 @@ if authentication_status:
 
         #ax.scatter(time,real_l_,color='r')
         #ax.scatter(time,real_h_,color='g')
+
+        #ax.plot(xs[mask],low[mask],linestyle='-',marker='o',color='r',label='Mínimo')
 	    
-        ax.plot(real_h_,color='g',marker='o',label='Predicted Data High',alpha=0.9)
-        ax.plot(real_l_,color='r',marker='o',label='Predicted Data Low',alpha=0.9)	    
+        ax.plot(real_h_,color='g',linestyle='-',marker='o',label='Predicted Data High',alpha=0.9)
+        ax.plot(real_l_,color='r',linestyle='-',marker='o',label='Predicted Data Low',alpha=0.9)	    
 	    
         ax.plot(real_h,color='white',label='Real Data High',alpha=0.9)
         ax.plot(real_l,color='white',label='Real Data Low',alpha=0.9)
