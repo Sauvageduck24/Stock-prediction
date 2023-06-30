@@ -422,8 +422,8 @@ if authentication_status:
         ax.plot(real_h_,color='g',linestyle='-',marker='o',label='Predicted Data High',alpha=0.9)
         ax.plot(real_l_,color='r',linestyle='-',marker='o',label='Predicted Data Low',alpha=0.9)	    
 	    
-        ax.plot(real_h,color='white',label='Real Data High',alpha=0.9)
-        ax.plot(real_l,color='white',label='Real Data Low',alpha=0.9)
+        ax.plot(real_h,color='white',label='Real Data',alpha=0.9)
+        ax.plot(real_l,color='white',alpha=0.9)
 
         z_h=[]
         z_l=[]
