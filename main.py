@@ -323,14 +323,14 @@ if authentication_status:
                 z_h.append("")
             else:
                 dif=((i*100)/high[mask2][_-1])-100
-                z_h.append(f"{dif} %")    
+                z_h.append(f"{round(dif,1)} %")    
 
         for _,i in enumerate(low[mask]):
             if _==0:
                 z_l.append("")
             else:
                 dif=((i*100)/low[mask][_-1])-100
-                z_l.append(f"{dif} %")    
+                z_l.append(f"{round(dif,1)} %")    
 	    
         for X, Y, Z in zip(xs[mask], high[mask], z_h):
             ax.annotate('{}'.format(Z), xy=(X,Y), xytext=(-5, 5), ha='right',textcoords='offset points',color='#66fcf0')
