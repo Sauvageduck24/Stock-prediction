@@ -315,9 +315,23 @@ if authentication_status:
         ax.plot(xs[mask3],mean[mask3],linestyle='-',color='gray',alpha=0)
         ax.plot(xs[mask2],high[mask2],linestyle='-',marker='o',color='g',label='Máximo')
 
-        z_h=[1,2,3,4,5,6,7,8]
-        z_l=[1,2,3,4,5,6,7,8]
+        z_h=[]
+        z_l=[]
 
+        for _,i in enumerate(high[mask2]):
+            if _==0:
+                z_h.append("")
+	    else:
+                dif=((i*100)/high[mask2][_-1])-100
+                z_h.append(f"{dif} %")    
+
+        for _,i in enumerate(low[mask]):
+            if _==0:
+                z_l.append("")
+	    else:
+                dif=((i*100)/low[mask][_-1])-100
+                z_l.append(f"{dif} %")    
+	    
         for X, Y, Z in zip(xs[mask], high[mask], z_h):
             ax.annotate('{}'.format(Z), xy=(X,Y), xytext=(-5, 5), ha='right',textcoords='offset points',color='#66fcf0')
 
