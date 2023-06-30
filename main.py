@@ -311,12 +311,12 @@ if authentication_status:
 	    
         fig,ax=plt.subplots() #ancho , alto
 
-        ax.plot(xs[mask],low[mask],linestyle='-',color='r',label='Mínimo')
+        ax.plot(xs[mask],low[mask],linestyle='bo-',color='r',label='Mínimo')
         ax.plot(xs[mask3],mean[mask3],linestyle='-',color='gray',alpha=0)
-        ax.plot(xs[mask2],high[mask2],linestyle='-',color='g',label='Máximo')
+        ax.plot(xs[mask2],high[mask2],linestyle='bo-',color='g',label='Máximo')
 
-        ax.scatter(xs[mask],low_,color='r')
-        ax.scatter(xs[mask2],high_,color='g')
+        #ax.scatter(xs[mask],low_,color='r')
+        #ax.scatter(xs[mask2],high_,color='g')
 	    
         ax.plot(real,color='white',label='Real Data',alpha=0.9)
 
@@ -403,8 +403,8 @@ if authentication_status:
 	    
         ax.set_title('Predicciones de día actual en relacion con los anteriores reales',color='white')
 
-        ax.scatter(time,real_l_,color='r')
-        ax.scatter(time,real_h_,color='g')
+        #ax.scatter(time,real_l_,color='r')
+        #ax.scatter(time,real_h_,color='g')
 	    
         ax.plot(real_h_,color='g',label='Predicted Data High',alpha=0.9)
         ax.plot(real_l_,color='r',label='Predicted Data Low',alpha=0.9)	    
