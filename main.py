@@ -321,14 +321,14 @@ if authentication_status:
         for _,i in enumerate(high[mask2]):
             if _==0:
                 z_h.append("")
-	    else:
+            else:
                 dif=((i*100)/high[mask2][_-1])-100
                 z_h.append(f"{dif} %")    
 
         for _,i in enumerate(low[mask]):
             if _==0:
                 z_l.append("")
-	    else:
+            else:
                 dif=((i*100)/low[mask][_-1])-100
                 z_l.append(f"{dif} %")    
 	    
