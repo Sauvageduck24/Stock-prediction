@@ -203,6 +203,7 @@ if authentication_status:
         high=[];low=[]
 
         for i in high_low:
+            i=i.value		
             st.write(i)		
             high.append(i[0])
             low.append(i[1])
