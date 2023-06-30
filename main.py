@@ -194,10 +194,17 @@ if authentication_status:
 	
         df=pd.DataFrame([[sub_dia,sub_entre_dias]],columns=['Subida mismo dia (Open-High)','Subida entre dias'])
         st.dataframe(df)
-	
-        high=sheet3.range('H3:H10')
-        low=sheet3.range('I3:I10')
+
+	    
+        high_low=sheet3.range("H3:I10")	    
+        #high=sheet3.range('H3:H10')
+        #low=sheet3.range('I3:I10')
         #arreglar para que esto sea 1 sola inferencia
+        high=[];low=[]
+
+        for i in high_low:
+            high.append(i[0])
+            low.append(i[1])
 	    
         data = yf.download(f'{selected_stock}.MC', period=f'1d',interval=f'1m',progress=False)
 
