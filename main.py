@@ -323,14 +323,14 @@ if authentication_status:
                 z_h.append("")
             else:
                 dif=((i*100)/high[mask2][_-1])-100
-                z_h.append(f"{round(dif,1)} %")    
+                z_h.append(f"{round(dif,2)} %")    
 
         for _,i in enumerate(low[mask]):
             if _==0:
                 z_l.append("")
             else:
                 dif=((i*100)/low[mask][_-1])-100
-                z_l.append(f"{round(dif,1)} %")    
+                z_l.append(f"{round(dif,2)} %")    
 	    
         for X, Y, Z in zip(xs[mask], high[mask], z_h):
             ax.annotate('{}'.format(Z), xy=(X,Y), xytext=(-5, 5), ha='right',textcoords='offset points',color='#66fcf0')
@@ -425,9 +425,23 @@ if authentication_status:
         ax.plot(real_h,color='white',label='Real Data High',alpha=0.9)
         ax.plot(real_l,color='white',label='Real Data Low',alpha=0.9)
 
-        z_h=[1,2,3,4,5,6]
-        z_l=[1,2,3,4,5,6]
+        z_h=[]
+        z_l=[]
 
+        for _,i in enumerate(real_h_):
+            if _==0:
+                z_h.append("")
+            else:
+                dif=((i*100)/real_h_[_-1])-100
+                z_h.append(f"{round(dif,2)} %")    
+
+        for _,i in enumerate(real_l_):
+            if _==0:
+                z_l.append("")
+            else:
+                dif=((i*100)/real_l_[_-1])-100
+                z_l.append(f"{round(dif,2)} %")    
+	    
         for X, Y, Z in zip(time, real_h_, z_h):
             ax.annotate('{}'.format(Z), xy=(X,Y), xytext=(-5, 5), ha='right',textcoords='offset points',color='#66fcf0')
 
