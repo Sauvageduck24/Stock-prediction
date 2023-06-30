@@ -202,11 +202,12 @@ if authentication_status:
         #arreglar para que esto sea 1 sola inferencia
         high=[];low=[]
 
-        for i in high_low:
-            i=i.value		
-            st.write(i)		
-            high.append(i[0])
-            low.append(i[1])
+        for _,i in enumerate(high_low):
+            if	_%2==0:	
+                high.append(i)
+		    
+	    else:
+                low.append(i)
 	    
         data = yf.download(f'{selected_stock}.MC', period=f'1d',interval=f'1m',progress=False)
 
