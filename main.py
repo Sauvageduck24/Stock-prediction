@@ -380,7 +380,8 @@ if authentication_status:
         #------------------------------------------------------------------------------------
 
         data = yf.download(f'{selected_stock}.MC', period=f'7d',interval=f'1d',progress=False)
-
+        data=data[:-1]
+	    
         time=[0,1,2,3,4,5,6,7]
 	    
         real_h=[]
