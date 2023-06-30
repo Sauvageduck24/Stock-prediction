@@ -410,7 +410,7 @@ if authentication_status:
         ax.plot(real_h,color='white',label='Real Data High',alpha=0.9)
         ax.plot(real_l,color='white',label='Real Data Low',alpha=0.9)
 
-        z=[1,2,3,4,5,6,7,8]
+        z=[1,2,3,4,5,6]
 
         for X, Y, Z in zip(time, real_h_, z):
             ax.annotate('{}'.format(Z), xy=(X,Y), xytext=(-5, 5), ha='right',textcoords='offset points',color='#66fcf0')
