@@ -315,12 +315,13 @@ if authentication_status:
         ax.plot(xs[mask3],mean[mask3],linestyle='-',color='gray',alpha=0)
         ax.plot(xs[mask2],high[mask2],linestyle='-',marker='o',color='g',label='Máximo')
 
-        z=[1,2,3,4,5,6,7,8]
+        z_h=[1,2,3,4,5,6,7,8]
+        z_l=[1,2,3,4,5,6,7,8]
 
-        for X, Y, Z in zip(xs[mask], high[mask], z):
+        for X, Y, Z in zip(xs[mask], high[mask], z_h):
             ax.annotate('{}'.format(Z), xy=(X,Y), xytext=(-5, 5), ha='right',textcoords='offset points',color='#66fcf0')
 
-        for X, Y, Z in zip(xs[mask], low[mask], z):
+        for X, Y, Z in zip(xs[mask], low[mask], z_l):
             ax.annotate('{}'.format(Z), xy=(X,Y), xytext=(-5, 5), ha='right',textcoords='offset points',color='#66fcf0')
 	    
         ax.plot(real,color='white',label='Real Data',alpha=0.9)
@@ -410,12 +411,13 @@ if authentication_status:
         ax.plot(real_h,color='white',label='Real Data High',alpha=0.9)
         ax.plot(real_l,color='white',label='Real Data Low',alpha=0.9)
 
-        z=[1,2,3,4,5,6]
+        z_h=[1,2,3,4,5,6]
+        z_l=[1,2,3,4,5,6]
 
-        for X, Y, Z in zip(time, real_h_, z):
+        for X, Y, Z in zip(time, real_h_, z_h):
             ax.annotate('{}'.format(Z), xy=(X,Y), xytext=(-5, 5), ha='right',textcoords='offset points',color='#66fcf0')
 
-        for X, Y, Z in zip(time, real_l_, z):
+        for X, Y, Z in zip(time, real_l_, z_l):
             ax.annotate('{}'.format(Z), xy=(X,Y), xytext=(-5, 5), ha='right',textcoords='offset points',color='#66fcf0')
 	    
         plt.grid(axis="x",alpha=0.2)
