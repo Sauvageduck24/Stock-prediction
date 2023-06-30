@@ -427,6 +427,10 @@ if authentication_status:
 
         plt.ylabel("Precio")	    
         plt.xlabel("Tiempo (1 día)")
+
+        new_time=['1','2','3','4','5','6','7','Today']
+	
+        plt.xticks(np.arange(0, len(real_l_), 1),new_time)
 	    
         st.pyplot(plt.gcf())
 	    
