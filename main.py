@@ -23,6 +23,38 @@ hide_streamlit_style = """
 	    
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)     # para quitar marca de agua
 
+import streamlit as st
+
+footer="""<style>
+a:link , a:visited{
+color: blue;
+background-color: transparent;
+text-decoration: underline;
+}
+
+a:hover,  a:active {
+color: red;
+background-color: transparent;
+text-decoration: underline;
+}
+
+.footer {
+position: fixed;
+left: 0;
+bottom: 0;
+width: 100%;
+background-color: white;
+color: black;
+text-align: center;
+}
+
+</style>
+<div class="footer">
+<p>Market Master ©</p>
+</div>
+"""
+st.markdown(footer,unsafe_allow_html=True)
+
 try:
     warnings.filterwarnings("ignore", category=np.VisibleDeprecationWarning) 
 except:
@@ -197,9 +229,6 @@ if authentication_status:
 
 	    
         high_low=sheet3.range("H3:I10")	    
-        #high=sheet3.range('H3:H10')
-        #low=sheet3.range('I3:I10')
-        #arreglar para que esto sea 1 sola inferencia
         high=[];low=[]
 
         for _,i in enumerate(high_low):
