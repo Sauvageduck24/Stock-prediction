@@ -311,9 +311,9 @@ if authentication_status:
 	    
         fig,ax=plt.subplots() #ancho , alto
 
-        ax.plot(xs[mask],low[mask],linestyle='-',market='o',color='r',label='Mínimo')
+        ax.plot(xs[mask],low[mask],linestyle='-',marker='o',color='r',label='Mínimo')
         ax.plot(xs[mask3],mean[mask3],linestyle='-',color='gray',alpha=0)
-        ax.plot(xs[mask2],high[mask2],linestyle='-',market='o',color='g',label='Máximo')
+        ax.plot(xs[mask2],high[mask2],linestyle='-',marker='o',color='g',label='Máximo')
 
         #ax.scatter(xs[mask],low_,color='r')
         #ax.scatter(xs[mask2],high_,color='g')
