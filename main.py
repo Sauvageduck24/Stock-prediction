@@ -318,7 +318,10 @@ if authentication_status:
         z=[1,2,3,4,5,6,7,8]
 
         for X, Y, Z in zip(xs[mask], high[mask], z):
-            ax.annotate('{}'.format(Z), xy=(X,Y), xytext=(-5, 5), ha='right',textcoords='offset points',color='white')	
+            ax.annotate('{}'.format(Z), xy=(X,Y), xytext=(-5, 5), ha='right',textcoords='offset points',color='white')
+
+        for X, Y, Z in zip(xs[mask], low[mask], z):
+            ax.annotate('{}'.format(Z), xy=(X,Y), xytext=(-5, 5), ha='right',textcoords='offset points',color='white')
 	    
         ax.plot(real,color='white',label='Real Data',alpha=0.9)
 
