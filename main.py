@@ -333,10 +333,10 @@ if authentication_status:
                 z_l.append(f"{round(dif,2)} %")    
 	    
         for X, Y, Z in zip(xs[mask], high[mask], z_h):
-            ax.annotate('{}'.format(Z), xy=(X,Y), xytext=(-5, 5), ha='right',textcoords='offset points',color='#66fcf0')
+            ax.annotate('{}'.format(Z), xy=(X,Y), xytext=(-5,8), ha='right',textcoords='offset points',color='#66fcf0')
 
         for X, Y, Z in zip(xs[mask], low[mask], z_l):
-            ax.annotate('{}'.format(Z), xy=(X,Y), xytext=(-5, 5), ha='right',textcoords='offset points',color='#66fcf0')
+            ax.annotate('{}'.format(Z), xy=(X,Y), xytext=(-5,8), ha='right',textcoords='offset points',color='#66fcf0')
 	    
         ax.plot(real,color='white',label='Real Data',alpha=0.9)
 
@@ -443,10 +443,10 @@ if authentication_status:
                 z_l.append(f"{round(dif,2)} %")    
 	    
         for X, Y, Z in zip(time, real_h_, z_h):
-            ax.annotate('{}'.format(Z), xy=(X,Y), xytext=(-5, 5), ha='right',textcoords='offset points',color='#66fcf0')
+            ax.annotate('{}'.format(Z), xy=(X,Y), xytext=(-5,8), ha='right',textcoords='offset points',color='#66fcf0')
 
         for X, Y, Z in zip(time, real_l_, z_l):
-            ax.annotate('{}'.format(Z), xy=(X,Y), xytext=(-5, 5), ha='right',textcoords='offset points',color='#66fcf0')
+            ax.annotate('{}'.format(Z), xy=(X,Y), xytext=(-5,8), ha='right',textcoords='offset points',color='#66fcf0')
 	    
         plt.grid(axis="x",alpha=0.2)
         plt.grid(axis="y",alpha=0.2)
