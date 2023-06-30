@@ -206,7 +206,7 @@ if authentication_status:
             if	_%2==0:	
                 high.append(i)
 		    
-	    else:
+            else:
                 low.append(i)
 	    
         data = yf.download(f'{selected_stock}.MC', period=f'1d',interval=f'1m',progress=False)
