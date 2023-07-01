@@ -39,7 +39,7 @@ text-decoration: underline;
 }
 
 .footer {
-position: fixed;
+position: absolute;
 left: 0;
 bottom: 0;
 width: 100%;
