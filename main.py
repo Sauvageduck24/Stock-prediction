@@ -436,7 +436,10 @@ if authentication_status:
         data = yf.download(f'{selected_stock}.MC', period=f'7d',interval=f'1d',progress=False)
         data=data[:-1]
 	    
-        time=[0,1,2,3,4,5]
+        time=[]
+
+        for i in range(len(data)+1):
+            time.append(i)
 	    
         real_h=[]
         real_l=[]
@@ -500,8 +503,13 @@ if authentication_status:
         plt.ylabel("Precio")	    
         plt.xlabel("Tiempo (1 día)")
 
-        new_time=['1','2','3','4','5','Today']
-	
+        new_time=[]
+
+        for i in range(len(data)):
+            new_time.append(i+1)	
+
+        new_time.append("Today")
+	    
         plt.xticks(np.arange(0, len(real_l_), 1),new_time)
 	    
         st.pyplot(plt.gcf())
