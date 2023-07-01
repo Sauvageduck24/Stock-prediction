@@ -53,7 +53,6 @@ text-align: center;
 <p>Market Master ©</p>
 </div>
 """
-st.markdown(footer,unsafe_allow_html=True)
 
 try:
     warnings.filterwarnings("ignore", category=np.VisibleDeprecationWarning) 
@@ -513,7 +512,9 @@ if authentication_status:
         plt.xticks(np.arange(0, len(real_l_), 1),new_time)
 	    
         st.pyplot(plt.gcf())
-	    
+
+st.markdown(footer,unsafe_allow_html=True)
+
 elif authentication_status is False:
     st.error('Username/password is incorrect')
 elif authentication_status is None:
