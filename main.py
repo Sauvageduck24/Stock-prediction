@@ -119,6 +119,7 @@ name, authentication_status, username = authenticator.login('Login', 'main')
 
 today = date.today()
 dia=today.strftime("%d-%m-%Y")
+dia="03-07-2023"
 
 st.markdown(footer,unsafe_allow_html=True)
 
