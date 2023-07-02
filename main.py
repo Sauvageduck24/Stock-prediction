@@ -119,7 +119,6 @@ name, authentication_status, username = authenticator.login('Login', 'main')
 
 today = date.today()
 dia=today.strftime("%d-%m-%Y")
-dia="03-07-2023"
 
 st.markdown(footer,unsafe_allow_html=True)
 
@@ -229,7 +228,6 @@ if authentication_status:
         df=pd.DataFrame([[sub_dia,sub_entre_dias]],columns=['Subida mismo dia (Open-High)','Subida entre dias'])
         st.dataframe(df)
 
-	    
         high_low=sheet3.range("H3:I10")	    
         high=[];low=[]
 
@@ -436,7 +434,14 @@ if authentication_status:
         #------------------------------------------------------------------------------------
 
         data = yf.download(f'{selected_stock}.MC', period=f'7d',interval=f'1d',progress=False)
-        data=data[:-1]
+
+        now = datetime.now()
+	
+        if now.hour+2>9:
+            if now.minute>15:
+                pass
+        else:
+            data=data[:-1]
 	    
         time=[]
 
