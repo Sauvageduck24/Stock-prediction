@@ -11,13 +11,13 @@ import warnings
 from PIL import Image
 from matplotlib import font_manager
 
-font_dir=['Dense-Regular.otf']
-font_files = font_manager.findSystemFonts(fontpaths=font_dir,fontext='otf')
+#font_dir=['Dense-Regular.otf']
+#font_files = font_manager.findSystemFonts(fontpaths=font_dir,fontext='otf')
 
-for font_file in font_files:
-    font_manager.fontManager.addfont(font_file)
+#for font_file in font_files:
+    #font_manager.fontManager.addfont(font_file)
 
-plt.rcParams['font.family'] = 'Dense'
+#plt.rcParams['font.family'] = 'Dense'
 
 image = Image.open('market-master-logo.png')
 
