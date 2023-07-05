@@ -525,6 +525,8 @@ if authentication_status:
 	    
         st.pyplot(plt.gcf())
 
+        #------------------------------------------------------------------------------------
+
 elif authentication_status is False:
     st.error('Username/password is incorrect')
 elif authentication_status is None:
