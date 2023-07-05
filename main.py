@@ -139,12 +139,11 @@ if authentication_status:
     col1,col2=st.columns([1,1])
 
     with col1:
-        st.write(f"Has iniciado sesión como: {name.upper()}")
+        st.write(f"You are logged in as: {name.upper()}")
 
     with col2:
         authenticator.logout('Logout', 'main', key='unique_key')
 	    
-    #st.title('Market Master')
     st.image(image)
 
     stocks = ['BBVA','IAG']
@@ -153,7 +152,7 @@ if authentication_status:
         del stocks[stocks.index(stock_f[pos_username])]
         stocks.insert(0,stock_f[pos_username])
 	
-    selected_stock = st.selectbox('Seleccione la compañía para hacer la predicción', stocks)
+    selected_stock = st.selectbox('Select stock name', stocks)
 
     if selected_stock=='BBVA':
         search='1COITRN8LVx3Sa2zDQRYn-Igt91bg_mZlYqdeGE5KpAQ'
@@ -164,14 +163,14 @@ if authentication_status:
     sheet2= workbook.worksheet('CALC')
     sheet3 = workbook.worksheet('HOUR DATA')
 
-    st.subheader('Predicción para el día')
+    st.subheader('Prediction for the day')
 
     cell=sheet.find(f"{dia}")
     cell2=sheet2.find(f"{dia}")
 	
     if cell is None:
-    	st.warning('Hoy no hay bolsa 😥', icon="⚠️")
-    	raise Exception('Hoy no hay bolsa 😥')
+    	st.warning('No Market Today 😥', icon="⚠️")
+    	raise Exception('No Market Today 😥')
 
 	
     if not sheet.cell(cell.row,3).value and roles_f[pos_username]=='ADMIN':
@@ -184,7 +183,7 @@ if authentication_status:
     else:
         p_open=''
 
-    prediction=st.button('Hacer predicción',key='4')
+    prediction=st.button('Make Prediction',key='4')
 
     if prediction:
 
@@ -211,7 +210,7 @@ if authentication_status:
         close=float(close.replace(',','.'))
 
         st.write(" ")	    
-        st.write('Predicciones para el día')
+        st.write('Prediction for the day')
         
         new_real=[high,low,close]
 	
@@ -219,9 +218,9 @@ if authentication_status:
 	    
         st.dataframe(df_)
 	
-        st.write('Precisiones medias')	
+        st.write('Mean accuracies')	
 	
-        df=pd.DataFrame([[high_accuracy,low_accuracy,close_accuracy]],columns=['Precisión media High','Precisión media Low','Precisión media Close'])
+        df=pd.DataFrame([[high_accuracy,low_accuracy,close_accuracy]],columns=['High Mean Accuracy','Low Mean Accuracy','Close Mean Accuracy'])
         st.dataframe(df)
 
         high_low=sheet3.range("H3:I10")	    
@@ -346,9 +345,9 @@ if authentication_status:
 	    
         fig,ax=plt.subplots() #ancho , alto
 
-        ax.plot(xs[mask],low[mask],linestyle='-',marker='o',color='r',label='Mínimo')
+        ax.plot(xs[mask],low[mask],linestyle='-',marker='o',color='r',label='Low')
         ax.plot(xs[mask3],mean[mask3],linestyle='-',color='gray',alpha=0)
-        ax.plot(xs[mask2],high[mask2],linestyle='-',marker='o',color='g',label='Máximo')
+        ax.plot(xs[mask2],high[mask2],linestyle='-',marker='o',color='g',label='High')
 
         z_h=[]
         z_l=[]
@@ -384,7 +383,7 @@ if authentication_status:
         pos_high=pos_high.flat[0]
         pos_low=pos_low.flat[0]
         	
-        ax.scatter([pos_high,pos_low,len(low)-60],new_real,color='gray',label='Valores predichos')
+        ax.scatter([pos_high,pos_low,len(low)-60],new_real,color='gray',label='Predicted Values')
 
         ax.fill_between(xs[mask2],high[mask2],mean[mask3], color="green", alpha=0.1)
         ax.fill_between(xs[mask2],mean[mask3],low[mask], color="red", alpha=0.1)
@@ -420,7 +419,7 @@ if authentication_status:
         ax.set_facecolor((0, 0, 0))
         fig.patch.set_facecolor((0, 0, 0))
 
-        ax.set_title('Gráfico aproximado del día (formato en 1 hora)',color='white')
+        ax.set_title('Approximate chart of the day (1 hour format)',color='white')
 	    
         plt.grid(axis="x",alpha=0.2)
         plt.grid(axis="y",alpha=0.2)
@@ -462,7 +461,7 @@ if authentication_status:
         real_h_.append(df_.iloc[0]['High'])
         real_l_.append(df_.iloc[0]['Low'])
 	    
-        ax.set_title('Predicciones de día actual en relacion con los anteriores reales',color='white')
+        ax.set_title('Prediction of the current day in relation to the previous real ones',color='white')
 
         ax.plot(real_h_,color='g',linestyle='-',marker='o',label='Predicted Data High',alpha=0.9)
         ax.plot(real_l_,color='r',linestyle='-',marker='o',label='Predicted Data Low',alpha=0.9)	    
