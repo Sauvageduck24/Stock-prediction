@@ -366,11 +366,11 @@ if authentication_status:
                 dif=((i*100)/low[mask][_-1])-100
                 z_l.append(f"{round(dif,2)} %")    
 	    
-        for X, Y, Z in zip(xs[mask], high[mask], z_h):
-            ax.annotate('{}'.format(Z), xy=(X,Y), xytext=(-5,10), ha='right',textcoords='offset points',color='#66fcf0')
+        #for X, Y, Z in zip(xs[mask], high[mask], z_h):
+            #ax.annotate('{}'.format(Z), xy=(X,Y), xytext=(-5,10), ha='right',textcoords='offset points',color='#66fcf0')
 
-        for X, Y, Z in zip(xs[mask], low[mask], z_l):
-            ax.annotate('{}'.format(Z), xy=(X,Y), xytext=(-5,-16), ha='right',textcoords='offset points',color='#66fcf0')
+        #for X, Y, Z in zip(xs[mask], low[mask], z_l):
+            #ax.annotate('{}'.format(Z), xy=(X,Y), xytext=(-5,-16), ha='right',textcoords='offset points',color='#66fcf0')
 	    
         ax.plot(real,color='white',label='Real Data',alpha=0.9)
 
