@@ -527,6 +527,12 @@ if authentication_status:
 
         #------------------------------------------------------------------------------------
 
+        #32 Day Forecast # titulo de grafico
+
+        #------------------------------------------------------------------------------------
+
+        #Past Days Accuracy Demo Predictions # poner esto como titulo de grafico
+
 elif authentication_status is False:
     st.error('Username/password is incorrect')
 elif authentication_status is None:
