@@ -218,7 +218,7 @@ if authentication_status:
 	    
         st.dataframe(df_)
 	
-        st.write('Mean accuracies')	
+        st.write('Mean Accuracies')	
 	
         df=pd.DataFrame([[high_accuracy,low_accuracy,close_accuracy]],columns=['High Mean Accuracy','Low Mean Accuracy','Close Mean Accuracy'])
         st.dataframe(df)
@@ -402,8 +402,8 @@ if authentication_status:
         ax.axhline(y=new_real[0], color='gray', linestyle='--',alpha=0.5)
         ax.axhline(y=new_real[1], color='gray', linestyle='--',alpha=0.5)
 	
-        plt.xlabel("Tiempo (h)")
-        plt.ylabel("Precio")
+        plt.xlabel("Time (h)")
+        plt.ylabel("Price")
 	
         new_time=['9','10','11','12','13','14','15','16']
 	
@@ -502,8 +502,8 @@ if authentication_status:
 
         ax.tick_params(colors='white')
 
-        plt.ylabel("Precio")	    
-        plt.xlabel("Tiempo (1 día)")
+        plt.ylabel("Price")	    
+        plt.xlabel("Time (1 day)")
 
         new_time=[]
 
