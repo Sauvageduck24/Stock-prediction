@@ -9,6 +9,13 @@ import yfinance as yf
 import matplotlib.pyplot as plt
 import warnings
 from PIL import Image
+from matplotlib import font_manager
+
+font_dir=['Dense-Regular.otf']
+font_file = font_manager.findSystemFonts(fontpaths=font_dirs)
+font_manager.fontManager.addfont(font_file)
+
+plt.rcParams['font.family'] = 'Dense Regular'
 
 image = Image.open('market-master-logo.png')
 
