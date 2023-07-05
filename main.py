@@ -164,7 +164,7 @@ if authentication_status:
     sheet2= workbook.worksheet('CALC')
     sheet3 = workbook.worksheet('HOUR DATA')
 
-    st.subheader('Predicción para el día siguiente')
+    st.subheader('Predicción para el día')
 
     cell=sheet.find(f"{dia}")
     cell2=sheet2.find(f"{dia}")
@@ -213,8 +213,8 @@ if authentication_status:
         close=float(close.replace(',','.'))
 
         st.write(" ")	    
-        st.write(f"Precisión media del código en acciones de {selected_stock}:  {accuracy}")
-        st.write(" ")    
+        #st.write(f"Precisión media del código en acciones de {selected_stock}:  {accuracy}")
+        #st.write(" ")    
         st.write('Predicciones para el día')
         
         new_real=[high,low,close]
@@ -223,10 +223,10 @@ if authentication_status:
 	    
         st.dataframe(df_)
 	
-        st.write('Estadísticas día')	
+        st.write('Precisiones medias')	
 	
-        df=pd.DataFrame([[sub_dia,sub_entre_dias]],columns=['Subida mismo dia (Open-High)','Subida entre dias'])
-        st.dataframe(df)
+        #df=pd.DataFrame([[sub_dia,sub_entre_dias]],columns=['Subida mismo dia (Open-High)','Subida entre dias'])
+        #st.dataframe(df)
 
         high_low=sheet3.range("H3:I10")	    
         high=[];low=[]
