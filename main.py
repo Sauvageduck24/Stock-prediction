@@ -171,6 +171,7 @@ if authentication_status:
     sheet = workbook.worksheet('ONE DAY DATA')
     sheet2= workbook.worksheet('CALC')
     sheet3 = workbook.worksheet('HOUR DATA')
+    sheet4 = workbook.worksheet('DAY DATA')
 
     st.subheader('Prediction for the day')
 
@@ -200,7 +201,11 @@ if authentication_status:
             sheet.update(f'C{cell.row}',p_open)
 	
             if not sheet3.cell(3,3).value:
-                sheet3.update('C3',p_open)	
+                sheet3.update('C3',p_open)
+		    
+
+            if not sheet4.cell(3,3).value:
+                sheet4.update('C3',p_open)
 	    
         values=sheet.range(f'G{cell.row}:J{cell.row}')
         open=values[0].value
@@ -526,12 +531,30 @@ if authentication_status:
         st.pyplot(plt.gcf())
 
         #------------------------------------------------------------------------------------
-
         #32 Day Forecast # titulo de grafico
+	    
+        #high_low=sheet4.range("H3:I34")	    
+        #high=[];low=[]
+
+        #for _,i in enumerate(high_low):
+            #if _%2 ==0:	
+                #high.append(i)
+		    
+            #else:
+                #low.append(i)
 
         #------------------------------------------------------------------------------------
-
         #Past Days Accuracy Demo Predictions # poner esto como titulo de grafico
+
+        #real_predicted_high_low=sheet.range("D3:I1000")
+        #high=[];low=[];predicted_high=[];predicted_low=[]
+
+        #for _,i in enumerate(high_low):
+            #if _%2 ==0:	
+                #high.append(i)
+		    
+            #else:
+                #low.append(i)
 
 elif authentication_status is False:
     st.error('Username/password is incorrect')
