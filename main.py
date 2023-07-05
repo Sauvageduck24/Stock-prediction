@@ -12,7 +12,7 @@ from PIL import Image
 from matplotlib import font_manager
 
 font_dir=['Dense-Regular.otf']
-font_files = font_manager.findSystemFonts(fontpaths=font_dir)
+font_files = font_manager.findSystemFonts(fontpaths=font_dir,fontext='ttf')
 
 for font_file in font_files:
     font_manager.fontManager.addfont(font_file)
