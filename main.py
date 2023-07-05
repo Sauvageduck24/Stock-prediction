@@ -491,11 +491,11 @@ if authentication_status:
                 dif=((i*100)/real_l_[_-1])-100
                 z_l.append(f"{round(dif,2)} %")    
 	    
-        for X, Y, Z in zip(time, real_h_, z_h):
-            ax.annotate('{}'.format(Z), xy=(X,Y), xytext=(-5,10), ha='right',textcoords='offset points',color='#66fcf0')
+        #for X, Y, Z in zip(time, real_h_, z_h):
+            #ax.annotate('{}'.format(Z), xy=(X,Y), xytext=(-5,10), ha='right',textcoords='offset points',color='#66fcf0')
 
-        for X, Y, Z in zip(time, real_l_, z_l):
-            ax.annotate('{}'.format(Z), xy=(X,Y), xytext=(-5,-10), ha='right',textcoords='offset points',color='#66fcf0')
+        #for X, Y, Z in zip(time, real_l_, z_l):
+            #ax.annotate('{}'.format(Z), xy=(X,Y), xytext=(-5,-10), ha='right',textcoords='offset points',color='#66fcf0')
 	    
         plt.grid(axis="x",alpha=0.2)
         plt.grid(axis="y",alpha=0.2)
