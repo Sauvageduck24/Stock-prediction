@@ -12,8 +12,10 @@ from PIL import Image
 from matplotlib import font_manager
 
 font_dir=['Dense-Regular.otf']
-font_file = font_manager.findSystemFonts(fontpaths=font_dir)
-font_manager.fontManager.addfont(font_file)
+font_files = font_manager.findSystemFonts(fontpaths=font_dir)
+
+for font_file in font_files:
+    font_manager.fontManager.addfont(font_file)
 
 plt.rcParams['font.family'] = 'Dense Regular'
 
