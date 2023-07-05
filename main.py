@@ -200,12 +200,10 @@ if authentication_status:
         low=values[2].value
         close=values[3].value
 	
-        values2=sheet2.range(f'G{cell2.row}:K{cell2.row}')
-        sub_dia=values2[0].value
-        sub_entre_dias=values2[2].value
-        anotaciones=values2[4].value
-        accuracy=sheet2.range(f"F3:F3")
-        accuracy=accuracy[0].value
+        values2=sheet2.range(f'F{cell2.row}:H{cell2.row}')
+        high_accuracy=values2[0].value
+        low_accuracy=values2[1].value
+        close_accuracy=values2[2].value
 	    
         open=float(open.replace(',','.'))
         high=float(high.replace(',','.'))
@@ -213,8 +211,6 @@ if authentication_status:
         close=float(close.replace(',','.'))
 
         st.write(" ")	    
-        #st.write(f"Precisión media del código en acciones de {selected_stock}:  {accuracy}")
-        #st.write(" ")    
         st.write('Predicciones para el día')
         
         new_real=[high,low,close]
@@ -225,8 +221,8 @@ if authentication_status:
 	
         st.write('Precisiones medias')	
 	
-        #df=pd.DataFrame([[sub_dia,sub_entre_dias]],columns=['Subida mismo dia (Open-High)','Subida entre dias'])
-        #st.dataframe(df)
+        df=pd.DataFrame([[high_accuracy,low_accuracy,close_accuracy]],columns=['Precisión media High','Precisión media Low','Precisión media Close'])
+        st.dataframe(df)
 
         high_low=sheet3.range("H3:I10")	    
         high=[];low=[]
