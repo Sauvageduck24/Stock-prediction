@@ -549,7 +549,7 @@ if authentication_status:
         real_predicted_high_low=sheet.range("D3:I1000")
         high=[];low=[];predicted_high=[];predicted_low=[]
 
-        for _,i in enumerate(high_low):
+        for _,i in enumerate(real_predicted_high_low):
             if _ <= 10:
                 st.write(i)
 		    
