@@ -551,7 +551,10 @@ if authentication_status:
 
         st.write(real_predicted_high_low)
 
-        #for _,i in enumerate(high_low):
+        for _,i in enumerate(high_low):
+            if _==0 or _==1:
+                st.write(i)
+		    
             #if _%2 ==0:	
                 #high.append(i)
 		    
