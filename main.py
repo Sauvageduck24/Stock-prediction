@@ -567,6 +567,7 @@ if authentication_status:
         for _,i in enumerate(predicted_low):
             predicted_low[_]=float(i.replace(',','.'))
 
+        high,low,predicted_high,predicted_low=high[-20:],low[-20:],predicted_high[-20:],predicted_low[-20:]
 	    
         fig,ax=plt.subplots() #ancho , alto
 
