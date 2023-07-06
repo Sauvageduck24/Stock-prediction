@@ -590,7 +590,7 @@ if authentication_status:
         ax.xaxis.label.set_color('white')
         ax.yaxis.label.set_color('white')
 
-        ax.tick_params(colors='black')
+        ax.tick_params(colors='white')
 
         plt.ylabel("Price")	    
         plt.xlabel("Time")
