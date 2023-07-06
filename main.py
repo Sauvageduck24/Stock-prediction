@@ -576,8 +576,6 @@ if authentication_status:
         for _,i in enumerate(predicted_low):
             predicted_low[_]=float(i.replace(',','.'))
 
-
-        st.write(high)	    
 	    
         fig,ax=plt.subplots() #ancho , alto
 
@@ -589,7 +587,7 @@ if authentication_status:
         ax.plot(predicted_high,color='g',linestyle='-',label='Predicted Data High',alpha=0.9)
         ax.plot(predicted_low,color='r',linestyle='-',label='Predicted Data Low',alpha=0.9)	    
 	    
-        #ax.plot(high,color='white',label='Real Data',alpha=0.9)
+        ax.plot(high,color='white',label='Real Data',alpha=0.9)
         #ax.plot(low,color='white',alpha=0.9)
 	    
         plt.grid(axis="x",alpha=0.2)
