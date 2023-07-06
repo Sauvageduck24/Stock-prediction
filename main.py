@@ -439,9 +439,7 @@ if authentication_status:
 	
         if now.hour+2>9:
             if now.minute>15:
-                pass
-        else:
-            data=data[:-1]
+                data=data[:-1]
 
         st.write(data)	    
 	    
