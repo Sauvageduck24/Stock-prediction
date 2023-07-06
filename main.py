@@ -577,6 +577,8 @@ if authentication_status:
             predicted_low[_]=float(i.replace(',','.'))
 
 
+        st.write(high)	    
+	    
         fig,ax=plt.subplots() #ancho , alto
 
         ax.set_facecolor((0, 0, 0))
