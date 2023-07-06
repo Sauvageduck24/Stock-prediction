@@ -550,14 +550,14 @@ if authentication_status:
         high=[];low=[];predicted_high=[];predicted_low=[]
 
         for _,i in enumerate(real_predicted_high_low):
-            if _ <= 10:
-                st.write(i)
-		    
-            #if _%2 ==0:	
-                #high.append(i)
-		    
-            #else:
-                #low.append(i)
+            if (_+1)%6 == 0:
+                predicted_low.append(i.value)
+                predicted_high.append(real_predicted_high_low[_-1].value)
+                low.append(real_predicted_high_low[_-4].value)
+                high.append(real_predicted_high_low[_-5].value)
+
+
+        st.write(predicted_low)        
 
 elif authentication_status is False:
     st.error('Username/password is incorrect')
