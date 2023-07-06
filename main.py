@@ -587,8 +587,8 @@ if authentication_status:
         ax.plot(predicted_high,color='g',linestyle='-',marker='o',label='Predicted Data High',alpha=0.9)
         ax.plot(predicted_low,color='r',linestyle='-',marker='o',label='Predicted Data Low',alpha=0.9)	    
 	    
-        ax.plot(high,color='white',label='Real Data',alpha=0.9)
-        ax.plot(low,color='white',alpha=0.9)
+        #ax.plot(high,color='white',label='Real Data',alpha=0.9)
+        #ax.plot(low,color='white',alpha=0.9)
 	    
         plt.grid(axis="x",alpha=0.2)
         plt.grid(axis="y",alpha=0.2)
