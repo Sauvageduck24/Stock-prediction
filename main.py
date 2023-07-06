@@ -584,8 +584,8 @@ if authentication_status:
 	    
         ax.set_title('Past Days Accuracy Demo Predictions',color='white')
 
-        ax.plot(predicted_high,color='g',linestyle='-',marker='o',label='Predicted Data High',alpha=0.9)
-        ax.plot(predicted_low,color='r',linestyle='-',marker='o',label='Predicted Data Low',alpha=0.9)	    
+        ax.plot(predicted_high,color='g',linestyle='-',label='Predicted Data High',alpha=0.9)
+        ax.plot(predicted_low,color='r',linestyle='-',label='Predicted Data Low',alpha=0.9)	    
 	    
         #ax.plot(high,color='white',label='Real Data',alpha=0.9)
         #ax.plot(low,color='white',alpha=0.9)
