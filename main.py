@@ -562,13 +562,13 @@ if authentication_status:
             try:		
                 high[_]=float(i.replace(',','.'))
             except:
-                continue    
+                high[_]=0    
 	
         for _,i in enumerate(low):
             try:		
                 low[_]=float(i.replace(',','.'))
             except:
-                continue    
+                low[_]=0 
 
         for _,i in enumerate(predicted_high):
             predicted_high[_]=float(i.replace(',','.'))
