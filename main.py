@@ -595,8 +595,8 @@ if authentication_status:
 
         ax.legend(loc="best")
 
-        ax.xaxis.label.set_color('white')
-        ax.yaxis.label.set_color('white')
+        ax.xaxis.label.set_color('black')
+        ax.yaxis.label.set_color('black')
 
         ax.tick_params(colors='white')
 
@@ -613,7 +613,7 @@ if authentication_status:
                 new_time.append(i+1)	
 
 	    
-        plt.xticks(np.arange(0, len(high), 1),new_time)
+        plt.xticks(np.arange(0, len(high), 60),new_time)
 	    
         st.pyplot(plt.gcf())
 
