@@ -603,17 +603,17 @@ if authentication_status:
         plt.ylabel("Price")	    
         plt.xlabel("Time")
 
-        new_time=[]
+        #new_time=[]
 
-        for i in range(len(high)):
-            if i==0:
-                new_time.append('Today')
+        #for i in range(len(high)):
+            #if i==0:
+                #new_time.append('Today')
 
-            else:
-                new_time.append(i+1)	
+            #else:
+                #new_time.append(i+1)	
 
 	    
-        plt.xticks(np.arange(0, len(high), 60),new_time)
+        #plt.xticks(np.arange(0, len(high), 60),new_time)
 	    
         st.pyplot(plt.gcf())
 
