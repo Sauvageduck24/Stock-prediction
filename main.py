@@ -162,7 +162,6 @@ if authentication_status:
     sheet = workbook.worksheet('ONE DAY DATA')
     sheet2= workbook.worksheet('CALC')
     sheet3 = workbook.worksheet('HOUR DATA')
-    sheet4 = workbook.worksheet('DAY DATA')
 
     st.subheader('Prediction for the day')
 
@@ -193,10 +192,6 @@ if authentication_status:
 	
             if not sheet3.cell(3,3).value:
                 sheet3.update('C3',p_open)
-		    
-
-            if not sheet4.cell(3,3).value:
-                sheet4.update('C3',p_open)
 	    
         values=sheet.range(f'G{cell.row}:J{cell.row}')
         open=values[0].value
@@ -518,19 +513,6 @@ if authentication_status:
         plt.xticks(np.arange(0, len(real_l_), 1),new_time)
 	    
         st.pyplot(plt.gcf())
-
-        #------------------------------------------------------------------------------------
-        #32 Day Forecast # titulo de grafico
-	    
-        #high_low=sheet4.range("H3:I34")	    
-        #high=[];low=[]
-
-        #for _,i in enumerate(high_low):
-            #if _%2 ==0:	
-                #high.append(i)
-		    
-            #else:
-                #low.append(i)
 
         #------------------------------------------------------------------------------------
         #Past Days Accuracy Demo Predictions
