@@ -587,8 +587,8 @@ if authentication_status:
 
         ax.legend(loc="best")
 
-        ax.xaxis.label.set_color('black')
-        ax.yaxis.label.set_color('black')
+        ax.xaxis.label.set_color('white')
+        ax.yaxis.label.set_color('white')
 
         ax.tick_params(colors='black')
 
