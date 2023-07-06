@@ -546,8 +546,10 @@ if authentication_status:
         #------------------------------------------------------------------------------------
         #Past Days Accuracy Demo Predictions # poner esto como titulo de grafico
 
-        #real_predicted_high_low=sheet.range("D3:I1000")
-        #high=[];low=[];predicted_high=[];predicted_low=[]
+        real_predicted_high_low=sheet.range("D3:I1000")
+        high=[];low=[];predicted_high=[];predicted_low=[]
+
+        st.write(real_predicted_high_low)
 
         #for _,i in enumerate(high_low):
             #if _%2 ==0:	
