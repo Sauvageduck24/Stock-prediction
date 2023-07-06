@@ -558,7 +558,10 @@ if authentication_status:
                     high.append(real_predicted_high_low[_-5].value)
 
 
-        st.write(predicted_low)        
+        st.write(len(predicted_low))
+        st.write(len(predicted_high))
+        st.write(len(low))
+        st.write(len(high))
 
 elif authentication_status is False:
     st.error('Username/password is incorrect')
