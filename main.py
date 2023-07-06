@@ -544,7 +544,7 @@ if authentication_status:
                 #low.append(i)
 
         #------------------------------------------------------------------------------------
-        #Past Days Accuracy Demo Predictions # poner esto como titulo de grafico
+        #Past Days Accuracy Demo Predictions
 
         real_predicted_high_low=sheet.range("D3:I1000")
         high=[];low=[];predicted_high=[];predicted_low=[]
@@ -558,10 +558,59 @@ if authentication_status:
                     high.append(real_predicted_high_low[_-5].value)
 
 
-        st.write(len(predicted_low))
-        st.write(len(predicted_high))
-        st.write(len(low))
-        st.write(len(high))
+        for _,i in enumerate(high):
+            high[_]=float(i.replace(',','.'))
+	
+        for _,i in enumerate(low):
+            low[_]=float(i.replace(',','.'))
+
+        for _,i in enumerate(predicted_high):
+            predicted_high[_]=float(i.replace(',','.'))
+	
+        for _,i in enumerate(predicted_low):
+            predicted_low[_]=float(i.replace(',','.'))
+
+
+        fig,ax=plt.subplots() #ancho , alto
+
+        ax.set_facecolor((0, 0, 0))
+        fig.patch.set_facecolor((0, 0, 0))
+	    
+        ax.set_title('Past Days Accuracy Demo Predictions',color='white')
+
+        ax.plot(predicted_high,color='g',linestyle='-',marker='o',label='Predicted Data High',alpha=0.9)
+        ax.plot(predicted_low,color='r',linestyle='-',marker='o',label='Predicted Data Low',alpha=0.9)	    
+	    
+        ax.plot(high,color='white',label='Real Data',alpha=0.9)
+        ax.plot(low,color='white',alpha=0.9)
+	    
+        plt.grid(axis="x",alpha=0.2)
+        plt.grid(axis="y",alpha=0.2)
+
+        ax.legend(loc="best")
+
+        ax.xaxis.label.set_color('white')
+        ax.yaxis.label.set_color('white')
+
+        ax.tick_params(colors='white')
+
+        plt.ylabel("Price")	    
+        plt.xlabel("Time")
+
+        new_time=[]
+
+        for i in range(len(high)):
+            if i==0:
+                new_time.append('Today')
+
+            else:
+                new_time.append(i+1)	
+
+	    
+        plt.xticks(np.arange(0, len(high), 1),new_time)
+	    
+        st.pyplot(plt.gcf())
+
 
 elif authentication_status is False:
     st.error('Username/password is incorrect')
