@@ -550,11 +550,12 @@ if authentication_status:
         high=[];low=[];predicted_high=[];predicted_low=[]
 
         for _,i in enumerate(real_predicted_high_low):
-            if (_+1)%6 == 0:
-                predicted_low.append(i.value)
-                predicted_high.append(real_predicted_high_low[_-1].value)
-                low.append(real_predicted_high_low[_-4].value)
-                high.append(real_predicted_high_low[_-5].value)
+            if i.value != "0,000":
+                if (_+1)%6 == 0:
+                    predicted_low.append(i.value)
+                    predicted_high.append(real_predicted_high_low[_-1].value)
+                    low.append(real_predicted_high_low[_-4].value)
+                    high.append(real_predicted_high_low[_-5].value)
 
 
         st.write(predicted_low)        
