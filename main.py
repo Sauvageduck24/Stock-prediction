@@ -429,11 +429,13 @@ if authentication_status:
         #------------------------------------------------------------------------------------
 
         data = yf.download(f'{selected_stock}.MC', period=f'16d',interval=f'1d',progress=False)
-
+	
+	    
         now = datetime.now()
 	
         if now.hour+2>9:
             if now.minute>15:
+                st.write(data[:-1])		    
                 data=data[:-1]
 	    
         time=[]
