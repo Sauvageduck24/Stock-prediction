@@ -226,10 +226,11 @@ if authentication_status:
         low=values[2].value
         close=values[3].value
 	
-        values2=sheet2.range(f'F{cell2.row}:H{cell2.row}')
+        values2=sheet2.range(f'F{cell2.row}:I{cell2.row}')
         high_accuracy=values2[0].value
         low_accuracy=values2[1].value
         close_accuracy=values2[2].value
+        general_accuracy=values2[3].value
 	    
         open=float(open.replace(',','.'))
         high=float(high.replace(',','.'))
@@ -247,7 +248,7 @@ if authentication_status:
 	
         st.write('Mean Accuracies')	
 	
-        df=pd.DataFrame([[high_accuracy,low_accuracy,close_accuracy]],columns=['High Mean Accuracy','Low Mean Accuracy','Close Mean Accuracy'])
+        df=pd.DataFrame([[high_accuracy,low_accuracy,close_accuracy,general_accuracy]],columns=['High Mean Accuracy','Low Mean Accuracy','Close Mean Accuracy','General Mean Accuracy'])
         st.dataframe(df)
 
         high_low=sheet3.range("H3:I10")	    
