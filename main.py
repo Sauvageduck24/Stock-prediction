@@ -161,36 +161,56 @@ if authentication_status:
         search='AyOOGiY2XpZfOyIL9Hp47OWEguKZjpxzrTK-uDbq9v4'
 	
 	
-    workbook=file.open_by_key(search)
+    #workbook=file.open_by_key(search)
 
-    sheet = workbook.worksheet('ONE DAY DATA')
-    sheet2= workbook.worksheet('CALC')
-    sheet3 = workbook.worksheet('HOUR DATA')
+    #sheet = workbook.worksheet('ONE DAY DATA')
+    #sheet2= workbook.worksheet('CALC')
+    #sheet3 = workbook.worksheet('HOUR DATA')
 
     st.subheader('Prediction for the day')
 
-    cell=sheet.find(f"{dia}")
-    cell2=sheet2.find(f"{dia}")
+    #cell=sheet.find(f"{dia}")
+    #cell2=sheet2.find(f"{dia}")
 	
-    if cell is None:
-    	st.warning('No Market Today 😥', icon="⚠️")
-    	raise Exception('No Market Today 😥')
+    #if cell is None:
+    	#st.warning('No Market Today 😥', icon="⚠️")
+    	#raise Exception('No Market Today 😥')
 
 	
-    if not sheet.cell(cell.row,3).value and roles_f[pos_username]=='ADMIN':
-        p_open = st.text_input('Precio Open: ')
-        try:
-            p_open = p_open.replace('.',',')
-        except:
-            pass
+    #if not sheet.cell(cell.row,3).value and roles_f[pos_username]=='ADMIN':
+        #p_open = st.text_input('Precio Open: ')
+        #try:
+            #p_open = p_open.replace('.',',')
+        #except:
+            #pass
     
-    else:
-        p_open=''
+    #else:
+        #p_open=''
 
     prediction=st.button('Make Prediction',key='4')
 
     if prediction:
 
+        workbook=file.open_by_key(search)
+
+        sheet = workbook.worksheet('ONE DAY DATA')
+        sheet2= workbook.worksheet('CALC')
+        sheet3 = workbook.worksheet('HOUR DATA')
+
+        cell=sheet.find(f"{dia}")
+        cell2=sheet2.find(f"{dia}")
+
+        if cell is None:
+            st.warning('No Market Today 😥', icon="⚠️")
+            raise Exception('No Market Today 😥')
+
+        if not sheet.cell(cell.row,3).value and roles_f[pos_username]=='ADMIN':
+            p_open = st.text_input('Precio Open: ')
+            try:
+                p_open = p_open.replace('.',',')
+            except:
+                pass
+	    
         if p_open:
             sheet.update(f'C{cell.row}',p_open)
 	
