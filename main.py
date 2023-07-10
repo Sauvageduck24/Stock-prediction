@@ -155,7 +155,7 @@ if authentication_status:
 	
     selected_stock = st.selectbox('Select stock name', stocks)
 
-    if selected_stock=='BBVA':
+    if selected_stock=='BBVA.MC':
         search='1COITRN8LVx3Sa2zDQRYn-Igt91bg_mZlYqdeGE5KpAQ'
 	
     workbook=file.open_by_key(search)
