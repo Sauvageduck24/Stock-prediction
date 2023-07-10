@@ -191,6 +191,8 @@ if authentication_status:
 
     if prediction:
 
+        st.write(search)	    
+	    
         workbook=file.open_by_key(search)
 
         sheet = workbook.worksheet('ONE DAY DATA')
