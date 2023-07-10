@@ -146,7 +146,7 @@ if authentication_status:
 	    
     st.image(image)
 
-    stocks = ['BBVA','IAG']
+    stocks = ['BBVA.MC','ETH-USD']
 	
     if stock_f[pos_username] in stocks:
         del stocks[stocks.index(stock_f[pos_username])]
@@ -233,7 +233,7 @@ if authentication_status:
             else:
                 low.append(i)
 	    
-        data = yf.download(f'{selected_stock}.MC', period=f'1d',interval=f'1m',progress=False)
+        data = yf.download(f'{selected_stock}', period=f'1d',interval=f'1m',progress=False)
 
         now = datetime.now()
 	
@@ -428,7 +428,7 @@ if authentication_status:
 
         #------------------------------------------------------------------------------------
 
-        data = yf.download(f'{selected_stock}.MC', period=f'16d',interval=f'1d',progress=False)
+        data = yf.download(f'{selected_stock}', period=f'16d',interval=f'1d',progress=False)
         data=data[:-1]
 	    
         time=[]
