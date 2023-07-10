@@ -210,7 +210,10 @@ if authentication_status:
                 p_open = p_open.replace('.',',')
             except:
                 pass
-	    
+
+	else:
+            p_open=''
+		
         if p_open:
             sheet.update(f'C{cell.row}',p_open)
 	
