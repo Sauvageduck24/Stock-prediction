@@ -156,6 +156,10 @@ if authentication_status:
 
     if selected_stock=='BBVA.MC':
         search='1COITRN8LVx3Sa2zDQRYn-Igt91bg_mZlYqdeGE5KpAQ'
+	    
+    elif selected_stock=='ETH-USD':
+        search='AyOOGiY2XpZfOyIL9Hp47OWEguKZjpxzrTK-uDbq9v4'
+	
 	
     workbook=file.open_by_key(search)
 
