@@ -147,7 +147,8 @@ if authentication_status:
     st.image(image)
 
     stocks = ['BBVA.MC','ETH-USD']
-	
+    st.write(stocks)	
+    st.write(stock_f[pos_username])	
     if stock_f[pos_username] in stocks:
         del stocks[stocks.index(stock_f[pos_username])]
         stocks.insert(0,stock_f[pos_username])
