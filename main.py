@@ -158,7 +158,7 @@ if authentication_status:
         search='1COITRN8LVx3Sa2zDQRYn-Igt91bg_mZlYqdeGE5KpAQ'
 	    
     elif selected_stock=='ETH-USD':
-        search='AyOOGiY2XpZfOyIL9Hp47OWEguKZjpxzrTK-uDbq9v4'
+        search='1AyOOGiY2XpZfOyIL9Hp47OWEguKZjpxzrTK-uDbq9v4'
 	
 	
     #workbook=file.open_by_key(search)
@@ -191,8 +191,6 @@ if authentication_status:
 
     if prediction:
 
-        st.write(search)	    
-	    
         workbook=file.open_by_key(search)
 
         sheet = workbook.worksheet('ONE DAY DATA')
