@@ -200,6 +200,7 @@ if authentication_status:
                 p_open=data.iloc[0]['Open']
                 p_open=str(p_open).replace('.',',')
         else:
+            p_open=''		
             data=data[:-9*60]
 	    
         workbook=file.open_by_key(search)
@@ -211,26 +212,13 @@ if authentication_status:
         cell=sheet.find(f"{dia}")
         cell2=sheet2.find(f"{dia}")
 
-        st.write(p_open)
-	    
         if cell is None:
             st.warning('No Market Today 😥', icon="⚠️")
             raise Exception('No Market Today 😥')
 
-        if not sheet.cell(cell.row,3).value and roles_f[pos_username]=='ADMIN':
-            p_open = st.text_input('Precio Open: ')
-            try:
-                p_open = p_open.replace('.',',')
-            except:
-                pass
-
-        else:
-            p_open=''
-		
-        if p_open:
-            sheet.update(f'C{cell.row}',p_open)
-	
-            if not sheet3.cell(3,3).value:
+        if not sheet.cell(cell.row,3).value:
+            if p_open:
+                sheet.update(f'C{cell.row}',p_open)
                 sheet3.update('C3',p_open)
 	    
         values=sheet.range(f'G{cell.row}:J{cell.row}')
