@@ -196,6 +196,7 @@ if authentication_status:
         now = datetime.now()
 
         if selected_stock=="BBVA.MC":	
+            st.write('hola')
             if now.hour+2>9:
                 if now.minute>15:
                     p_open=data.iloc[0]['Open']
