@@ -197,7 +197,7 @@ if authentication_status:
 	
         if now.hour+2>9:
             if now.minute>15:
-                p_open=data.iloc[-1]['Open']
+                p_open=data.iloc[0]['Open']
         else:
             data=data[:-9*60]
 	    
