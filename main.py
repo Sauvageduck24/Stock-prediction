@@ -410,8 +410,8 @@ if authentication_status:
         	
         ax.scatter([pos_high,pos_low,len(low)-60],new_real,color='gray',label='Predicted Values')
 
-        ax.fill_between(xs[mask2],high[mask2],mean[mask3], color="green", alpha=0.3)
-        ax.fill_between(xs[mask2],mean[mask3],low[mask], color="red", alpha=0.3)
+        ax.fill_between(xs[mask2],high[mask2],mean[mask3], color="green", alpha=0.2)
+        ax.fill_between(xs[mask2],mean[mask3],low[mask], color="red", alpha=0.2)
 	    
         poss=['^','v']
 	
