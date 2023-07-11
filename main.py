@@ -197,7 +197,7 @@ if authentication_status:
 
         if selected_stock=="BBVA.MC":	
             st.write('hola')
-            if now.hour+2=9 and now.minute>15:
+            if now.hour+2==9 and now.minute>15:
                 p_open=data.iloc[0]['Open']
                 p_open=str(p_open).replace('.',',')
 		
