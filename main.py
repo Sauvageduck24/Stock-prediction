@@ -199,6 +199,7 @@ if authentication_status:
             st.write('hola')
             if now.hour+2>9:
                 if now.minute>15:
+                    st.write('hola')
                     p_open=data.iloc[0]['Open']
                     p_open=str(p_open).replace('.',',')
             else:
