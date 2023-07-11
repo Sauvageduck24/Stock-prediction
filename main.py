@@ -195,7 +195,7 @@ if authentication_status:
 
         now = datetime.now()
 
-        if selected_stock="BBVA.MC":	
+        if selected_stock=="BBVA.MC":	
             if now.hour+2>9:
                 if now.minute>15:
                     p_open=data.iloc[0]['Open']
@@ -205,7 +205,6 @@ if authentication_status:
                 data=data[:-9*60]
 
 	    
-        st.write(p_open)	    
         workbook=file.open_by_key(search)
 
         sheet = workbook.worksheet('ONE DAY DATA')
