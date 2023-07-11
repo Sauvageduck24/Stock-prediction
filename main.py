@@ -211,6 +211,7 @@ if authentication_status:
         cell2=sheet2.find(f"{dia}")
 
         st.write(p_open)    
+        st.write(type(p_open))
 	    
         if cell is None:
             st.warning('No Market Today 😥', icon="⚠️")
