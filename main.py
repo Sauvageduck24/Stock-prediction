@@ -191,6 +191,16 @@ if authentication_status:
 
     if prediction:
 
+        data = yf.download(f'{selected_stock}', period=f'1d',interval=f'1m',progress=False)
+
+        now = datetime.now()
+	
+        if now.hour+2>9:
+            if now.minute>15:
+                p_open=data.iloc[-1]['Open']
+        else:
+            data=data[:-9*60]
+	    
         workbook=file.open_by_key(search)
 
         sheet = workbook.worksheet('ONE DAY DATA')
@@ -200,6 +210,8 @@ if authentication_status:
         cell=sheet.find(f"{dia}")
         cell2=sheet2.find(f"{dia}")
 
+        st.write(p_open)    
+	    
         if cell is None:
             st.warning('No Market Today 😥', icon="⚠️")
             raise Exception('No Market Today 😥')
@@ -259,16 +271,6 @@ if authentication_status:
 		    
             else:
                 low.append(i)
-	    
-        data = yf.download(f'{selected_stock}', period=f'1d',interval=f'1m',progress=False)
-
-        now = datetime.now()
-	
-        if now.hour+2>9:
-            if now.minute>15:
-                pass
-        else:
-            data=data[:-9*60]
 	
         for _,i in enumerate(high):
             num=i.value
