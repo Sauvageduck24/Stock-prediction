@@ -203,7 +203,9 @@ if authentication_status:
             else:
                 p_open=''		
                 data=data[:-9*60]
+
 	    
+        st.write(p_open)	    
         workbook=file.open_by_key(search)
 
         sheet = workbook.worksheet('ONE DAY DATA')
