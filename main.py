@@ -194,14 +194,15 @@ if authentication_status:
         data = yf.download(f'{selected_stock}', period=f'1d',interval=f'1m',progress=False)
 
         now = datetime.now()
-	
-        if now.hour+2>9:
-            if now.minute>15:
-                p_open=data.iloc[0]['Open']
-                p_open=str(p_open).replace('.',',')
-        else:
-            p_open=''		
-            data=data[:-9*60]
+
+        if selected_stock="BBVA.MC":	
+            if now.hour+2>9:
+                if now.minute>15:
+                    p_open=data.iloc[0]['Open']
+                    p_open=str(p_open).replace('.',',')
+            else:
+                p_open=''		
+                data=data[:-9*60]
 	    
         workbook=file.open_by_key(search)
 
