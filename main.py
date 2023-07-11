@@ -241,7 +241,7 @@ if authentication_status:
         
         new_real=[high,low,close]
 
-        df_=pd.DataFrame([[open,high,low,close],["100%",high_accuracy,low_accuracy,close_accuracy]],columns=['Open','High','Low','Close'])
+        df_=pd.DataFrame([[open,high,low,close],["100%",'±'+high_accuracy,'±'+low_accuracy,'±'+close_accuracy]],columns=['Open','High','Low','Close'])
 	    
         st.dataframe(df_)
 	
