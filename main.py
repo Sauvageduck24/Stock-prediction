@@ -203,6 +203,7 @@ if authentication_status:
                     p_open=data.iloc[0]['Open']
                     p_open=str(p_open).replace('.',',')
             else:
+                st.write('adios')
                 p_open=''		
                 data=data[:-9*60]
 
