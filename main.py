@@ -410,8 +410,8 @@ if authentication_status:
         	
         ax.scatter([pos_high,pos_low,len(low)-60],new_real,color='gray',label='Predicted Values')
 
-        ax.fill_between(xs[mask2],high[mask2],mean[mask3], color="green", alpha=0.1)
-        ax.fill_between(xs[mask2],mean[mask3],low[mask], color="red", alpha=0.1)
+        ax.fill_between(xs[mask2],high[mask2],mean[mask3], color="green", alpha=0.3)
+        ax.fill_between(xs[mask2],mean[mask3],low[mask], color="red", alpha=0.3)
 	    
         poss=['^','v']
 	
@@ -510,8 +510,8 @@ if authentication_status:
         #for X, Y, Z in zip(time, real_l_, z_l):
             #ax.annotate('{}'.format(Z), xy=(X,Y), xytext=(-5,-16), ha='right',textcoords='offset points',color='#66fcf0')
 	    
-        plt.grid(axis="x",alpha=0.2)
-        plt.grid(axis="y",alpha=0.2)
+        plt.grid(axis="x",linestyle='--',alpha=0.2)
+        plt.grid(axis="y",linestyle='--',alpha=0.2)
 
         ax.legend(loc="best")
 
@@ -582,8 +582,8 @@ if authentication_status:
         ax.plot(high,color='white',label='Real Data',alpha=0.9)
         ax.plot(low,color='white',alpha=0.9)
 	    
-        plt.grid(axis="x",alpha=0.2)
-        plt.grid(axis="y",alpha=0.2)
+        plt.grid(axis="x",linestyle='--',alpha=0.2)
+        plt.grid(axis="y",linestyle='--',alpha=0.2)
 
         ax.legend(loc="best")
 
