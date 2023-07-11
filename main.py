@@ -207,6 +207,8 @@ if authentication_status:
                 p_open=''		
                 data=data[:-9*60]
 
+	else:
+            p_open=""	
 	    
         workbook=file.open_by_key(search)
 
