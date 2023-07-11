@@ -226,11 +226,10 @@ if authentication_status:
         low=values[2].value
         close=values[3].value
 	
-        values2=sheet2.range(f'F{cell2.row}:I{cell2.row}')
+        values2=sheet2.range(f'F{cell2.row}:H{cell2.row}')
         high_accuracy=values2[0].value
         low_accuracy=values2[1].value
         close_accuracy=values2[2].value
-        general_accuracy=values2[3].value
 	    
         open=float(open.replace(',','.'))
         high=float(high.replace(',','.'))
@@ -241,15 +240,20 @@ if authentication_status:
         st.write('Prediction for the day')
         
         new_real=[high,low,close]
-	
+
+        open.append("100%")
+        high.append(high_accuracy)
+        low.append(low_accuracy)
+        close.append(close_accuracy)
+	    
         df_=pd.DataFrame([[open,high,low,close]],columns=['Open','High','Low','Close'])
 	    
         st.dataframe(df_)
 	
-        st.write('Mean Accuracies')	
+        #st.write('Mean Accuracies')	
 	
-        df=pd.DataFrame([[high_accuracy,low_accuracy,close_accuracy,general_accuracy]],columns=['High Mean Accuracy','Low Mean Accuracy','Close Mean Accuracy','General Mean Accuracy'])
-        st.dataframe(df)
+        #df=pd.DataFrame([[high_accuracy,low_accuracy,close_accuracy]],columns=['High Mean Accuracy','Low Mean Accuracy','Close Mean Accuracy'])
+        #st.dataframe(df)
 
         high_low=sheet3.range("H3:I10")	    
         high=[];low=[]
