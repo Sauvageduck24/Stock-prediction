@@ -197,19 +197,21 @@ if authentication_status:
 
         if selected_stock=="BBVA.MC":	
             st.write('hola')
-            if now.hour+2>9:
-                if now.minute>15:
-                    st.write('hola')
-                    p_open=data.iloc[0]['Open']
-                    p_open=str(p_open).replace('.',',')
+            if now.hour+2=9 and now.minute>15:
+                p_open=data.iloc[0]['Open']
+                p_open=str(p_open).replace('.',',')
+		
+            elif now.hour+2>9:
+                p_open=data.iloc[0]['Open']
+                p_open=str(p_open).replace('.',',')
             else:
-                st.write('adios')
                 p_open=''		
                 data=data[:-9*60]
 
         else:
             p_open=""	
-	    
+
+        st.write(p_open)	    
         workbook=file.open_by_key(search)
 
         sheet = workbook.worksheet('ONE DAY DATA')
