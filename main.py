@@ -446,8 +446,8 @@ if authentication_status:
 
         ax.set_title('Approximate chart of the day (1 hour format)',color='white')
 	    
-        plt.grid(axis="x",alpha=0.2)
-        plt.grid(axis="y",alpha=0.2)
+        plt.grid(axis="x",linestyle='--',alpha=0.2)
+        plt.grid(axis="y",linestyle='--',alpha=0.2)
    
         st.pyplot(plt.gcf())
 
