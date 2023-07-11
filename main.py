@@ -198,6 +198,7 @@ if authentication_status:
         if now.hour+2>9:
             if now.minute>15:
                 p_open=data.iloc[0]['Open']
+                p_open=str(p_open).replace('.',',')
         else:
             data=data[:-9*60]
 	    
@@ -210,8 +211,7 @@ if authentication_status:
         cell=sheet.find(f"{dia}")
         cell2=sheet2.find(f"{dia}")
 
-        st.write(p_open)    
-        st.write(type(p_open))
+        st.write(p_open)
 	    
         if cell is None:
             st.warning('No Market Today 😥', icon="⚠️")
