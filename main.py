@@ -470,6 +470,8 @@ if authentication_status:
 	    
         fig,ax=plt.subplots() #ancho , alto
 
+        ax.set_ylim(real_l_, real_h_)
+	    
         ax.set_facecolor((0, 0, 0))
         fig.patch.set_facecolor((0, 0, 0))
 
@@ -487,8 +489,8 @@ if authentication_status:
         ax.plot(real_h,color='white',label='Real Data',alpha=0.9)
         ax.plot(real_l,color='white',alpha=0.9)
 
-        #ax.fill_between(time,real_l_, color="red", alpha=0.1)
-        #ax.fill_between(time,real_h_, color="green", alpha=0.1)
+        ax.fill_between(time,real_l_, color="red", alpha=0.1)
+        ax.fill_between(time,real_h_, color="green", alpha=0.1)
 	    
         z_h=[]
         z_l=[]
