@@ -573,6 +573,10 @@ if authentication_status:
             predicted_low[_]=float(i.replace(',','.'))
 
         high,low,predicted_high,predicted_low=high[-40:],low[-40:],predicted_high[-40:],predicted_low[-40:]
+
+        time=[]
+        for i in len(high):
+             time.append(i)
 	    
         fig,ax=plt.subplots() #ancho , alto
 
@@ -592,8 +596,8 @@ if authentication_status:
         plt.grid(axis="x",linestyle='--',alpha=0.2)
         plt.grid(axis="y",linestyle='--',alpha=0.2)
 
-        ax.fill_between(time,real_l_, color="red", alpha=0.2)
-        ax.fill_between(time, real_h_, max([max(high),max(predicted_high)]), color='green', alpha=0.2)
+        ax.fill_between(time,low, color="red", alpha=0.2)
+        ax.fill_between(time, high, max([max(high),max(predicted_high)]), color='green', alpha=0.2)
 	    
         ax.legend(loc="best")
 
