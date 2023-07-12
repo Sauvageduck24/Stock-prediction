@@ -578,6 +578,8 @@ if authentication_status:
 
         ax.set_facecolor((0, 0, 0))
         fig.patch.set_facecolor((0, 0, 0))
+
+        ax.set_ylim(min([min(low),min(predicted_low)]), max([max(high),max(predicted_high)]))
 	    
         ax.set_title('Past Days Accuracy Demo Predictions',color='white')
 
@@ -590,6 +592,9 @@ if authentication_status:
         plt.grid(axis="x",linestyle='--',alpha=0.2)
         plt.grid(axis="y",linestyle='--',alpha=0.2)
 
+        ax.fill_between(time,real_l_, color="red", alpha=0.2)
+        ax.fill_between(time, real_h_, max([max(high),max(predicted_high)]), color='green', alpha=0.2)
+	    
         ax.legend(loc="best")
 
         ax.xaxis.label.set_color('white')
