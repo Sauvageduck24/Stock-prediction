@@ -479,7 +479,7 @@ if authentication_status:
         real_h_.append(df_.iloc[0]['High'])
         real_l_.append(df_.iloc[0]['Low'])
 
-        ax.set_ylim(min(real_l_)+0.15, max(real_h_)0.15)
+        ax.set_ylim(min(real_l_)-0.15, max(real_h_)+0.15)
 	    
         ax.set_title('Prediction of the current day in relation to the previous real ones',color='white')
 
