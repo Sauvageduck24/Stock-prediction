@@ -596,8 +596,8 @@ if authentication_status:
         plt.grid(axis="x",linestyle='--',alpha=0.2)
         plt.grid(axis="y",linestyle='--',alpha=0.2)
 
-        ax.fill_between(time,low, color="red", alpha=0.2)
-        ax.fill_between(time, high, max([max(high),max(predicted_high)]), color='green', alpha=0.2)
+        ax.fill_between(time,low, color="red", alpha=0.1)
+        ax.fill_between(time, high, max([max(high),max(predicted_high)]), color='green', alpha=0.1)
 	    
         ax.legend(loc="best")
 
