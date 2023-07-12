@@ -469,8 +469,6 @@ if authentication_status:
             real_l.append(row['Low'])
 	    
         fig,ax=plt.subplots() #ancho , alto
-
-        ax.set_ylim(min(real_l_), max(real_h_))
 	    
         ax.set_facecolor((0, 0, 0))
         fig.patch.set_facecolor((0, 0, 0))
@@ -480,6 +478,8 @@ if authentication_status:
 	    
         real_h_.append(df_.iloc[0]['High'])
         real_l_.append(df_.iloc[0]['Low'])
+
+        ax.set_ylim(min(real_l_), max(real_h_))
 	    
         ax.set_title('Prediction of the current day in relation to the previous real ones',color='white')
 
