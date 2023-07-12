@@ -575,7 +575,7 @@ if authentication_status:
         high,low,predicted_high,predicted_low=high[-40:],low[-40:],predicted_high[-40:],predicted_low[-40:]
 
         time=[]
-        for i in len(predicted_high):
+        for i in range(len(high)):
              time.append(i)
 	    
         fig,ax=plt.subplots() #ancho , alto
