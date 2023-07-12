@@ -470,7 +470,7 @@ if authentication_status:
 	    
         fig,ax=plt.subplots() #ancho , alto
 
-        ax.set_ylim(real_l_, real_h_)
+        ax.set_ylim(min(real_l_), max(real_h_))
 	    
         ax.set_facecolor((0, 0, 0))
         fig.patch.set_facecolor((0, 0, 0))
