@@ -489,8 +489,8 @@ if authentication_status:
         ax.plot(real_h,color='white',label='Real Data',alpha=0.9)
         ax.plot(real_l,color='white',alpha=0.9)
 
-        ax.fill_between(time,real_l_, color="red", alpha=0.1)
-        ax.fill_between(time,real_h_, color="green", alpha=0.1)
+        ax.fill_between(time,real_l_, color="red", alpha=0.2)
+        ax.fill_between(time,real_h_, color="green", alpha=0.2)
 	    
         z_h=[]
         z_l=[]
